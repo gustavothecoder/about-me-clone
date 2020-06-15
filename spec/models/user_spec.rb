@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
     expect(@user.save).to be true
   end
 
-  describe 'Registered data' do
+  context 'Registered data' do
     it 'Must be the registered username ' do
       expect(@user.username).to eq 'gXh'
     end
@@ -50,7 +50,12 @@ RSpec.describe User, type: :model do
     end
   end
 
-  it 'Must be the registered reason' do
+  it 'The photo must be saved' do
+    @user.photo.attach(io: File.open('app\assets\images\test_active_storage.jpg'), filename: 'test_active_storage.jpg')
+    expect(@user.photo.attached?).to be true
+  end
+  
+  it 'The reason must belong to the user' do
     reason = Reason.new(reason: 'Visit my site', user: @user)
     expect(@user.reason).to eq reason
   end
