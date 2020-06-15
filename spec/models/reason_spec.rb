@@ -27,7 +27,7 @@ RSpec.describe Reason, type: :model do
     expect(@reason.save).to be true
   end
   
-  describe 'Registered data' do
+  context 'Registered data' do
     it 'Must be the registered reason' do
       expect(@reason.reason).to eq 'Download my app'
     end
