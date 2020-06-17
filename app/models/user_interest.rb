@@ -1,4 +1,6 @@
 class UserInterest < ApplicationRecord
-  belongs_to :user_id
-  belongs_to :interest_id
+  self.table_name = 'interests_users'
+
+  belongs_to :user
+  belongs_to :interest
 end
