@@ -7,7 +7,7 @@ RSpec.describe Occupation, type: :model do
     end
 
     after(:all) do
-      @occupation = nil
+      @occupation.destroy
     end
 
     it 'Must be an instance of Occupation' do

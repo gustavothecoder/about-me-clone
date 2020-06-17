@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_164421) do
+ActiveRecord::Schema.define(version: 2020_06_15_162236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2020_06_15_164421) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "interests_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "interest_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["interest_id"], name: "index_interests_users_on_interest_id"
+    t.index ["user_id"], name: "index_interests_users_on_user_id"
+  end
+
   create_table "occupations", force: :cascade do |t|
     t.string "occupation"
     t.datetime "created_at", precision: 6, null: false
@@ -66,15 +75,6 @@ ActiveRecord::Schema.define(version: 2020_06_15_164421) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_reasons_on_user_id"
-  end
-
-  create_table "user_interests", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "interest_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["interest_id"], name: "index_user_interests_on_interest_id"
-    t.index ["user_id"], name: "index_user_interests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

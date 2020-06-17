@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Interest, type: :model do
-  context 'Register an interest' do
+  context 'Registering a interest' do
     before(:all) do
       @interest = Interest.new(interest: 'Programming')
     end
 
     after(:all) do
-      @interest = nil
+      @interest.destroy
     end
 
     it 'Must be an intance of Interest' do
