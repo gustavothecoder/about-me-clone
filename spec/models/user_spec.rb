@@ -100,6 +100,54 @@ RSpec.describe User, type: :model do
         )
         expect(second_user.save).to be false
       end
+
+      it 'Must not be registered #3' do
+        second_user = User.new(
+          username: 'gX',
+          email: 'gx@gmail.com',
+          password: '123456',
+          first_name: 'Gustavo',
+          last_name: 'Ribeiro',
+          location: 'Piracicaba - SP'
+        )
+        expect(second_user.save).to be false
+      end
+      
+      it 'Must not be registered #4' do
+        second_user = User.new(
+          username: 'gXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+          email: 'gx@gmail.com',
+          password: '123456',
+          first_name: 'Gustavo',
+          last_name: 'Ribeiro',
+          location: 'Piracicaba - SP'
+        )
+        expect(second_user.save).to be false
+      end
+      
+      it 'Must not be registered #5' do
+        second_user = User.new(
+          username: 'gXXXXXXXXXXXXXXXX',
+          email: 'gx@gmail.com',
+          password: '12345',
+          first_name: 'Gustavo',
+          last_name: 'Ribeiro',
+          location: 'Piracicaba - SP'
+        )
+        expect(second_user.save).to be false
+      end
+    
+      it 'Must not be registered #6' do
+        second_user = User.new(
+          username: 'gXXXXXXXXXXXXXXXX',
+          email: 'gx@gmail.com',
+          password: '12345678910111213',
+          first_name: 'Gustavo',
+          last_name: 'Ribeiro',
+          location: 'Piracicaba - SP'
+        )
+        expect(second_user.save).to be false
+      end
     end
   end
 end
