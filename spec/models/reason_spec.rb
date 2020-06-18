@@ -12,7 +12,7 @@ RSpec.describe Reason, type: :model do
         location: 'Piracicaba - SP'
       )
       @user.save
-      @reason = Reason.new(reason: 'Download my app', user_id: 1)
+      @reason = Reason.new(reason: 'Download my app', user: @user)
     end
   
     after(:all) do
@@ -34,7 +34,7 @@ RSpec.describe Reason, type: :model do
       end
   
       it 'Must be the registered user id' do
-        expect(@reason.user_id).to eq 1
+        expect(@reason.user_id).to eq @user.id
       end
     end
   
