@@ -1,0 +1,3 @@
+class UserReason < ApplicationRecord
+  
+end
