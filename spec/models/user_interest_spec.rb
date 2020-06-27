@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UserInterest, type: :model do
   before(:all) do
-    @interest = Interest.new(interest: 'Download my app')
+    @interest = Interest.new(interest: 'programming')
     @interest.save
     @user = User.new(
       username: 'gXh',
