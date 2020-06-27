@@ -1,5 +1,3 @@
 class Reason < ApplicationRecord
-  validates :reason, :user_id, presence: true
-  
-  belongs_to :user
+  validates :reason, presence: true, uniqueness: true
 end
