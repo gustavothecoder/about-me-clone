@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Interest, type: :model do
   context 'Registering a interest' do
     before(:all) do
-      @interest = Interest.new(interest: 'Programming')
+      @interest = Interest.new(interest: 'programming')
     end
 
     after(:all) do
@@ -19,12 +19,20 @@ RSpec.describe Interest, type: :model do
     end
 
     it 'Must be the registered interest' do
-      expect(@interest.interest).to eq 'Programming'
+      expect(@interest.interest).to eq 'programming'
     end
 
-    it 'Must not be successfully registered' do
-      second_interest = Interest.new
-      expect(second_interest.save).to be false
+    context 'Invalid records' do
+      it '#1 Must not be successfully registered' do
+        second_interest = Interest.new
+        expect(second_interest.save).to be false
+      end
+
+      it '#2 Must not be successfully registered' do
+        @interest.save
+        second_interest = Interest.new(interest: 'programming')
+        expect(second_interest.save).to be false
+      end
     end
   end
 end
