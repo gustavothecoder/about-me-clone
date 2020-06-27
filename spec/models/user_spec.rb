@@ -52,7 +52,7 @@ RSpec.describe User, type: :model do
     end
   
     it 'The photo must be saved' do
-      @user.photo.attach(io: File.open('app\assets\images\test_active_storage.jpg'), filename: 'test_active_storage.jpg')
+      @user.photo.attach(io: File.open('app/assets/images/test_active_storage.jpg'), filename: 'test_active_storage.jpg')
       expect(@user.photo.attached?).to be true
     end
     
