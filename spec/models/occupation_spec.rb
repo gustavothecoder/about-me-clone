@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Occupation, type: :model do
   context 'Registering an occupation' do
     before(:all) do
-      @occupation = Occupation.new(occupation: 'Software Developer')
+      @occupation = Occupation.new(occupation: 'software developer')
     end
 
     after(:all) do
@@ -19,12 +19,20 @@ RSpec.describe Occupation, type: :model do
     end
 
     it 'Must be registered occupation' do
-      expect(@occupation.occupation).to eq 'Software Developer'
+      expect(@occupation.occupation).to eq 'software developer'
     end
 
-    it 'Must not be registered' do
-      second_occupation = Occupation.new
-      expect(second_occupation.save).to be false
+    context 'Invalid records' do
+      it '#1 Must not be registered' do
+        second_occupation = Occupation.new
+        expect(second_occupation.save).to be false
+      end
+
+      it '#2 Must not be registered' do
+        @occupation.save
+        second_occupation = Occupation.new(occupation: 'software developer')
+        expect(second_occupation.save).to be false
+      end
     end
   end
 end
