@@ -24,10 +24,17 @@ RSpec.describe Reason, type: :model do
       end
     end
   
-    it 'Must not be registered' do
-      @reason.save
-      second_reason = Reason.new(reason: 'download my app')
-      expect(second_reason.save).to be false
+    context 'Invalid records' do
+      it '#1 Must not be registered' do
+        second_reason = Reason.new
+        expect(second_reason.save).to be false
+      end
+
+      it '#2 Must not be registered' do
+        @reason.save
+        second_reason = Reason.new(reason: 'download my app')
+        expect(second_reason.save).to be false
+      end
     end
   end
 end
