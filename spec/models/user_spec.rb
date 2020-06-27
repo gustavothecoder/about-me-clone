@@ -3,18 +3,22 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   context 'Registering a user' do
     before(:all) do
+      @reason = Reason.new(reason: 'download my app')
+      @reason.save
       @user = User.new(
         username: 'gXh',
         email: 'gustavo@gmail.com',
         password: '123456',
         first_name: 'Gustavo',
         last_name: 'Ribeiro',
-        location: 'Piracicaba - SP'
+        location: 'Piracicaba - SP',
+        reason_id: @reason.id
       )
     end
   
     after(:all) do
       @user.destroy
+      @reason.destroy
     end
   
     it 'Must be a User instance' do
@@ -49,6 +53,10 @@ RSpec.describe User, type: :model do
       it 'Must be the registered location' do
         expect(@user.location).to eq 'Piracicaba - SP'
       end
+
+      it 'Must be the registered reason id' do
+        expect(@user.reason_id).to eq @reason.id
+      end
     end
   
     it 'The photo must be saved' do
@@ -56,6 +64,12 @@ RSpec.describe User, type: :model do
       expect(@user.photo.attached?).to be true
     end
   
+    context 'Relationship tests' do
+      it 'There must be a relationship with a reason' do
+        expect(@user.reason).to eq @reason
+      end
+    end
+
     context 'Invalid records' do
       before(:all) do
         @user = User.new(
@@ -64,7 +78,8 @@ RSpec.describe User, type: :model do
           password: '123456',
           first_name: 'Gustavo',
           last_name: 'Ribeiro',
-          location: 'Piracicaba - SP'
+          location: 'Piracicaba - SP',
+          reason_id: @reason.id
         )
         @user.save
       end
@@ -79,7 +94,8 @@ RSpec.describe User, type: :model do
           password: '123456',
           first_name: 'Gustavo',
           last_name: 'Ribeiro',
-          location: 'Piracicaba - SP'
+          location: 'Piracicaba - SP',
+          reason_id: @reason.id
         )
         expect(second_user.save).to be false
       end
@@ -91,7 +107,8 @@ RSpec.describe User, type: :model do
           password: '123456',
           first_name: 'Gustavo',
           last_name: 'Ribeiro',
-          location: 'Piracicaba - SP'
+          location: 'Piracicaba - SP',
+          reason_id: @reason.id
         )
         expect(second_user.save).to be false
       end
@@ -103,7 +120,8 @@ RSpec.describe User, type: :model do
           password: '123456',
           first_name: 'Gustavo',
           last_name: 'Ribeiro',
-          location: 'Piracicaba - SP'
+          location: 'Piracicaba - SP',
+          reason_id: @reason.id
         )
         expect(second_user.save).to be false
       end
@@ -115,7 +133,8 @@ RSpec.describe User, type: :model do
           password: '123456',
           first_name: 'Gustavo',
           last_name: 'Ribeiro',
-          location: 'Piracicaba - SP'
+          location: 'Piracicaba - SP',
+          reason_id: @reason.id
         )
         expect(second_user.save).to be false
       end
@@ -127,7 +146,8 @@ RSpec.describe User, type: :model do
           password: '12345',
           first_name: 'Gustavo',
           last_name: 'Ribeiro',
-          location: 'Piracicaba - SP'
+          location: 'Piracicaba - SP',
+          reason_id: @reason.id
         )
         expect(second_user.save).to be false
       end
@@ -139,7 +159,8 @@ RSpec.describe User, type: :model do
           password: '12345678910111213',
           first_name: 'Gustavo',
           last_name: 'Ribeiro',
-          location: 'Piracicaba - SP'
+          location: 'Piracicaba - SP',
+          reason_id: @reason.id
         )
         expect(second_user.save).to be false
       end
