@@ -1,0 +1,2 @@
+class UserOccupation < ApplicationRecord
+end
