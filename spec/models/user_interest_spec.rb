@@ -4,13 +4,16 @@ RSpec.describe UserInterest, type: :model do
   before(:all) do
     @interest = Interest.new(interest: 'programming')
     @interest.save
+    @reason = Reason.new(reason: 'download my app')
+    @reason.save
     @user = User.new(
       username: 'gXh',
       email: 'gustavo@gmail.com',
       password: '123456',
       first_name: 'Gustavo',
       last_name: 'Ribeiro',
-      location: 'Piracicaba - SP'
+      location: 'Piracicaba - SP',
+      reason_id: @reason.id
     )
     @user.save
     @user_interest = UserInterest.new(user: @user, interest: @interest)
@@ -19,6 +22,7 @@ RSpec.describe UserInterest, type: :model do
   after(:all) do
     @interest.destroy
     @user.destroy
+    @reason.destroy
   end
 
   it 'Must be a UserInterest instance' do
@@ -48,7 +52,8 @@ RSpec.describe UserInterest, type: :model do
         password: '123456',
         first_name: 'Gustavo',
         last_name: 'Ribeiro',
-        location: 'Piracicaba - SP'
+        location: 'Piracicaba - SP',
+        reason_id: @reason.id
       )
       @second_user.save
       @second_user_interest = UserInterest.new(user: @second_user, interest: @interest)

@@ -4,13 +4,16 @@ RSpec.describe UserOccupation, type: :model do
   before(:all) do
     @occupation = Occupation.new(occupation: 'software developer')
     @occupation.save
+    @reason = Reason.new(reason: 'download my app')
+    @reason.save
     @user = User.new(
       username: 'gXh',
       email: 'gustavo@gmail.com',
       password: '123456',
       first_name: 'Gustavo',
       last_name: 'Ribeiro',
-      location: 'Piracicaba - SP'
+      location: 'Piracicaba - SP',
+      reason_id: @reason.id
     )
     @user.save
     @user_occupation = UserOccupation.new(user: @user, occupation: @occupation)
@@ -19,6 +22,7 @@ RSpec.describe UserOccupation, type: :model do
   after(:all) do
     @occupation.destroy
     @user.destroy
+    @reason.destroy
   end
 
   it 'Must be a UserOccupation instance' do
@@ -48,7 +52,8 @@ RSpec.describe UserOccupation, type: :model do
         password: '123456',
         first_name: 'Gustavo',
         last_name: 'Ribeiro',
-        location: 'Piracicaba - SP'
+        location: 'Piracicaba - SP',
+        reason_id: @reason.id
       )
       @second_user.save
       @second_user_occupation = UserOccupation.new(user: @second_user, occupation: @occupation)
