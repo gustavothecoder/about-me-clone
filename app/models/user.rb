@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_one_attached :photo, dependent: :destroy
   has_and_belongs_to_many :interests, dependent: :destroy
   has_and_belongs_to_many :reasons, dependent: :destroy
+  has_and_belongs_to_many :occupations, dependent: :destroy
 end
