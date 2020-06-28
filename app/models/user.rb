@@ -5,6 +5,9 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, maximum: 15 }
   
   belongs_to :reason
+  has_one :user_page_design
+  has_one :design, through: :user_page_design
+  has_one :color, through: :user_page_design
   has_one_attached :photo, dependent: :destroy
   has_and_belongs_to_many :interests, dependent: :destroy
   has_and_belongs_to_many :occupations, dependent: :destroy
