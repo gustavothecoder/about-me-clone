@@ -1,3 +1,49 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+$logo-color: #0e5786;
+$navbar-items-color: #0e5786;
+$small-get-page-button-bc: #0e5786;
+$small-get-page-button-bc-hover: #286a96;
+
+nav {
+  .navbar-brand {
+    font-size: 18px;
+    font-weight: bold;
+    color: $logo-color;
+  }
+  
+  .navbar-brand:hover {
+    color: $logo-color;
+  }
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: $navbar-items-color;
+        font-size: 0.95rem;
+        padding: 0;
+      }
+      
+      .common.nav-link:hover {
+        color: $navbar-items-color;
+        border-bottom: $navbar-items-color solid 1px;
+        margin-top: 1px;
+      }
+      
+      a.get-page-small {
+        color: white;
+        font-weight: bold;
+        background-color: $small-get-page-button-bc;
+        border-radius: 5px;
+        transition-property: background-color;
+        transition-duration: 0.2s;
+      }
+      
+      a.get-page-small:hover {
+        color: white;
+        background-color: $small-get-page-button-bc-hover;
+      }
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  
+}
