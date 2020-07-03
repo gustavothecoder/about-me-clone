@@ -2,14 +2,20 @@ $logo-color: #0e5786;
 $navbar-items-color: #0e5786;
 $small-get-page-button-bc: #0e5786;
 $small-get-page-button-bc-hover: #286a96;
+$big-get-page-button-bc: linear-gradient(180deg,#26abd8,#1677b6);
+$big-get-page-button-bc-hover: linear-gradient(180deg,#43b4da,#2c81b9);
+$main-gradient: linear-gradient(-225deg,rgba(48,35,174,.4),rgba(83,160,253,.4) 30%,rgba(180,236,81,.4)); 
+$text-color-for-text-area: rgb(63, 63, 63);
 
 .gradient-scope {
-  background-color: white;
+  background: $main-gradient;
 
-  nav.navbar {
+  .margin {
     margin-left: 100px;
     margin-right: 100px;
-  
+  }
+
+  nav.navbar {
     .navbar-brand {
       font-size: 18px;
       font-weight: bold;
@@ -49,17 +55,57 @@ $small-get-page-button-bc-hover: #286a96;
       }
     }
   } 
+
+  .banner-top {
+    .text-area {
+      h1 {
+        font-weight: bold;
+        color: $text-color-for-text-area;
+      }
+
+      .content-area {
+        p {
+          color: $text-color-for-text-area;
+        }
+  
+        button.w-100 {
+          color: white;
+          font-weight: bold;
+          background: $big-get-page-button-bc;
+          box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.25);
+          border: none;
+          padding: 15px 0;
+        }
+
+        button.w-100:active {
+          border: white 1px solid;
+          padding: 14px 0;
+        }
+
+        button.w-100:hover {
+          background: $big-get-page-button-bc-hover;
+        }
+
+        .social-media-create-account {
+          button {
+            background-color: white;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media(max-width: 1366px) {
-  .gradient-scope nav.navbar {
+  .gradient-scope .margin {
     margin-left: 25px;
     margin-right: 25px;
   }
 }
 
 @media(max-width: 1024px) {
-  .gradient-scope nav.navbar {
+  .gradient-scope .margin {
     margin-left: 0px;
     margin-right: 0px;
   }
