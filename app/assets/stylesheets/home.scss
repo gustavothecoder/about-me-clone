@@ -6,6 +6,7 @@
   .margin {
     margin-left: 100px;
     margin-right: 100px;
+    width: 1400px;
   }
 
   nav.navbar {
@@ -51,6 +52,8 @@
 
   .banner-top {
     .text-area {
+      z-index: 2;
+
       h1 {
         font-weight: bold;
         color: $text-color-for-text-area;
@@ -87,19 +90,59 @@
         }
       }
     }
-  }
-}
 
-@media(max-width: 1366px) {
-  .gradient-scope .margin {
-    margin-left: 25px;
-    margin-right: 25px;
-  }
-}
+    .image-area {
+      margin-top: 550px;
 
-@media(max-width: 1024px) {
-  .gradient-scope .margin {
-    margin-left: 0px;
-    margin-right: 0px;
+      .profile-1 {
+        box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.25);
+        width: 220px;
+        height: 325px;
+        position: absolute;
+        right: 800px;
+        
+        button {
+          position: relative;
+          left: 33px;
+          bottom: 65px;
+          opacity: initial;
+          font-weight: bold;
+        }
+      }
+      
+      .profile-2 {
+        box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.25);
+        width: 300px;
+        height: 450px;
+        position: absolute;
+        right: 525px;
+        z-index: 1;
+
+        button {
+          position: relative;
+          left: 65px;
+          bottom: 65px;
+          opacity: initial;
+          font-weight: bold;
+        }
+      }   
+      
+      .profile-3 {
+        box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.25);
+        width: 400px;
+        height: 550px;
+        position: absolute;
+        right: 150px;
+        overflow: hidden;
+
+        button {
+          position: relative;
+          left: 163px;
+          bottom: 65px;
+          opacity: initial;
+          font-weight: bold;
+        }
+      }
+    }
   }
 }
