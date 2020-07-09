@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Occupation, type: :model do
   context 'Registering an occupation' do
     before(:all) do
-      @occupation = Occupation.new(occupation: 'software developer')
+      @occupation = create :occupation
     end
 
     after(:all) do
