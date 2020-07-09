@@ -2,10 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Color, type: :model do
   context 'Registering a color' do
-    before(:all) do
+    before :all do
       @color = create :color
     end
   
+    after :all do
+      @color.destroy
+    end
+
     it 'Must be a Color instance' do
       expect(@color).to be_instance_of(Color)
     end
