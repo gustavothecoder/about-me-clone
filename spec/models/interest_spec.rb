@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe Interest, type: :model do
   context 'Registering a interest' do
     before(:all) do
-      @interest = Interest.new(interest: 'programming')
+      @interest = create :interest
     end
 
-    after(:all) do
+    after :all do
       @interest.destroy
     end
 
