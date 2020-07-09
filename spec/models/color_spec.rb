@@ -3,11 +3,7 @@ require 'rails_helper'
 RSpec.describe Color, type: :model do
   context 'Registering a color' do
     before(:all) do
-      @color = Color.new(color: 'Blue')
-    end
-  
-    after(:all) do
-      @color.destroy
+      @color = create :color
     end
   
     it 'Must be a Color instance' do
@@ -19,7 +15,7 @@ RSpec.describe Color, type: :model do
     end
   
     it 'Must be registered color' do
-      expect(@color.color).to eq 'Blue'
+      expect(@color.color).to eq 'blue'
     end
   
     it 'Must not be registered' do
