@@ -1,19 +1,21 @@
 <div class="gradient-scope d-flex justify-content-center">
   <div class="margin">
-    <nav class="navbar navbar-expand py-5">
-      <a class="navbar-brand" href="#">my.homepage</a>
-      <ul class="navbar-nav w-100 d-flex justify-content-end align-items-center mr-3">
-        <li class="nav-item">
-          <a class="common nav-link p-0 mx-2" href="#">Examples</a>
-        </li>
-        <li class="nav-item">
-          <a class="common nav-link p-0 mx-2" href="#">Log in</a>
-        </li>
-        <li class="nav-item ml-0 ml-sm-3 mr-0 mr-sm-1 mr-md-3">
-          <a class="nav-link py-1 px-2 get-page-small" href="#">Get your free page</a>
-        </li>
-      </ul>
-    </nav>
+    <header>
+      <nav class="navbar navbar-expand py-5">
+        <a class="navbar-brand" href="#">my.homepage</a>
+        <ul class="navbar-nav w-100 d-flex justify-content-end align-items-center mr-3">
+          <li class="nav-item">
+            <a class="common nav-link p-0 mx-2" href="#">Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="common nav-link p-0 mx-2" href="#">Log in</a>
+          </li>
+          <li class="nav-item ml-0 ml-sm-3 mr-0 mr-sm-1 mr-md-3">
+            <a class="nav-link py-1 px-2 get-page-small" href="#">Get your free page</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <div class="banner-top ml-3 d-flex">
       <div class="text-area mt-0 mt-lg-5">
         <h1>Grow your audience.</h1>
@@ -51,3 +53,36 @@
     </div>
   </div>
 </div>
+<main class="my-5">
+  <div class="margin">
+    <div class="features d-flex justify-content-around align-items-center col-11 m-auto">
+        <div class="feature-1 d-flex flex-column">
+          <%= image_tag 'professional_domains.svg', size: '225x225' %>
+          <button class="btn d-flex p-2" disabled>https://<p class="mb-0">yourname.com</p></button>
+          <div class="description">
+            <h1 class="h5">Professional domains</h1>
+            <p>Add a custom domain to your page.</p>
+            <p>Or, map one you already own.</p>
+          </div>
+        </div>
+        <div class="feature-2 d-flex flex-column align-items-center">
+          <%= image_tag 'spotlight_button.svg', size: '225x225' %>
+          <button class="btn d-flex py-2 px-4" disabled>Sign up for my newsletter</button>
+          <div class="description">
+            <h1 class="h5">Spotlight button</h1>
+            <p>Make it easy for your audience to take action on what is most important.</p>
+            <p></p>
+          </div>
+        </div>
+        <div class="feature-3 d-flex flex-column align-items-center">
+          <%= image_tag 'unique_link.svg', size: '225x225' %>
+          <div class="description">
+            <h1 class="h5 pt-3">One link for everything you do</h1>
+            <p>Use your link everywhere, online and offline, to promote yourself.</p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
