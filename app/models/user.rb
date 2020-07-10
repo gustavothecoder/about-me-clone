@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   validates :username, :email, :password, :first_name, :last_name, :location, presence: true
   validates :username, :email, uniqueness: true
   validates :username, length: { minimum: 3, maximum: 15 }
   validates :password, length: { minimum: 6, maximum: 15 }
-  
+
   belongs_to :reason
   has_one :user_page_design
   has_one :design, through: :user_page_design

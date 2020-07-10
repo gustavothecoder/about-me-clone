@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Occupation < ApplicationRecord
   validates :occupation, presence: true, uniqueness: true
 

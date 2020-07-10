@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserInterest < ApplicationRecord
   self.table_name = 'interests_users'
 

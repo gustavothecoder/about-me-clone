@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Design < ApplicationRecord
   validates :design_type, presence: true
 
