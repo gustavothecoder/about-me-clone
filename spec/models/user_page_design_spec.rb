@@ -1,19 +1,17 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UserPageDesign, type: :model do
-  before(:all) do
-    @design = Design.new(design_type: "small design")
-    @design.save
-    @color = Color.new(color: 'blue')
-    @color.save
-    @reason = Reason.new(reason: 'download my app')
-    @reason.save
-    @user = User.new(username: 'gXh',email: 'gustavo@gmail.com',password: '123456',first_name: 'Gustavo',last_name: 'Ribeiro',location: 'Piracicaba - SP',reason_id: @reason.id )
-    @user.save
-    @user_page_design = UserPageDesign.new(user: @user, design: @design, color: @color)
+  before :all do
+    @design = create :design
+    @color = create :color
+    @reason = create :reason
+    @user = create :user, reason_id: @reason.id
+    @user_page_design = build :user_page_design, user: @user, design: @design, color: @color
   end
 
-  after(:all) do
+  after :all do
     @design.destroy
     @color.destroy
     @user.destroy
@@ -44,20 +42,10 @@ RSpec.describe UserPageDesign, type: :model do
   end
 
   context 'Relationship tests' do
-    before(:all) do
+    before :all do
       @user_page_design.save
-      @second_user = User.new(
-        username: 'gXhr',
-        email: 'gustavoh@gmail.com',
-        password: '123456',
-        first_name: 'Gustavo',
-        last_name: 'Ribeiro',
-        location: 'Piracicaba - SP',
-        reason_id: @reason.id
-      )
-      @second_user.save
-      @second_user_page_design = UserPageDesign.new(user: @second_user, design: @design, color: @color)
-      @second_user_page_design.save
+      @second_user = create :user, reason_id: @reason.id
+      @second_user_page_design = create :user_page_design, user: @second_user, design: @design, color: @color
     end
 
     after(:all) do
