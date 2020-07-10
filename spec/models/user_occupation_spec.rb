@@ -1,22 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UserOccupation, type: :model do
   before(:all) do
-    @occupation = Occupation.new(occupation: 'software developer')
-    @occupation.save
-    @reason = Reason.new(reason: 'download my app')
-    @reason.save
-    @user = User.new(
-      username: 'gXh',
-      email: 'gustavo@gmail.com',
-      password: '123456',
-      first_name: 'Gustavo',
-      last_name: 'Ribeiro',
-      location: 'Piracicaba - SP',
-      reason_id: @reason.id
-    )
-    @user.save
-    @user_occupation = UserOccupation.new(user: @user, occupation: @occupation)
+    @occupation = create :occupation
+    @reason = create :reason
+    @user = create :user, reason_id: @reason.id
+    @user_occupation = build :user_occupation, user: @user, occupation: @occupation
   end
 
   after(:all) do
@@ -46,18 +37,8 @@ RSpec.describe UserOccupation, type: :model do
   context 'Relationship tests' do
     before(:all) do
       @user_occupation.save
-      @second_user = User.new(
-        username: 'gXhr',
-        email: 'gustavoh@gmail.com',
-        password: '123456',
-        first_name: 'Gustavo',
-        last_name: 'Ribeiro',
-        location: 'Piracicaba - SP',
-        reason_id: @reason.id
-      )
-      @second_user.save
-      @second_user_occupation = UserOccupation.new(user: @second_user, occupation: @occupation)
-      @second_user_occupation.save
+      @second_user = create :user, reason_id: @reason.id
+      @second_user_occupation = create :user_occupation, user: @second_user, occupation: @occupation
     end
 
     after(:all) do
@@ -91,7 +72,7 @@ RSpec.describe UserOccupation, type: :model do
     it '#1 Must be equal to @occupation' do
       expect(@user.occupations[0]).to eq @occupation
     end
-    
+
     it '#2 There must be a relationship with a occupation' do
       expect(@second_user.occupations.empty?).to be false
     end
@@ -110,12 +91,12 @@ RSpec.describe UserOccupation, type: :model do
       third_user_occupation = UserOccupation.new
       expect(third_user_occupation.save).to be false
     end
-    
+
     it 'Must not be registered #2' do
       third_user_occupation = UserOccupation.new(user: @user)
       expect(third_user_occupation.save).to be false
     end
-    
+
     it 'Must not be registered #3' do
       third_user_occupation = UserOccupation.new(occupation: @occupation)
       expect(third_user_occupation.save).to be false
