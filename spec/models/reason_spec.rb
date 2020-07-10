@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Reason, type: :model do
   context 'Registering a reason' do
     before :all do
-      @reason = Reason.new(reason: 'download my app')
+      @reason = build :reason
     end
 
     after :all do
@@ -29,26 +29,8 @@ RSpec.describe Reason, type: :model do
     context 'Relationship tests' do
       before(:all) do
         @reason.save
-        @user = User.new(
-          username: 'gXh',
-          email: 'gustavo@gmail.com',
-          password: '123456',
-          first_name: 'Gustavo',
-          last_name: 'Ribeiro',
-          location: 'Piracicaba - SP',
-          reason_id: @reason.id
-        )
-        @second_user = User.new(
-          username: 'gXhr',
-          email: 'gustavoh@gmail.com',
-          password: '123456',
-          first_name: 'Gustavo',
-          last_name: 'Ribeiro',
-          location: 'Piracicaba - SP',
-          reason_id: @reason.id
-        )
-        @user.save
-        @second_user.save
+        @user = create :user, reason_id: @reason.id
+        @second_user = create :user, reason_id: @reason.id
       end
 
       after(:all) do
