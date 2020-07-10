@@ -1,29 +1,31 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Reason, type: :model do
   context 'Registering a reason' do
-    before(:all) do
+    before :all do
       @reason = Reason.new(reason: 'download my app')
     end
-  
-    after(:all) do
+
+    after :all do
       @reason.destroy
     end
-  
+
     it 'Must be an instance of Reason' do
-      expect(@reason).to be_instance_of(Reason)
+      expect(@reason).to be_instance_of Reason
     end
-  
+
     it 'Must be successfully registered' do
       expect(@reason.save).to be true
     end
-    
+
     context 'Registered data' do
       it 'Must be the registered reason' do
         expect(@reason.reason).to eq 'download my app'
       end
     end
-  
+
     context 'Relationship tests' do
       before(:all) do
         @reason.save
