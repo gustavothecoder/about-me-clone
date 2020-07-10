@@ -1,22 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UserInterest, type: :model do
-  before(:all) do
-    @interest = Interest.new(interest: 'programming')
-    @interest.save
-    @reason = Reason.new(reason: 'download my app')
-    @reason.save
-    @user = User.new(
-      username: 'gXh',
-      email: 'gustavo@gmail.com',
-      password: '123456',
-      first_name: 'Gustavo',
-      last_name: 'Ribeiro',
-      location: 'Piracicaba - SP',
-      reason_id: @reason.id
-    )
-    @user.save
-    @user_interest = UserInterest.new(user: @user, interest: @interest)
+  before :all do
+    @interest = create :interest
+    @reason = create :reason
+    @user = create :user, reason_id: @reason.id
+    @user_interest = build :user_interest, user: @user, interest: @interest
   end
 
   after(:all) do
@@ -26,7 +17,7 @@ RSpec.describe UserInterest, type: :model do
   end
 
   it 'Must be a UserInterest instance' do
-    expect(@user_interest).to be_instance_of(UserInterest)
+    expect(@user_interest).to be_instance_of UserInterest
   end
 
   it 'Must be successfully registered' do
@@ -42,22 +33,12 @@ RSpec.describe UserInterest, type: :model do
       expect(@user_interest.interest).to eq @interest
     end
   end
-  
+
   context 'Relationship tests' do
-    before(:all) do
+    before :all do
       @user_interest.save
-      @second_user = User.new(
-        username: 'gXhr',
-        email: 'gustavoh@gmail.com',
-        password: '123456',
-        first_name: 'Gustavo',
-        last_name: 'Ribeiro',
-        location: 'Piracicaba - SP',
-        reason_id: @reason.id
-      )
-      @second_user.save
-      @second_user_interest = UserInterest.new(user: @second_user, interest: @interest)
-      @second_user_interest.save
+      @second_user = create :user, reason_id: @reason.id
+      @second_user_interest = create :user_interest, user: @second_user, interest: @interest
     end
 
     after(:all) do
@@ -65,9 +46,9 @@ RSpec.describe UserInterest, type: :model do
     end
 
     it 'There must be a relationship with a user' do
-      expect(@interest.users.empty?).to be false 
+      expect(@interest.users.empty?).to be false
     end
-    
+
     it 'Must belong to two users' do
       expect(@interest.users.length).to eq 2
     end
@@ -91,7 +72,7 @@ RSpec.describe UserInterest, type: :model do
     it '#1 Must be equal to @interest' do
       expect(@user.interests[0]).to eq @interest
     end
-    
+
     it '#2 There must be a relationship with a interest' do
       expect(@second_user.interests.empty?).to be false
     end
@@ -104,18 +85,18 @@ RSpec.describe UserInterest, type: :model do
       expect(@second_user.interests[0]).to eq @interest
     end
   end
-  
+
   context 'Invalid records' do
     it 'Must not be registered #1' do
       third_user_interest = UserInterest.new
       expect(third_user_interest.save).to be false
     end
-    
+
     it 'Must not be registered #2' do
       third_user_interest = UserInterest.new(user_id: @user.id)
       expect(third_user_interest.save).to be false
     end
-    
+
     it 'Must not be registered #3' do
       third_user_interest = UserInterest.new(interest_id: @interest.id)
       expect(third_user_interest.save).to be false
