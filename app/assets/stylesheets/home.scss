@@ -250,10 +250,75 @@ main {
       font-size: 1.3rem;
       padding: 0;
       text-decoration: none;
+      padding-bottom: 1px;
     }
 
     .examples-link:hover {
       border-bottom: $examples-link-color solid 1px;
+      padding-bottom: 0px;
+    }
+
+    .gradient-scope {
+      height: 725px;
+      width: 100%;
+      margin-top: 200px;
+
+      .example-pages {
+        .desktop {
+          position: relative;
+          bottom: 150px;
+          height: 550px;
+          box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.25);
+          border-radius: 25px;
+
+          div {
+            img {
+              border-top-left-radius: 25px;
+              border-bottom-left-radius: 25px;
+            }
+          }
+
+          .desk-people-info {
+            background-color: white;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+            width: 300px;
+            height: 100%;
+            position: relative;
+
+            div {
+              p.name {
+                font-size: 0.8rem;
+              }
+
+              p {
+                font-size: 0.7rem;
+                color: rgb(59, 59, 59);
+                margin-bottom: 0;
+              }
+
+              button {
+                opacity: initial;
+                font-size: 0.7rem;
+                font-weight: bold;
+                color: white;
+                background-color: #3e9fb1;
+                border-radius: 0;
+              }
+
+              div {
+                div {
+                  .label {
+                    font-size: 0.7rem;
+                    margin-bottom: 0;
+                    color: rgb(175, 175, 175);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
