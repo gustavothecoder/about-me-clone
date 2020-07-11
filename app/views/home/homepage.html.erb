@@ -88,10 +88,36 @@
         </div>
     </div>
     <a class="examples-link mx-auto my-5" href="#">See examples →</a>
-    <div class="gradient-scope d-flex flex-column align-items-center">
-      <div class="example-pages">
+    <div class="gradient-scope">
+      <div class="example-pages d-flex justify-content-center">
         <div class="mobile">
-        
+          <div>
+            <%= image_tag 'example_pages.jpg', size: '275x325' %>
+          </div>
+          <div class="mobile-people-info d-flex flex-column">
+            <div class="m-2">
+              <p class="name"><strong>SOFIA MARKS</strong></p>
+              <p class="profession"><strong>Stylist and Photographer in Los Angeles</strong></p>
+              <button class="btn my-3 w-100" disabled>Hire me</button>
+              <p>Hi, i'm a fashion stylist and photographer helping fashion, editorial, food, and tech brands come to life. I've worked with a
+              wide variety of clients such as AirBnB, Lyft, Mission Workshop, Snapshat, Timbuk2, and Verve Coffe Roasters.</p>
+              <div class="d-flex mt-4">
+                <div class="mr-4">
+                  <h3 class="label">WORK</h3>
+                  <p>Marks & Co. Styling</p>
+                </div>
+                <div>
+                  <h3 class="label">EDUCATION</h3>
+                  <p>University of California LA</p>
+                </div>
+              </div>
+              <div class="mt-2">
+                <%= image_tag 'twitter_icon_gray.svg', size: '20x20', class: 'mr-2' %>
+                <%= image_tag 'instagram_icon_gray.svg', size: '20x20', class: 'mr-2' %>
+                <%= image_tag 'facebook_icon_gray.svg', size: '20x20' %>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="desktop d-flex">
           <div>
