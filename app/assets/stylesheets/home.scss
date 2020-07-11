@@ -153,8 +153,14 @@
 main {
   .margin {
     .features {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
       .feature-1 {
         width: 275px;
+        display: flex;
+        flex-direction: column;
 
         button {
           border: 2px solid rgb(206, 206, 206);
@@ -187,6 +193,9 @@ main {
 
       .feature-2 {
         width: 275px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         button {
           opacity: initial;
@@ -215,6 +224,9 @@ main {
       
       .feature-3 {
         width: 275px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         .description {
           position: relative;

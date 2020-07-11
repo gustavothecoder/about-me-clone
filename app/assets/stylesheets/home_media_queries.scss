@@ -116,6 +116,53 @@
     width: 400px;
     right: 25px;
   }
+
+  main .margin .features {
+    flex-direction: column;
+  
+    .feature-1 {      
+      flex-direction: row;
+      width: 550px;
+      align-items: center;
+
+      .image {
+        width: 275px;
+      }
+
+      .description {  
+        bottom: 0;
+        left: 50px;
+      }
+    }
+    
+    .feature-2 {      
+      flex-direction: row-reverse;
+      width: 550px;
+      align-items: center;
+
+      .image {
+        position: relative;
+        width: 450px;
+        left: 50px;
+      }
+
+      .description {  
+        bottom: 0;
+        left: 0;
+      }
+    }
+    
+    .feature-3 {      
+      flex-direction: row;
+      width: 550px;
+      align-items: center;
+
+      .description {  
+        bottom: 0;
+        left: 70px;
+      }
+    }
+  }
 }
 
 @media(max-width: 800px) {
@@ -258,6 +305,51 @@
   
   .gradient-scope .banner-top .image-area .profile-2 button {
     left: 2px;
+  }
+
+  main .margin .features {
+    .feature-1 {      
+      flex-direction: column;
+      width: 300px;
+      align-items: center;
+
+      .image {
+        width: 275px;
+      }
+
+      .description {  
+        bottom: 25px;
+        left: 0px;
+      }
+    }
+    
+    .feature-2 {      
+      flex-direction: column;
+      width: 300px;
+      align-items: center;
+
+      .image {
+        position: none;
+        width: unset;
+        left: 0px;
+      }
+
+      .description {  
+        bottom: 25px;
+        left: 0;
+      }
+    }
+    
+    .feature-3 {      
+      flex-direction: column;
+      width: 300px;
+      align-items: center;
+
+      .description {  
+        bottom: 0;
+        left: 0px;
+      }
+    }
   }
 }
 
