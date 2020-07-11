@@ -244,5 +244,16 @@ main {
         }
       }
     }
+
+    .examples-link {
+      color: $examples-link-color;
+      font-size: 1.3rem;
+      padding: 0;
+      text-decoration: none;
+    }
+
+    .examples-link:hover {
+      border-bottom: $examples-link-color solid 1px;
+    }
   }
 }
