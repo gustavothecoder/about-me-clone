@@ -1,0 +1,55 @@
+@import '../colors';
+
+.gradient-scope {
+  background: $main-gradient;
+
+  .margin {
+    margin-left: 100px;
+    margin-right: 100px;
+    width: 1400px;
+    
+    header {
+      nav.navbar {
+        .navbar-brand {
+          font-size: 18px;
+          font-weight: bold;
+          color: $logo-color;
+        }
+        
+        .navbar-brand:hover {
+          color: $logo-color;
+        }
+    
+        .navbar-nav {
+          .nav-item {
+            .nav-link {
+              color: $navbar-items-color;
+              font-size: 0.95rem;
+              padding: 0;
+            }
+            
+            .common.nav-link:hover {
+              color: $navbar-items-color;
+              border-bottom: $navbar-items-color solid 1px;
+              margin-top: 1px;
+            }
+            
+            a.get-page-small {
+              color: white;
+              font-weight: bold;
+              background-color: $small-get-page-button-bc;
+              border-radius: 5px;
+              transition-property: background-color;
+              transition-duration: 0.2s;
+            }
+            
+            a.get-page-small:hover {
+              color: white;
+              background-color: $small-get-page-button-bc-hover;
+            }
+          }
+        }
+      } 
+    }
+  }
+}

@@ -1,0 +1,113 @@
+@import '../colors';
+
+main {
+  .margin {
+    .features {
+      .features {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+  
+        .feature-1 {
+          width: 275px;
+          display: flex;
+          flex-direction: column;
+  
+          button {
+            border: 2px solid rgb(206, 206, 206);
+            color: rgb(177, 177, 177);
+            font-weight: bold;
+            opacity: initial;
+            position: relative;
+            bottom: 50px;
+            
+            p {
+              color: rgb(48, 107, 156)
+            }
+          }
+  
+          .description {
+            position: relative;
+            bottom: 25px;
+  
+            h1 {
+              text-align: center;
+            }
+  
+            p {
+              color: rgb(145, 145, 145);
+              text-align: center;
+              margin-bottom: 0;
+            }
+          }
+        }
+  
+        .feature-2 {
+          width: 275px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+  
+          button {
+            opacity: initial;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(180deg,#45b3d8,#277db6);
+            position: relative;
+            bottom: 50px;
+          }
+  
+          .description {
+            position: relative;
+            bottom: 25px;
+  
+            h1 {
+              text-align: center;
+            }
+  
+            p {
+              color: rgb(145, 145, 145);
+              text-align: center;
+              margin-bottom: 0;
+            }
+          }
+        }
+        
+        .feature-3 {
+          width: 275px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+  
+          .description {
+            position: relative;
+            bottom: 10px;
+  
+            h1 {
+              text-align: center;
+            }
+  
+            p {
+              color: rgb(145, 145, 145);
+              text-align: center;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .examples-link {
+      color: $examples-link-color;
+      font-size: 1.3rem;
+      padding: 0;
+      text-decoration: none;
+      padding-bottom: 1px;
+    }
+
+    .examples-link:hover {
+      border-bottom: $examples-link-color solid 1px;
+      padding-bottom: 0px;
+    }
+  }
+}
