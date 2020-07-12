@@ -163,6 +163,16 @@
       }
     }
   }
+
+  main .margin .gradient-scope .example-pages .mobile {
+    position: absolute;
+    top: 1940px;
+  }
+
+  main .margin .gradient-scope .example-pages .desktop {
+    right: 0;
+    left: 67px;
+  }
 }
 
 @media(max-width: 800px) {
@@ -177,6 +187,59 @@
   .gradient-scope .banner-top .image-area .profile-3 {
     width: 400px;
     right: 0px;
+  }
+
+  main .margin .gradient-scope .example-pages .mobile {
+    height: 370px;
+    top: 1875px;
+
+    div img {
+      width: 200px;
+      height: 235px;
+    }
+
+    .mobile-people-info {
+      width: 200px;
+      box-shadow: 0px -15px 26px 1px #000000;
+      
+      div.m-2 {
+        p.name {
+          font-size: 0.6rem;
+          bottom: 38px;
+        }
+  
+        p.profession {
+          font-size: 0.5rem;
+          bottom: 37px
+        }
+
+        button {
+          padding-bottom: 3px;
+          padding-top: 3px;
+          font-size: 0.6rem;
+          bottom: 42px;
+        }
+
+        p,
+        div div .label {
+          font-size: 0.6rem;
+        }
+
+        div img {
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+  }
+
+  main .margin .gradient-scope .example-pages .desktop {
+    height: 375px;
+
+    div img.desk-image {
+      width: 300px;
+      height: 375px;
+    }
   }
 }
 
@@ -223,6 +286,10 @@
 
   .gradient-scope .banner-top .image-area .profile-3 button {
     left: 115px;
+  }
+
+  main .margin .gradient-scope .example-pages .desktop {
+    left: 35px;
   }
 }
 
@@ -350,6 +417,52 @@
         left: 0px;
       }
     }
+  }
+
+  main .margin .gradient-scope .example-pages .mobile {
+    height: 284px;
+    top: 2135px;
+    left: 5px;
+
+    div img {
+      width: 150px;
+      height: 190px;
+    }
+
+    .mobile-people-info {
+      width: 150px;
+      bottom: 75px;
+
+      div.m-2 {
+        p.name {
+          font-size: 0.5rem;
+        }
+
+        p.profession {
+          font-size: 0.4rem;
+        }
+
+        button {
+          padding-bottom: 0;
+          padding-top: 0;
+          font-size: 0.5rem;
+          bottom: 42px;
+        }
+
+        p {
+          font-size: 0.4rem;
+        }
+
+        div div .label {
+          font-size: 0.5rem;
+        }
+      }
+    }
+  }
+
+  main .margin .gradient-scope .example-pages .desktop {
+    width: 510px;
+    left: 20px;
   }
 }
 
