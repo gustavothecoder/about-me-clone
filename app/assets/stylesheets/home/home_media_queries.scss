@@ -19,87 +19,32 @@
   }
 }
 
-@media(max-width: 1500px) {
-  .gradient-scope .banner-top .image-area .profile-1 {
-    right: 700px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-2 {
-    right: 425px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-3 {
-    right: 40px;
-  }
-}
-
-@media(max-width: 1400px) {
-  .gradient-scope .banner-top .image-area .profile-1 {
-    right: 700px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-2 {
-    right: 450px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-3 {
-    right: 50px;
-  }
-}
-
-@media(max-width: 1366px) {
-  .gradient-scope .margin {
-    margin-left: 25px;
-    margin-right: 25px;
-  }
-}
-
-@media(max-width: 1300px) {
-  .gradient-scope .banner-top .image-area .profile-1 {
-    right: 650px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-2 {
-    right: 400px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-3 {
-    right: 0px;
-  }
-}
-
 @media(max-width: 1200px) {
-  .gradient-scope .banner-top .image-area .profile-1 {
-    right: 600px;
-  }
+  .gradient-scope {
+    .margin {
+      margin-left: 25px;
+      margin-right: 25px;
+    
+      .banner-top {
+        .image-area {
+          .profile-1 {
+            right: 550px;
+          }
 
-  .gradient-scope .banner-top .image-area .profile-2 {
-    right: 300px;
-  }
+          .profile-2 {
+            right: 300px;
+          }
+
+          .profile-3 {
+            right: 0;
+          }
+        }
+      }
+    }
+  } 
 }
 
-@media(max-width: 1100px) {
-  .gradient-scope .banner-top .image-area .profile-1 {
-    right: 500px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-2 {
-    right: 200px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-3 {
-    width: 300px;
-  }
-}
-
-@media(max-width: 1024px) {
-  .gradient-scope .margin {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-}
-
-@media(max-width: 1000px) {
+@media(max-width: 992px) {
   .gradient-scope .banner-top .image-area {
     margin-top: 750px;
   }
@@ -175,167 +120,92 @@
   }
 }
 
-@media(max-width: 800px) {
-  .gradient-scope .banner-top .image-area .profile-1 {
-    right: 550px;
-  }
+@media(max-width: 768px) {
+  .gradient-scope {
+    .margin {
+      .banner-top {
+        .image-area {
+          .profile-1 {
+            right: 550px;
+          }
 
-  .gradient-scope .banner-top .image-area .profile-2 {
-    right: 300px;
-  }
+          .profile-2 {
+            right: 300px;
+          }
 
-  .gradient-scope .banner-top .image-area .profile-3 {
-    width: 400px;
-    right: 0px;
-  }
-
-  main .margin .gradient-scope .example-pages .mobile {
-    height: 370px;
-    top: 1875px;
-
-    div img {
-      width: 200px;
-      height: 235px;
-    }
-
-    .mobile-people-info {
-      width: 200px;
-      box-shadow: 0px -15px 26px 1px #000000;
-      
-      div.m-2 {
-        p.name {
-          font-size: 0.6rem;
-          bottom: 38px;
-        }
-  
-        p.profession {
-          font-size: 0.5rem;
-          bottom: 37px
-        }
-
-        button {
-          padding-bottom: 3px;
-          padding-top: 3px;
-          font-size: 0.6rem;
-          bottom: 42px;
-        }
-
-        p,
-        div div .label {
-          font-size: 0.6rem;
-        }
-
-        div img {
-          width: 15px;
-          height: 15px;
+          .profile-3 {
+            right: 0;
+            width: 400px;
+          }
         }
       }
     }
   }
 
-  main .margin .gradient-scope .example-pages .desktop {
-    height: 375px;
+  main {
+    .margin {
+      .gradient-scope {
+        .example-pages {
+          .mobile {
+            height: 315px;
+            top: 1928px;
+            left: 10px;
 
-    div img.desk-image {
-      width: 300px;
-      height: 375px;
+            div {
+              img {
+                width: 200px;
+                height: 235px;
+              }
+            } 
+        
+            .mobile-people-info {
+              width: 200px;
+              box-shadow: 0px -15px 26px 1px #000000;
+              
+              div.m-2 {
+                p.name {
+                  font-size: 0.5rem;
+                  bottom: 38px;
+                }
+          
+                p.profession {
+                  font-size: 0.4rem;
+                  bottom: 37px
+                }
+        
+                button {
+                  padding-bottom: 3px;
+                  padding-top: 3px;
+                  font-size: 0.5rem;
+                  bottom: 42px;
+                }
+        
+                p,
+                div div .label {
+                  font-size: 0.5rem;
+                }
+        
+                div img {
+                  width: 15px;
+                  height: 15px;
+                }
+              }
+            }
+          }
+
+          .desktop {
+            height: 375px;
+
+            div {
+              img.desk-image {
+                width: 300px;
+                height: 375px;
+              }
+            } 
+          }
+        }
+      }
     }
-  }
-}
-
-@media(max-width: 750px) {
-  .gradient-scope .banner-top .image-area .profile-1 {
-    width: 160px;
-    height: 225px;
-    right: 400px;
-  }
-  
-  .gradient-scope .banner-top .image-area .profile-1 img {
-    width: 160px;
-    height: 225px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-1 button {
-    left: 15px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-2 {
-    width: 200px;
-    height: 300px;
-    right: 225px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-2 img {
-    width: 200px;
-    height: 300px;
-  }
-  
-  .gradient-scope .banner-top .image-area .profile-2 button {
-    left: 15px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-3 {
-    width: 300px;
-    height: 450px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-3 img {
-    width: 300px;
-    height: 450px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-3 button {
-    left: 115px;
-  }
-
-  main .margin .gradient-scope .example-pages .desktop {
-    left: 35px;
-  }
-}
-
-@media(max-width: 660px) {
-  .gradient-scope .banner-top .image-area .profile-1 {
-    width: 160px;
-    height: 225px;
-    right: 400px;
-  }
-  
-  .gradient-scope .banner-top .image-area .profile-1 img {
-    width: 160px;
-    height: 225px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-1 button {
-    left: 15px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-2 {
-    width: 200px;
-    height: 300px;
-    right: 225px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-2 img {
-    width: 200px;
-    height: 300px;
-  }
-  
-  .gradient-scope .banner-top .image-area .profile-2 button {
-    left: 15px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-3 {
-    width: 250px;
-    height: 350px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-3 img {
-    width: 250px;
-    height: 350px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-3 button {
-    left: 75px;
   }
 }
 
@@ -344,7 +214,7 @@
     margin-top: 675px;
   }
 
-  .gradient-scope .banner-top .image-area .profile-1 {
+  .gradient-scope .margin .banner-top .image-area .profile-1 {
     width: 150px;
     height: 225px;
     right: 375px;
@@ -356,10 +226,10 @@
   }
 
   .gradient-scope .banner-top .image-area .profile-1 button {
-    left: 15px;
+    font-size: 0.7rem;
   }
 
-  .gradient-scope .banner-top .image-area .profile-2 {
+  .gradient-scope .margin .banner-top .image-area .profile-2 {
     width: 175px;
     height: 275px;
     right: 225px;
@@ -371,7 +241,23 @@
   }
   
   .gradient-scope .banner-top .image-area .profile-2 button {
-    left: 2px;
+    left: 15px;
+    font-size: 0.8rem;
+  }
+
+  .gradient-scope .margin .banner-top .image-area .profile-3 {
+    width: 250px;
+    height: 350px;
+  }
+
+  .gradient-scope .banner-top .image-area .profile-3 img {
+    width: 250px;
+    height: 350px;
+  }
+
+  .gradient-scope .banner-top .image-area .profile-3 button {
+    font-size: 0.9rem;
+    left: 80px;
   }
 
   main .margin .features {
@@ -463,23 +349,5 @@
   main .margin .gradient-scope .example-pages .desktop {
     width: 510px;
     left: 20px;
-  }
-}
-
-@media(max-width: 500px) {
-  .gradient-scope nav.navbar .navbar-nav .nav-item a.get-page-small {
-    display: none;
-  }
-
-  .gradient-scope .banner-top .text-area h1 {
-    font-size: 2rem;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-1 {
-    right: 300px;
-  }
-
-  .gradient-scope .banner-top .image-area .profile-2 {
-    right: 175px;
   }
 }
