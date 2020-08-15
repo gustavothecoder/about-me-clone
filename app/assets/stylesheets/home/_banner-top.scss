@@ -27,11 +27,8 @@
       right: 800px;
       
       button {
-        position: relative;
         left: 33px;
         bottom: 65px;
-        opacity: initial;
-        font-weight: bold;
       }
     }
     
@@ -44,11 +41,8 @@
       z-index: 1;
 
       button {
-        position: relative;
         left: 65px;
         bottom: 65px;
-        opacity: initial;
-        font-weight: bold;
       }
     }   
     
@@ -61,12 +55,15 @@
       overflow: hidden;
 
       button {
-        position: relative;
         left: 163px;
         bottom: 65px;
-        opacity: initial;
-        font-weight: bold;
       }
+    }
+
+    .profile-example-button {
+      position: relative;
+      opacity: initial;
+      font-weight: bold;
     }
   }
 }
