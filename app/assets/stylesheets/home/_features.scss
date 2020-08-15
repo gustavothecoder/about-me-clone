@@ -14,6 +14,15 @@ main {
         flex-direction: column;
       }
 
+      .description {
+        position: relative;
+        bottom: 25px;
+      }
+
+      .feature-title {
+        text-align: center;
+      }
+
       .feature-1 {
         button {
           border: 2px solid rgb(206, 206, 206);
@@ -25,19 +34,10 @@ main {
           }
         }
 
-        .description {
-          position: relative;
-          bottom: 25px;
-
-          h1 {
-            text-align: center;
-          }
-
-          p {
-            color: $light-text-color;
-            text-align: center;
-            margin-bottom: 0;
-          }
+        p {
+          color: $light-text-color;
+          text-align: center;
+          margin-bottom: 0;
         }
       }
 
@@ -50,19 +50,10 @@ main {
           background: linear-gradient(180deg,#45b3d8,#277db6);
         }
 
-        .description {
-          position: relative;
-          bottom: 25px;
-
-          h1 {
-            text-align: center;
-          }
-
-          p {
-            color: $light-text-color;
-            text-align: center;
-            margin-bottom: 0;
-          }
+        p {
+          color: $light-text-color;
+          text-align: center;
+          margin-bottom: 0;
         }
       }
       
@@ -70,12 +61,7 @@ main {
         align-items: center;
 
         .description {
-          position: relative;
           bottom: 10px;
-
-          h1 {
-            text-align: center;
-          }
 
           p {
             color: $light-text-color;
