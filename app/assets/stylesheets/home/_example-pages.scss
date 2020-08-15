@@ -1,4 +1,4 @@
-@import '../colors';
+@import '../variables';
 
 main {
   .margin {
@@ -77,7 +77,7 @@ main {
                   .label {
                     font-size: 0.7rem;
                     margin-bottom: 0;
-                    color: rgb(175, 175, 175);
+                    color: $light-text-color;
                     position: relative;
                     bottom: 50px;
                   }
@@ -140,7 +140,7 @@ main {
                   .label {
                     font-size: 0.7rem;
                     margin-bottom: 0;
-                    color: rgb(175, 175, 175);
+                    color: $light-text-color;
                   }
                 }
               }
@@ -154,7 +154,7 @@ main {
         bottom: 100px;
 
         h2 {
-          color: $text-color-for-text-area;
+          color: $dark-text-color;
           text-align: center;
           font-size: 1.6rem;
           font-weight: bold;
