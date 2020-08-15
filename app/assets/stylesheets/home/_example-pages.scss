@@ -148,6 +148,23 @@ main {
           }
         }
       }
+
+      .bottom-register {
+        position: relative;
+        bottom: 100px;
+
+        h2 {
+          color: $text-color-for-text-area;
+          text-align: center;
+          font-size: 1.6rem;
+          font-weight: bold;
+        }
+
+        button,
+        div {
+          width: 325px;
+        }
+      }
     }
   }
 }
