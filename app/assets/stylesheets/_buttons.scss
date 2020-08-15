@@ -25,3 +25,15 @@
     font-size: 0.9rem;
   }
 }
+
+.example-pages-button {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: white;
+  background-color: #3e9fb1;
+  border-radius: 0;
+
+  &:hover {
+    color: white;
+  }
+}
