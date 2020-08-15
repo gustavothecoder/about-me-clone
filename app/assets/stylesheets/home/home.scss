@@ -2,3 +2,16 @@
 @import './banner-top';
 @import './features';
 @import './example-pages';
+@import './footer';
+
+.default-link {
+  color: $navbar-items-color;
+  font-size: 0.95rem;
+  padding: 0;
+  
+  &:hover {
+    color: $navbar-items-color;
+    border-bottom: $navbar-items-color solid 1px;
+    margin-top: 1px;
+  }
+}
