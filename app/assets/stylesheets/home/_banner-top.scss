@@ -1,4 +1,4 @@
-@import '../colors';
+@import '../variables';
 
 .banner-top {
   .text-area {
@@ -6,12 +6,12 @@
 
     h1 {
       font-weight: bold;
-      color: $text-color-for-text-area;
+      color: $dark-text-color;
     }
 
     .content-area {
       p {
-        color: $text-color-for-text-area;
+        color: $default-text-color;
       }
     }
   }
