@@ -55,11 +55,6 @@ main {
 
               button {
                 opacity: initial;
-                font-size: 0.7rem;
-                font-weight: bold;
-                color: white;
-                background-color: #3e9fb1;
-                border-radius: 0;
                 position: relative;
                 bottom: 50px;
               }
@@ -74,10 +69,7 @@ main {
 
               div {
                 div {
-                  .label {
-                    font-size: 0.7rem;
-                    margin-bottom: 0;
-                    color: $light-text-color;
+                  .example-pages-label {
                     position: relative;
                     bottom: 50px;
                   }
@@ -128,24 +120,15 @@ main {
 
               button {
                 opacity: initial;
-                font-size: 0.7rem;
-                font-weight: bold;
-                color: white;
-                background-color: #3e9fb1;
-                border-radius: 0;
-              }
-
-              div {
-                div {
-                  .label {
-                    font-size: 0.7rem;
-                    margin-bottom: 0;
-                    color: $light-text-color;
-                  }
-                }
               }
             }
           }
+        }
+
+        .example-pages-label {
+          font-size: 0.7rem;
+          margin-bottom: 0;
+          color: $light-text-color;
         }
       }
 
