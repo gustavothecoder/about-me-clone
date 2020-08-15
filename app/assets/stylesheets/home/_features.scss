@@ -8,11 +8,13 @@ main {
       align-items: center;
       width: 1400px;
 
-      .feature-1 {
+      .feature {
         width: 275px;
         display: flex;
         flex-direction: column;
+      }
 
+      .feature-1 {
         button {
           border: 2px solid rgb(206, 206, 206);
           color: rgb(177, 177, 177);
@@ -43,9 +45,6 @@ main {
       }
 
       .feature-2 {
-        width: 275px;
-        display: flex;
-        flex-direction: column;
         align-items: center;
 
         button {
@@ -74,9 +73,6 @@ main {
       }
       
       .feature-3 {
-        width: 275px;
-        display: flex;
-        flex-direction: column;
         align-items: center;
 
         .description {
