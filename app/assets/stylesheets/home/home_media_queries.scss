@@ -42,6 +42,11 @@
       }
     }
   } 
+
+  .footer-area .homepage-footer {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
 }
 
 @media(max-width: 992px) {
@@ -349,5 +354,11 @@
   main .margin .gradient-scope .example-pages .desktop {
     width: 510px;
     left: 20px;
+  }
+
+  .footer-area .homepage-footer .footer-social-media {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
   }
 }
