@@ -5,10 +5,10 @@
         <a class="navbar-brand" href="#">my.homepage</a>
         <ul class="navbar-nav w-100 d-flex justify-content-end align-items-center mr-3">
           <li class="nav-item">
-            <a class="common nav-link p-0 mx-2" href="#">Examples</a>
+            <a class="default-link common nav-link p-0 mx-2" href="#">Examples</a>
           </li>
           <li class="nav-item">
-            <a class="common nav-link p-0 mx-2" href="#">Log in</a>
+            <a class="default-link common nav-link p-0 mx-2" href="#">Log in</a>
           </li>
           <li class="nav-item ml-0 ml-sm-3 mr-0 mr-sm-1 mr-md-3">
             <a class="nav-link py-1 px-2 get-page-small" href="#">Get your free page</a>
@@ -167,3 +167,33 @@
     </div>
   </div>
 </main>
+<div class="w-100">
+  <footer class="d-flex pt-4 pb-5">
+    <div class="d-flex justify-content-between w-50">
+      <section class="footer-logo">
+        <p>my.homepage</p>
+      </section>
+      <section class="footer-page-links">
+        <ul>
+          <li><a href="#" class="default-link">Examples</a></li>
+          <li><a href="#" class="default-link">Pricing</a></li>
+          <li><a href="#" class="default-link">Email Signature</a></li>
+          <li><a href="#" class="default-link">Side Hustlers</a></li>
+        </ul>
+      </section>
+      <section class="footer-useful-links">
+        <ul>
+          <li><a href="#" class="default-link">Blog</a></li>
+          <li><a href="#" class="default-link">Press</a></li>
+          <li><a href="#" class="default-link">Privacy Policy</a></li>
+          <li><a href="#" class="default-link">Legal</a></li>
+        </ul>
+      </section>
+    </div>
+    <section class="footer-social-media d-flex justify-content-end w-50">
+      <p class="copyright">© 2020 my.homepage™</p>
+      <a href="#" class="mx-4"><%= image_tag 'twitter_only_bird_icon.svg', size: '20x20' %></a>
+      <a href="#"><%= image_tag 'medium_icon.svg', size: '20x20' %></a>
+    </section>
+  </footer>
+</div>
