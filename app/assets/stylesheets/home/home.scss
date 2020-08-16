@@ -4,6 +4,10 @@
 @import './example-pages';
 @import './footer';
 
+ul {
+  list-style-type: none;
+}
+
 .default-link {
   color: $navbar-items-color;
   font-size: 0.95rem;
