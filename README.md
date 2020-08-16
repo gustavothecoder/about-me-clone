@@ -1,5 +1,5 @@
 # Under development
 
-<div style="margin: auto;">
+<p align="center">
   <img src="readme/homepage.gif" />
-</div>
+</p>
