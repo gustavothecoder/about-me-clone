@@ -1,0 +1,38 @@
+@import '../variables';
+
+footer {
+  margin-left: 100px;
+  margin-right: 100px;
+
+  .footer-logo {
+    p {
+      color: $default-text-color;
+      font-size: 0.9rem;
+    }
+  }
+
+  .footer-page-links {
+    li {
+      a {
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .footer-useful-links {
+    li {
+      a {
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .footer-social-media {
+    .copyright {
+      font-size: 0.9rem;
+      color: $default-text-color;
+    }
+  }
+}
