@@ -61,7 +61,7 @@ main {
     }
 
     .examples-link {
-      color: $examples-link-color;
+      color: $dark-blue;
       font-size: 1.3rem;
       padding: 0;
       text-decoration: none;
@@ -69,7 +69,7 @@ main {
     }
 
     .examples-link:hover {
-      border-bottom: $examples-link-color solid 1px;
+      border-bottom: $dark-blue solid 1px;
       padding-bottom: 0px;
     }
   }

@@ -9,13 +9,13 @@ ul {
 }
 
 .default-link {
-  color: $navbar-items-color;
+  color: $blue;
   font-size: 0.95rem;
   padding: 0;
   
   &:hover {
-    color: $navbar-items-color;
-    border-bottom: $navbar-items-color solid 1px;
+    color: $blue;
+    border-bottom: $blue solid 1px;
     margin-top: 1px;
   }
 }

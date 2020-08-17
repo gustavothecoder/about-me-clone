@@ -13,11 +13,11 @@
         .navbar-brand {
           font-size: 18px;
           font-weight: bold;
-          color: $logo-color;
+          color: $blue;
         }
         
         .navbar-brand:hover {
-          color: $logo-color;
+          color: $blue;
         }
     
         .navbar-nav {
@@ -25,7 +25,7 @@
             a.get-page-small {
               color: white;
               font-weight: bold;
-              background-color: $small-get-page-button-bc;
+              background-color: $blue;
               border-radius: 5px;
               transition-property: background-color;
               transition-duration: 0.2s;
@@ -33,7 +33,7 @@
             
             a.get-page-small:hover {
               color: white;
-              background-color: $small-get-page-button-bc-hover;
+              background-color: $light-blue;
             }
           }
         }
