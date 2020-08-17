@@ -1,15 +1,15 @@
 // Colors
-$logo-color: #0e5786;
-$navbar-items-color: #0e5786;
-$small-get-page-button-bc: #0e5786;
-$small-get-page-button-bc-hover: #286a96;
-$big-get-page-button-bc: linear-gradient(180deg,#26abd8,#1677b6);
-$big-get-page-button-bc-hover: linear-gradient(180deg,#43b4da,#2c81b9);
+$light-blue: #286a96;
+$blue: #0e5786;
+$dark-blue: #004b7c;
+
+$blue-gradient-1: linear-gradient(180deg,#26abd8,#1677b6);
+$blue-gradient-2: linear-gradient(180deg,#43b4da,#2c81b9);
 $main-gradient: linear-gradient(-225deg,rgba(48,35,174,.4),rgba(83,160,253,.4) 30%,rgba(180,236,81,.4)); 
+
 $dark-text-color: rgb(63, 63, 63);
 $default-text-color: rgb(102, 102, 102);
 $light-text-color: rgb(145, 145, 145);
-$examples-link-color: #004b7c;
 
 // Box shadows
 $default-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.25);
