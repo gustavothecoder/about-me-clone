@@ -3,5 +3,5 @@
 Rails.application.routes.draw do
   root to: 'home#homepage'
 
-  resources :users, only: %i[new]
+  get '/signup', to: 'users#new'
 end
