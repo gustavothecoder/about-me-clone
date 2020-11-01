@@ -33,7 +33,7 @@ RSpec.describe Color, type: :model do
 
     describe 'has many user_page_design' do
       it 'Must have two user_page_designs' do
-        expect(color.user_page_design.count).to eq(2)
+        expect(color.user_page_designs.count).to eq(2)
       end
     end
 
