@@ -26,19 +26,18 @@ RSpec.describe Color, type: :model do
     let!(:user_page_design) do
       create(:user_page_design, user: user, design: design, color: color)
     end
+    let(:second_user) { create(:user, reason: reason) }
+    let!(:second_user_page_design) do
+      create(:user_page_design, user: second_user, design: design, color: color)
+    end
 
-    describe 'has one user_page_design' do
-      it 'Must have a user_page_design' do
-        expect(color.user_page_design).to_not be_nil
+    describe 'has many user_page_design' do
+      it 'Must have two user_page_designs' do
+        expect(color.user_page_design.count).to eq(2)
       end
     end
 
     describe 'has many users' do
-      let(:second_user) { create(:user, reason: reason) }
-      let!(:second_user_page_design) do
-        create(:user_page_design, user: second_user, design: design, color: color)
-      end
-
       it 'Must have two users' do
         expect(color.users.count).to eq(2)
       end
