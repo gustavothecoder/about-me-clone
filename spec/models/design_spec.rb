@@ -3,30 +3,44 @@
 require 'rails_helper'
 
 RSpec.describe Design, type: :model do
-  context 'Registering a design' do
-    before(:all) do
-      @design = create :design
+  let(:design) { create(:design) }
+
+  context 'When the design_type is filled' do
+    it 'Must be valid' do
+      expect(design).to be_valid
+    end
+  end
+
+  context 'When the design_type is not filled' do
+    it 'Must not be valid' do
+      design.design_type = nil
+      design.save
+      expect(design).to_not be_valid
+    end
+  end
+
+  describe 'Relationships' do
+    let(:reason) { create(:reason) }
+    let(:user) { create(:user, reason: reason) }
+    let(:color) { create(:color) }
+    let!(:user_page_design) do
+      create(:user_page_design, user: user, design: design, color: color)
+    end
+    let(:second_user) { create(:user, reason: reason) }
+    let!(:second_user_page_design) do
+      create(:user_page_design, user: second_user, design: design, color: color)
     end
 
-    after(:all) do
-      @design.destroy
+    describe 'has_many user_page_design' do
+      it 'Must have two user_page_designs' do
+        expect(design.user_page_designs.count).to eq(2)
+      end
     end
 
-    it 'Must be an instance of Design' do
-      expect(@design).to be_instance_of Design
-    end
-
-    it 'Must be successfully registered' do
-      expect(@design.save).to be true
-    end
-
-    it 'Must be registered design' do
-      expect(@design.design_type).to eq 'small'
-    end
-
-    it 'Must not be registered' do
-      second_design = Design.new
-      expect(second_design.save).to be false
+    describe 'has_many users' do
+      it 'Must have two users' do
+        expect(design.users.count).to eq(2)
+      end
     end
   end
 end
