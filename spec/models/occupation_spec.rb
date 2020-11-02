@@ -3,37 +3,44 @@
 require 'rails_helper'
 
 RSpec.describe Occupation, type: :model do
-  context 'Registering an occupation' do
-    before(:all) do
-      @occupation = create :occupation
+  before(:all) do
+    @occupation = create(:occupation)
+  end
+
+  after(:all) do
+    @occupation.destroy
+  end
+
+  context 'When the occupation is filled' do
+    it 'Must be valid' do
+      expect(@occupation).to be_valid
     end
+  end
 
-    after(:all) do
-      @occupation.destroy
+  context 'When the occupation is not filled' do
+    it 'Must not be valid' do
+      invalid_occupation = Occupation.new(occupation: nil)
+      expect(invalid_occupation).to_not be_valid
     end
+  end
 
-    it 'Must be an instance of Occupation' do
-      expect(@occupation).to be_instance_of(Occupation)
+  context 'When the occupation has already been registered' do
+    it 'Must not be valid' do
+      invalid_occupation = Occupation.new(occupation: 'software developer')
+      expect(invalid_occupation).to_not be_valid
     end
+  end
 
-    it 'Must be successfully registered' do
-      expect(@occupation.save).to be true
-    end
+  describe 'Relationships' do
+    describe 'has_and_belongs_to_many users' do
+      let(:reason) { create(:reason) }
+      let(:user) { create(:user, reason: reason) }
+      let!(:user_occupation) { create(:user_occupation, user: user, occupation: @occupation) }
+      let(:second_user) { create(:user, reason: reason) }
+      let!(:second_user_occupation) { create(:user_occupation, user: user, occupation: @occupation) }
 
-    it 'Must be registered occupation' do
-      expect(@occupation.occupation).to eq 'software developer'
-    end
-
-    context 'Invalid records' do
-      it '#1 Must not be registered' do
-        second_occupation = Occupation.new
-        expect(second_occupation.save).to be false
-      end
-
-      it '#2 Must not be registered' do
-        @occupation.save
-        second_occupation = Occupation.new(occupation: 'software developer')
-        expect(second_occupation.save).to be false
+      it 'Must have two users' do
+        expect(@occupation.users.count).to eq(2)
       end
     end
   end
