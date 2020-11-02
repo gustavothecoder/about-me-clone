@@ -3,68 +3,41 @@
 require 'rails_helper'
 
 RSpec.describe Reason, type: :model do
-  context 'Registering a reason' do
-    before :all do
-      @reason = build :reason
+  before(:all) do
+    @reason = create(:reason)
+  end
+
+  after(:all) do
+    @reason.destroy
+  end
+
+  context 'When the reason is filled' do
+    it 'Must be valid' do
+      expect(@reason).to be_valid
     end
+  end
 
-    after :all do
-      @reason.destroy
+  context 'When the reason is not filled' do
+    it 'Must not be valid' do
+      invalid_reason = Reason.new(reason: nil)
+      expect(invalid_reason).to_not be_valid
     end
+  end
 
-    it 'Must be an instance of Reason' do
-      expect(@reason).to be_instance_of Reason
+  context 'When the reason has already been registered' do
+    it 'Must not be valid' do
+      invalid_reason = Reason.new(reason: 'download my app')
+      expect(invalid_reason).to_not be_valid
     end
+  end
 
-    it 'Must be successfully registered' do
-      expect(@reason.save).to be true
-    end
+  describe 'Relationships' do
+    describe 'has_many users' do
+      let!(:user) { create(:user, reason: @reason) }
+      let!(:second_user) { create(:user, reason: @reason) }
 
-    context 'Registered data' do
-      it 'Must be the registered reason' do
-        expect(@reason.reason).to eq 'download my app'
-      end
-    end
-
-    context 'Relationship tests' do
-      before(:all) do
-        @reason.save
-        @user = create :user, reason_id: @reason.id
-        @second_user = create :user, reason_id: @reason.id
-      end
-
-      after(:all) do
-        @user.destroy
-        @second_user.destroy
-      end
-
-      it 'There must be a relationship with a user' do
-        expect(@reason.users.empty?).to be false
-      end
-
-      it 'Must belog to two users' do
-        expect(@reason.users.length).to eq 2
-      end
-
-      it 'Must be equal to @user' do
-        expect(@reason.users[0]).to eq @user
-      end
-
-      it 'Must be equal to @second_user' do
-        expect(@reason.users[1]).to eq @second_user
-      end
-    end
-
-    context 'Invalid records' do
-      it '#1 Must not be registered' do
-        second_reason = Reason.new
-        expect(second_reason.save).to be false
-      end
-
-      it '#2 Must not be registered' do
-        @reason.save
-        second_reason = Reason.new(reason: 'download my app')
-        expect(second_reason.save).to be false
+      it 'Must have two users' do
+        expect(@reason.users.count).to eq(2)
       end
     end
   end
