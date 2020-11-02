@@ -10,6 +10,6 @@ FactoryBot.define do
     first_name { 'Gustavo' }
     last_name { 'Ribeiro' }
     location { 'Piracicaba' }
-    reason_id { Faker::number.number digits: 1 }
+    reason
   end
 end
