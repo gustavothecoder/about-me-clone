@@ -1,37 +1,46 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Interest, type: :model do
-  context 'Registering a interest' do
-    before(:all) do
-      @interest = create :interest
+  before(:all) do
+    @interest = create(:interest)
+  end
+
+  after(:all) do
+    @interest.destroy
+  end
+
+  context 'When the interest is filled' do
+    it 'Must be valid' do
+      expect(@interest).to be_valid
     end
+  end
 
-    after :all do
-      @interest.destroy
+  context 'When the interest is not filled' do
+    it 'Must not be valid' do
+      invalid_interest = Interest.new(interest: nil)
+      expect(invalid_interest).to_not be_valid
     end
+  end
 
-    it 'Must be an intance of Interest' do
-      expect(@interest).to be_instance_of(Interest)
+  context 'When the interest has already been registered' do
+    it 'Must not be valid' do
+      invalid_interest = Interest.new(interest: 'programming')
+      expect(invalid_interest).to_not be_valid
     end
+  end
 
-    it 'Must be a successfully registered' do
-      expect(@interest.save).to be true
-    end
+  describe 'Relationships' do
+    describe 'has_and_belongs_to_many users' do
+      let(:reason) { create(:reason) }
+      let(:user) { create(:user, reason: reason) }
+      let!(:user_interest) { create(:user_interest, user: user, interest: @interest) }
+      let(:second_user) { create(:user, reason: reason) }
+      let!(:second_user_interest) { create(:user_interest, user: user, interest: @interest) }
 
-    it 'Must be the registered interest' do
-      expect(@interest.interest).to eq 'programming'
-    end
-
-    context 'Invalid records' do
-      it '#1 Must not be successfully registered' do
-        second_interest = Interest.new
-        expect(second_interest.save).to be false
-      end
-
-      it '#2 Must not be successfully registered' do
-        @interest.save
-        second_interest = Interest.new(interest: 'programming')
-        expect(second_interest.save).to be false
+      it 'Must have two users' do
+        expect(@interest.users.count).to eq(2)
       end
     end
   end
