@@ -11,5 +11,6 @@ FactoryBot.define do
     last_name { 'Ribeiro' }
     location { 'Piracicaba' }
     reason
+    photo { Rack::Test::UploadedFile.new('public/test_active_storage.jpg') }
   end
 end
