@@ -3,91 +3,147 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  context 'Registering a user' do
-    before :all do
-      @reason = create :reason
-      @user = create :user, username: 'gXh', email: 'gustavo@gmail.com', reason_id: @reason.id
+  let(:reason) { create(:reason) }
+  let(:user) { create(:user, reason: reason) }
+
+  describe 'Registered data' do
+    it 'Must have a photo attached' do
+      expect(user.photo.attached?).to be(true)
     end
+  end
 
-    after :all do
-      @user.destroy
-      @reason.destroy
-    end
-
-    it 'Must be a User instance' do
-      expect(@user).to be_instance_of(User)
-    end
-
-    context 'Registered data' do
-      it 'Must be the registered username ' do
-        expect(@user.username).to eq 'gXh'
-      end
-
-      it 'Must be the registered email' do
-        expect(@user.email).to eq 'gustavo@gmail.com'
-      end
-
-      it 'Must be the registered password' do
-        expect(@user.password).to eq '123456'
-      end
-
-      it 'Must be the registered first name' do
-        expect(@user.first_name).to eq 'Gustavo'
-      end
-
-      it 'Must be the last registered name' do
-        expect(@user.last_name).to eq 'Ribeiro'
-      end
-
-      it 'Must be the registered location' do
-        expect(@user.location).to eq 'Piracicaba'
-      end
-
-      it 'Must be the registered reason id' do
-        expect(@user.reason_id).to eq @reason.id
+  describe 'Validations' do
+    context 'When all parameters are correctly filled' do
+      it 'Must be valid' do
+        expect(user).to be_valid
       end
     end
 
-    it 'The photo must be saved' do
-      @user.photo.attach(io: File.open('app/assets/images/test_active_storage.jpg'), filename: 'test_active_storage.jpg')
-      expect(@user.photo.attached?).to be true
-    end
-
-    context 'Relationship tests' do
-      it 'There must be a relationship with a reason' do
-        expect(@user.reason).to eq @reason
+    context 'When username is not filled' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, username: nil)
+        expect(invalid_user).to_not be_valid
       end
     end
 
-    context 'Invalid records' do
-      it 'Must not be registered #1' do
-        second_user = build :user, username: nil, reason_id: @reason.id
-        expect(second_user.save).to be false
+    context 'When email is not filled' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, email: nil)
+        expect(invalid_user).to_not be_valid
       end
+    end
 
-      it 'Must not be registered #2' do
-        second_user = build :user, username: 'gXh', email: 'gustavo@gmail.com', reason_id: @reason.id
-        expect(second_user.save).to be false
+    context 'When password is not filled' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, password: nil)
+        expect(invalid_user).to_not be_valid
       end
+    end
 
-      it 'Must not be registered #3' do
-        second_user = build :user, username: 'gX', reason_id: @reason.id
-        expect(second_user.save).to be false
+    context 'When first_name is not filled' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, first_name: nil)
+        expect(invalid_user).to_not be_valid
       end
+    end
 
-      it 'Must not be registered #4' do
-        second_user = build :user, username: 'gXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', reason_id: @reason.id
-        expect(second_user.save).to be false
+    context 'When last_name is not filled' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, last_name: nil)
+        expect(invalid_user).to_not be_valid
       end
+    end
 
-      it 'Must not be registered #5' do
-        second_user = build :user, password: '12345', reason_id: @reason.id
-        expect(second_user.save).to be false
+    context 'When location is not filled' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, location: nil)
+        expect(invalid_user).to_not be_valid
       end
+    end
 
-      it 'Must not be registered #6' do
-        second_user = build :user, password: '12345678910111213', reason_id: @reason.id
-        expect(second_user.save).to be false
+    context 'When the username is already being used' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, username: user.username)
+        expect(invalid_user).to_not be_valid
+      end
+    end
+
+    context 'When the email is already being used' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, email: user.email)
+        expect(invalid_user).to_not be_valid
+      end
+    end
+
+    context 'When the username less than 3 characters' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, username: 'gx')
+        expect(invalid_user).to_not be_valid
+      end
+    end
+
+    context 'When the username is longer than 16 characters' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, username: 'gxxxxxxxxxxxxxxxh')
+        expect(invalid_user).to_not be_valid
+      end
+    end
+
+    context 'When the password less than 6 characters' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, password: '12345')
+        expect(invalid_user).to_not be_valid
+      end
+    end
+
+    context 'When the password is longer than 16 characters' do
+      it 'Must not be valid' do
+        invalid_user = build(:user, password: '12345678910111213')
+        expect(invalid_user).to_not be_valid
+      end
+    end
+  end
+
+  describe 'Relationships' do
+    let(:design) { create(:design) }
+    let(:color) { create(:color) }
+    let!(:user_page_design) { create(:user_page_design, user: user, design: design, color: color) }
+
+    describe 'belongs_to reason' do
+      it { expect(user.reason).to_not be_nil }
+    end
+
+    describe 'has_one user_page_design' do
+      it { expect(user.user_page_design).to_not be_nil }
+    end
+
+    describe 'has_one design' do
+      it { expect(user.design).to_not be_nil }
+    end
+
+    describe 'has_one color' do
+      it { expect(user.color).to_not be_nil }
+    end
+
+    describe 'has_and_belongs_to_many interests' do
+      let(:first_interest) { create(:interest) }
+      let(:second_interest) { create(:interest, interest: 'games') }
+      let!(:first_user_interest) { create(:user_interest, user: user, interest: first_interest) }
+      let!(:second_user_interest) { create(:user_interest, user: user, interest: second_interest) }
+
+      it 'Must have two interests' do
+        expect(user.interests.count).to eq(2)
+      end
+    end
+
+    describe 'has_and_belongs_to_many occupations' do
+      let(:first_occupation) { create(:occupation) }
+      let(:second_occupation) { create(:occupation, occupation: 'dev') }
+      let!(:first_user_occupation) { create(:user_occupation, user: user, occupation: first_occupation) }
+      let!(:second_user_occupation) { create(:user_occupation, user: user, occupation: second_occupation) }
+
+      it 'Must have two occupations' do
+        expect(user.occupations.count).to eq(2)
       end
     end
   end
