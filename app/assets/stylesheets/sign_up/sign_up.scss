@@ -1,0 +1,9 @@
+@import '../variables';
+@import './header';
+@import './form';
+
+.main-signup {
+  width: 100%;
+  height: calc(100vh - 68.4px);
+  background-color: $blue-2;
+}
