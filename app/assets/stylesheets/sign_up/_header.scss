@@ -1,0 +1,15 @@
+@import '../variables';
+
+.navbar-signup {
+  background-color: white;
+
+  .navbar-brand {
+    color: $dark-text-color;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .nav-link {
+    color: $dark-text-color;
+  }
+}
