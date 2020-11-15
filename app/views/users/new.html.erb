@@ -1,0 +1,26 @@
+<header>
+  <nav class="navbar-signup navbar navbar-expand py-3">
+    <a class="navbar-brand" href="#">my.homepage</a>
+    <ul class="navbar-nav w-100 d-flex justify-content-end align-items-center mr-3">
+      <li class="nav-item">
+        <a class="common nav-link p-0 mx-2" href="#">Examples</a>
+      </li>
+      <li class="nav-item">
+        <a class="common nav-link p-0 mx-2" href="#">Log in</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main class="main-signup">
+  <section class="signup-form-area col-4 m-auto">
+    <header class="d-flex flex-column align-items-center pt-5">
+      <%= image_tag 'mail_icon.svg' %>
+      <h2 class="step-description pt-1">Sign up with your email</h2>
+    </header>
+    <%= form_for :user, html: { class: 'd-flex flex-column align-items-center justify-content-between' } do |f| %>
+      <%= f.email_field :email, placeholder: 'Enter your email address', class: 'signup-email-field w-100 mt-4 py-3 form-control' %>
+      <p class="singup-email-obs">We will not share or display your email address.</p>
+      <%= f.submit 'Next >', class: 'next-step-button btn w-100' %>
+    <% end %>
+  </section>
+</main>
