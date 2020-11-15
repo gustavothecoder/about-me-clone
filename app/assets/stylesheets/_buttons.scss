@@ -43,3 +43,13 @@
   position: relative;
   bottom: 50px;
 }
+
+.next-step-button {
+  color: white;
+  background-color: $blue-2;
+
+  &:hover {
+    color: white;
+    background-color: $blue;
+  }
+}
