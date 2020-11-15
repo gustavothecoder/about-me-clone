@@ -1,0 +1,29 @@
+@import '../variables';
+
+.signup-form-area {
+  background-color: white;
+  position: relative;
+  top: 100px;
+  height: 400px;
+  border-radius: 5px;
+
+  .step-description {
+    font-size: 1.2rem;
+    color: $blue-2;
+  }
+
+  form {
+    height: 250px;
+
+    .signup-email-field {
+      text-align: center;
+    }
+
+    .singup-email-obs {
+      position: relative;
+      bottom: 45px;
+      font-size: 0.9rem;
+      color: $dark-text-color;
+    }
+  }
+}
