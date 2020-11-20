@@ -11,7 +11,7 @@
             <a class="default-link common nav-link p-0 mx-2" href="#">Log in</a>
           </li>
           <li class="nav-item ml-0 ml-sm-3 mr-0 mr-sm-1 mr-md-3">
-            <a class="nav-link py-1 px-2 get-page-small" href="#">Get your free page</a>
+            <%= link_to('Get your free page', signup_path, class: 'nav-link py-1 px-2 get-page-small' ) %>
           </li>
         </ul>
       </nav>
@@ -23,7 +23,7 @@
         <div class="content-area col-10 p-0">
           <p class="mb-0">Create a page to promote who you are and</p>
           <p class="mt-0">what you do in one link.</p>
-          <button class="btn big-register-button w-100">Get your free page</button>
+          <%= link_to('Get your free page', signup_path, class: 'btn big-register-button w-100') %>
           <div class="social-media-create-account d-flex justify-content-between my-3">
             <button class="btn d-flex justify-content-between align-items-center col mr-2">
               <%= image_tag 'facebook-logo.svg', size: '25x25' %>
@@ -154,7 +154,9 @@
   <div class="bottom-register d-flex flex-column">
     <h2>Over 1 million entrepreneurs and consultants use my.homepage.</h2>
     <h2>Need help growing your business?</h2>
-    <button class="btn big-register-button mx-auto mt-4">Get your free page</button>
+    <div class="mx-auto mt-4">
+      <%= link_to('Get your free page', signup_path, class: 'btn big-register-button w-100') %>
+    </div>
     <div class="social-media-create-account d-flex justify-content-between my-3 mx-auto">
       <button class="btn d-flex justify-content-between align-items-center col mr-2">
         <%= image_tag 'facebook-logo.svg', size: '25x25' %>
