@@ -2,11 +2,14 @@
 
 .navbar-signup {
   background-color: white;
+  transition-duration: 250ms;
 
   .navbar-brand {
     color: $dark-text-color;
     font-weight: bold;
     font-size: 1.1rem;
+    transition-property: color;
+    transition-duration: 250ms;
   }
 
   .nav-link {
