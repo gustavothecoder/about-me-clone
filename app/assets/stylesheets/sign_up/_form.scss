@@ -21,11 +21,15 @@
       text-align: center;
     }
 
-    .singup-email-obs {
+    .signup-instructions {
       position: relative;
       bottom: 45px;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: $dark-text-color;
+    }
+
+    .signup-name-instructions {
+      bottom: 15px;
     }
   }
 }
