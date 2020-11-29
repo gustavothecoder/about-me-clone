@@ -1,9 +1,19 @@
 <% if @step == '2' %>
+  let email, firstName, lastName, userLocation;
   updateNavbar();
-  const email = $('#email').val();
+  email = $('#email').val();
   $('.signup-form-area').detach();
   $('.main-signup').append('<%= j (render 'signup_step_two') %>');
   addHiddenInput('email', email);
+<% elsif @step == '3' %>
+  firstName = $('#first_name').val();
+  lastName = $('#last_name').val();
+  $('.signup-form-area').detach();
+  $('.main-signup').append('<%= j (render 'signup_step_three') %>');
+  $('.step-description').text(`Where are you, ${firstName}?`);
+  addHiddenInput('email', email);
+  addHiddenInput('first_name', firstName);
+  addHiddenInput('last_name', lastName);
 <% end %>
 
 function updateNavbar() {
@@ -13,5 +23,5 @@ function updateNavbar() {
 }
 
 function addHiddenInput(name, value) {
-  $('form').append(`<input type="hidden" name=${name} value=${value}>`);
+  $('form').append(`<input type="hidden" id=${name} name=${name} value=${value}>`);
 }
