@@ -1,11 +1,25 @@
 <% if @step == '2' %>
   let email, firstName, lastName, userLocation;
+  prepareSignupStepTwo();
+<% elsif @step == '3' %>
+  prepareSignupStepThree();
+<% end %>
+
+function prepareSignupStepTwo() {
   updateNavbar();
   email = $('#email').val();
   $('.signup-form-area').detach();
   $('.main-signup').append('<%= j (render 'signup_step_two') %>');
   addHiddenInput('email', email);
-<% elsif @step == '3' %>
+}
+
+function updateNavbar() {
+  $('.navbar-nav').detach();
+  $('.navbar-brand').css('color', 'white');
+  $('.navbar-signup').css('background-color', '#0a84d0');
+}
+
+function prepareSignupStepThree() {
   firstName = $('#first_name').val();
   lastName = $('#last_name').val();
   $('.signup-form-area').detach();
@@ -14,12 +28,6 @@
   addHiddenInput('email', email);
   addHiddenInput('first_name', firstName);
   addHiddenInput('last_name', lastName);
-<% end %>
-
-function updateNavbar() {
-  $('.navbar-nav').detach();
-  $('.navbar-brand').css('color', 'white');
-  $('.navbar-signup').css('background-color', '#0a84d0');
 }
 
 function addHiddenInput(name, value) {
