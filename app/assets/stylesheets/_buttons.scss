@@ -53,3 +53,15 @@
     background-color: $blue;
   }
 }
+
+.select-interest-button,
+.select-interest-button:active {
+  color: $blue-2;
+  border-color: $blue-2;
+  background-color: white;
+
+  &:hover {
+    background-color: $very-light-blue;
+    color: $blue-2;
+  }
+}
