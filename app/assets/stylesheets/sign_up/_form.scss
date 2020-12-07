@@ -31,5 +31,30 @@
     .signup-name-instructions {
       bottom: 15px;
     }
+
+    .signup-interests-instructions {
+      bottom: 0;
+      font-size: 1rem;
+    }
+
+    .selected-interest,
+    .selected-interest:active {
+      border-style: dashed;
+      color: white;
+
+      &:hover {
+        background-color: white;
+      }
+    }
   }
+
+  .big-form {
+    height: 475px;
+  }
+}
+
+.big-signup-form-area {
+  width: 580px;
+  height: 650px;
+  top: 10px;
 }
