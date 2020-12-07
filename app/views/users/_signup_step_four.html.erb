@@ -1,0 +1,24 @@
+<section class="signup-form-area big-signup-form-area m-auto">
+  <header class="d-flex flex-column align-items-center pt-5">
+    <%= image_tag 'heart_icon.svg', size: '25x25' %>
+    <h2 class="step-description pt-1">What do you love?</h2>
+  </header>
+  <%= form_with url: '/next_signup_step/5', class: 'big-form d-flex flex-column align-items-center justify-content-between' do |f| %>
+    <p class="signup-instructions signup-interests-instructions">Choice of three to five insterests.</p>
+    <ul class="w-100 d-flex justify-content-center flex-wrap overflow-auto px-1">
+      <% Interest.select(:id, :interest).each do |interest| %>
+        <li class="select-interest-button btn btn-outline-primary my-1 ml-1" value="<%= interest.id %>">
+          <%= interest.interest %>
+        </li>
+      <% end %>
+    </ul>
+    <ul id="selected-interests" class="w-100 d-flex justify-content-around px-1">
+      <li class="selected-interest select-interest-button btn btn-outline-primary">nothing</li>
+      <li class="selected-interest select-interest-button btn btn-outline-primary">nothing</li>
+      <li class="selected-interest select-interest-button btn btn-outline-primary">nothing</li>
+      <li class="selected-interest select-interest-button btn btn-outline-primary">nothing</li>
+      <li class="selected-interest select-interest-button btn btn-outline-primary">nothing</li> 
+    </ul>
+    <%= f.submit 'Next >', class: 'next-step-button btn w-75' %>
+  <% end %>
+</section>
