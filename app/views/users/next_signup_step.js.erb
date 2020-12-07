@@ -3,6 +3,8 @@
   prepareSignupStepTwo();
 <% elsif @step == '3' %>
   prepareSignupStepThree();
+<% elsif @step == '4' %>
+  prepareSignupStepFour();
 <% end %>
 
 function prepareSignupStepTwo() {
@@ -28,6 +30,16 @@ function prepareSignupStepThree() {
   addHiddenInput('email', email);
   addHiddenInput('first_name', firstName);
   addHiddenInput('last_name', lastName);
+}
+
+function prepareSignupStepFour() {
+  userLocation = $('#user_location').val();
+  $('.signup-form-area').detach();
+  $('.main-signup').append('<%= j (render 'signup_step_four') %>');
+  addHiddenInput('email', email);
+  addHiddenInput('first_name', firstName);
+  addHiddenInput('last_name', lastName);
+  addHiddenInput('user_location, userLocation');
 }
 
 function addHiddenInput(name, value) {
