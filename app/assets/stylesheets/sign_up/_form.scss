@@ -32,13 +32,13 @@
       bottom: 15px;
     }
 
-    .signup-interests-instructions {
+    .signup-instructions-two {
       bottom: 0;
       font-size: 1rem;
     }
 
-    .selected-interest,
-    .selected-interest:active {
+    .selected-item,
+    .selected-item:active {
       border-style: dashed;
       color: white;
       white-space: nowrap;
@@ -51,6 +51,10 @@
       &:hover {
         background-color: white;
       }
+    }
+
+    .selected-occupation {
+      max-width: 175px;
     }
   }
 
