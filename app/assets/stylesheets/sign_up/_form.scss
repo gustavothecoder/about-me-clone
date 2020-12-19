@@ -41,6 +41,12 @@
     .selected-interest:active {
       border-style: dashed;
       color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      height: 35px;
+      min-width: 60px;
+      max-width: 125px;
+      font-size: 0.9rem;
 
       &:hover {
         background-color: white;
