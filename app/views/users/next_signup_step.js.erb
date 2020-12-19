@@ -21,6 +21,10 @@ function updateNavbar() {
   $('.navbar-signup').css('background-color', '#0a84d0');
 }
 
+function addHiddenInput(name, value) {
+  $('form').append(`<input type="hidden" id=${name} name=${name} value=${value}>`);
+}
+
 function prepareSignupStepThree() {
   firstName = $('#first_name').val();
   lastName = $('#last_name').val();
@@ -40,8 +44,47 @@ function prepareSignupStepFour() {
   addHiddenInput('first_name', firstName);
   addHiddenInput('last_name', lastName);
   addHiddenInput('user_location, userLocation');
+  $('li[interest]').click(function() { selectToggle(this); });
+  $('.selected-interest').click(function() { 
+    deselectElement(this); 
+    submitButtonToggle();
+  });
 }
 
-function addHiddenInput(name, value) {
-  $('form').append(`<input type="hidden" id=${name} name=${name} value=${value}>`);
+function selectToggle(element) {
+  if (userHasAlreadySelectedFiveInterests() && !thisElementIsAlreadySelected(element))
+    return;
+  else if (thisElementIsAlreadySelected(element))
+    deselectElement(element);
+  else
+    selectElement(element);
+  submitButtonToggle();
+}
+
+function userHasAlreadySelectedFiveInterests() {
+  return $('.selected-interest:empty').length === 0;
+}
+
+function thisElementIsAlreadySelected(element) {
+  return $(`.selected-interest:contains(${$(element).text()})`).length === 1;
+}
+
+function deselectElement(element) {
+  const selectedItem = $(element).text();
+  if (selectedItem === '') return;
+
+  $(`li[interest]:contains(${selectedItem})`).css('color', '#0a84d0').css('background-color', 'white');
+  $(`.selected-interest:contains(${selectedItem})`).text('').css('background-color', 'white');
+}
+
+function selectElement(element) {
+  $(element).css('color', 'white').css('background-color', '#0a84d0');
+  $('.selected-interest:empty').first().text($(element).text()).css('background-color', '#0a84d0');
+}
+
+function submitButtonToggle() {
+  if ($('.selected-interest:empty').length < 3) 
+    $('.next-step-button').prop('disabled', false);
+  else
+    $('.next-step-button').prop('disabled', true);
 }
