@@ -3,12 +3,17 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:reason) { create(:reason) }
-  let(:user) { create(:user, reason: reason) }
+  let(:user) do
+    create(:user, username: '  gXh', email: 'GXH@email.com  ', password: '  123456a  ')
+  end
 
   describe 'Registered data' do
     it 'Must have a photo attached' do
       expect(user.photo.attached?).to be(true)
+    end
+
+    it 'Username must be without blanks' do
+      expect(user.username).to eq('gXh')
     end
   end
 
