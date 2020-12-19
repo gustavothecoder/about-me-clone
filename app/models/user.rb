@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   validates_presence_of :username, :email, :password, :first_name, :last_name, :location
   validates_uniqueness_of :username, :email
-  validates :username, length: { minimum: 3, maximum: 16 }
-  validates :password, length: { minimum: 6, maximum: 16 }
+  validates :username, length: { minimum: 3, maximum: 18 }
+  validates :password, length: { minimum: 6, maximum: 18 }
 
   belongs_to :reason
   has_one :user_page_design
