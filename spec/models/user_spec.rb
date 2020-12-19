@@ -82,9 +82,9 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context 'When the username is longer than 16 characters' do
+    context 'When the username is longer than 18 characters' do
       it 'Must not be valid' do
-        invalid_user = build(:user, username: 'gxxxxxxxxxxxxxxxh')
+        invalid_user = build(:user, username: 'gxxxxxxxxxxxxxxxxxxh')
         expect(invalid_user).to_not be_valid
       end
     end
@@ -96,9 +96,9 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context 'When the password is longer than 16 characters' do
+    context 'When the password is longer than 18 characters' do
       it 'Must not be valid' do
-        invalid_user = build(:user, password: '12345678910111213')
+        invalid_user = build(:user, password: '12345678910111213131')
         expect(invalid_user).to_not be_valid
       end
     end
