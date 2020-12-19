@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, maximum: 18 }
 
   before_save { self.username = username.strip if username.present? }
+  before_save { self.email = email.strip.downcase if email.present? }
 
   belongs_to :reason
   has_one :user_page_design
