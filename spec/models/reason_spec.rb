@@ -3,17 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe Reason, type: :model do
-  before(:all) do
-    @reason = create(:reason)
-  end
-
-  after(:all) do
-    @reason.destroy
-  end
+  let!(:reason) { create(:reason) }
 
   context 'When the reason is filled' do
     it 'Must be valid' do
-      expect(@reason).to be_valid
+      expect(reason).to be_valid
     end
   end
 
@@ -33,11 +27,11 @@ RSpec.describe Reason, type: :model do
 
   describe 'Relationships' do
     describe 'has_many users' do
-      let!(:user) { create(:user, reason: @reason) }
-      let!(:second_user) { create(:user, reason: @reason) }
+      let!(:user) { create(:user, reason: reason) }
+      let!(:second_user) { create(:user, reason: reason) }
 
       it 'Must have two users' do
-        expect(@reason.users.count).to eq(2)
+        expect(reason.users.count).to eq(2)
       end
     end
   end
