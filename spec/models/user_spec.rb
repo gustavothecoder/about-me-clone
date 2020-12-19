@@ -19,6 +19,10 @@ RSpec.describe User, type: :model do
     it 'E-mail must be in lower case and without blanks' do
       expect(user.email).to eq('gxh@email.com')
     end
+
+    it 'Password must be without blanks' do
+      expect(user.password).to eq('123456a')
+    end
   end
 
   describe 'Validations' do
