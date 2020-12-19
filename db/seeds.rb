@@ -6,4 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-load "#{Rails.root}/db/seeds/interests_seed.rb"
+load "#{Rails.root}/db/seeds/interests.rb"
+load "#{Rails.root}/db/seeds/occupations.rb"
