@@ -61,7 +61,7 @@ function prepareSignupStepFour() {
 }
 
 function selectToggle(element, maxNumberOfBlankFields = 2) {
-  if (userHasAlreadySelectedFiveInterests() && !thisElementIsAlreadySelected(element))
+  if (userHasAlreadySelectedTheItems() && !thisElementIsAlreadySelected(element))
     return;
   else if (thisElementIsAlreadySelected(element))
     deselectElement(element);
@@ -70,7 +70,7 @@ function selectToggle(element, maxNumberOfBlankFields = 2) {
   submitButtonToggle(maxNumberOfBlankFields);
 }
 
-function userHasAlreadySelectedFiveInterests() {
+function userHasAlreadySelectedTheItems() {
   return $('.selected-item:empty').length === 0;
 }
 
@@ -120,7 +120,6 @@ function prepareSignupStepFive() {
 function prepareSignupStepSix() {
   $('.selected-item').each((index, item) => {
     const value = $(item).val();
-    console.log(value)
     if (value !== 0) userOccupations.push(value);
   });
   $('.signup-form-area').detach();
