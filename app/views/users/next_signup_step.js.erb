@@ -125,9 +125,20 @@ function prepareSignupStepSix() {
   $('.signup-form-area').detach();
   $('.main-signup').append('<%= j (render 'signup_step_six') %>');
   addHiddenInputForAllFilledItems();
-  $('li[item-to-select]').click(function() { selectToggle(this, 0); });
-  $('.selected-item').click(function() { 
+  $('li[item-to-select]').click(function() { 
+    addReasonInput(this);
+    selectToggle(this, 0);
+  });
+  $('.selected-item').click(function() {
+    $("input[name='reason']").detach();
     deselectElement(this); 
     submitButtonToggle(0);
   });
+}
+
+function addReasonInput(reason) {
+  if (!userHasAlreadySelectedTheItems()) {
+    $("input[name='reason']").detach();
+    addHiddenInput('reason', $(reason).val())
+  }
 }
