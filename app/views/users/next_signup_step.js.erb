@@ -1,5 +1,6 @@
 <% if @step == '2' %>
-  let email, firstName, lastName, userLocation, userInterests = [];
+  let email, firstName, lastName, userLocation;
+  let userInterests = [], userOccupations = [];
   prepareSignupStepTwo();
 <% elsif @step == '3' %>
   prepareSignupStepThree();
@@ -7,6 +8,8 @@
   prepareSignupStepFour();
 <% elsif @step == '5' %>
   prepareSignupStepFive();
+<% elsif @step == '6' %>
+  prepareSignupStepSix();
 <% end %>
 
 function prepareSignupStepTwo() {
@@ -14,13 +17,22 @@ function prepareSignupStepTwo() {
   email = $('#email').val();
   $('.signup-form-area').detach();
   $('.main-signup').append('<%= j (render 'signup_step_two') %>');
-  addHiddenInput('email', email);
+  addHiddenInputForAllFilledItems();
 }
 
 function updateNavbar() {
   $('.navbar-nav').detach();
   $('.navbar-brand').css('color', 'white');
   $('.navbar-signup').css('background-color', '#0a84d0');
+}
+
+function addHiddenInputForAllFilledItems() {
+  if (email !== undefined) addHiddenInput('email', email);
+  if (firstName !== undefined) addHiddenInput('first_name', firstName);
+  if (lastName !== undefined) addHiddenInput('last_name', lastName);
+  if (userLocation !== undefined) addHiddenInput('user_location', userLocation);
+  if (userInterests.length > 0) addHiddenInput('user_interests', userInterests);
+  if (userOccupations.length > 0) addHiddenInput('user_occupations', userOccupations);
 }
 
 function addHiddenInput(name, value) {
@@ -33,19 +45,14 @@ function prepareSignupStepThree() {
   $('.signup-form-area').detach();
   $('.main-signup').append('<%= j (render 'signup_step_three') %>');
   $('.step-description').text(`Where are you, ${firstName}?`);
-  addHiddenInput('email', email);
-  addHiddenInput('first_name', firstName);
-  addHiddenInput('last_name', lastName);
+  addHiddenInputForAllFilledItems();
 }
 
 function prepareSignupStepFour() {
   userLocation = $('#user_location').val();
   $('.signup-form-area').detach();
   $('.main-signup').append('<%= j (render 'signup_step_four') %>');
-  addHiddenInput('email', email);
-  addHiddenInput('first_name', firstName);
-  addHiddenInput('last_name', lastName);
-  addHiddenInput('user_location, userLocation');
+  addHiddenInputForAllFilledItems();
   $('li[item-to-select]').click(function() { selectToggle(this); });
   $('.selected-item').click(function() { 
     deselectElement(this); 
@@ -53,14 +60,14 @@ function prepareSignupStepFour() {
   });
 }
 
-function selectToggle(element) {
+function selectToggle(element, maxNumberOfBlankFields = 2) {
   if (userHasAlreadySelectedFiveInterests() && !thisElementIsAlreadySelected(element))
     return;
   else if (thisElementIsAlreadySelected(element))
     deselectElement(element);
   else
     selectElement(element);
-  submitButtonToggle();
+  submitButtonToggle(maxNumberOfBlankFields);
 }
 
 function userHasAlreadySelectedFiveInterests() {
@@ -84,8 +91,8 @@ function selectElement(element) {
   $('.selected-item:empty').first().text($(element).text()).css('background-color', '#0a84d0');
 }
 
-function submitButtonToggle() {
-  if ($('.selected-item:empty').length < 3) 
+function submitButtonToggle(maxNumberOfBlankFields) {
+  if ($('.selected-item:empty').length <= maxNumberOfBlankFields) 
     $('.next-step-button').prop('disabled', false);
   else
     $('.next-step-button').prop('disabled', true);
@@ -98,14 +105,26 @@ function prepareSignupStepFive() {
   });
   $('.signup-form-area').detach();
   $('.main-signup').append('<%= j (render 'signup_step_five') %>');
-  addHiddenInput('email', email);
-  addHiddenInput('first_name', firstName);
-  addHiddenInput('last_name', lastName);
-  addHiddenInput('user_location, userLocation');
-  addHiddenInput('user_interests', userInterests);
+  addHiddenInputForAllFilledItems();
   $('li[item-to-select]').click(function() { selectToggle(this); });
   $('.selected-item').click(function() { 
     deselectElement(this); 
     submitButtonToggle();
+  });
+}
+
+function prepareSignupStepSix() {
+  $('.selected-item').each((index, item) => {
+    const value = $(item).text().trim();
+    console.log(value)
+    if (value !== '') userOccupations.push(value);
+  });
+  $('.signup-form-area').detach();
+  $('.main-signup').append('<%= j (render 'signup_step_six') %>');
+  addHiddenInputForAllFilledItems();
+  $('li[item-to-select]').click(function() { selectToggle(this, 0); });
+  $('.selected-item').click(function() { 
+    deselectElement(this); 
+    submitButtonToggle(0);
   });
 }
