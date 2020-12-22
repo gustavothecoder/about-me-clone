@@ -1,5 +1,5 @@
 <% if @step == '2' %>
-  let email, firstName, lastName, userLocation;
+  let email, firstName, lastName, userLocation, userReason;
   let userInterests = [], userOccupations = [];
   prepareSignupStepTwo();
 <% elsif @step == '3' %>
@@ -10,6 +10,8 @@
   prepareSignupStepFive();
 <% elsif @step == '6' %>
   prepareSignupStepSix();
+<% elsif @step == '7' %>
+  prepareSignupStepSeven();
 <% end %>
 
 function prepareSignupStepTwo() {
@@ -33,6 +35,7 @@ function addHiddenInputForAllFilledItems() {
   if (userLocation !== undefined) addHiddenInput('user_location', userLocation);
   if (userInterests.length > 0) addHiddenInput('user_interests', userInterests);
   if (userOccupations.length > 0) addHiddenInput('user_occupations', userOccupations);
+  if (userReason !== undefined) addHiddenInput('user_reason', userReason);
 }
 
 function addHiddenInput(name, value) {
@@ -141,4 +144,12 @@ function addReasonInput(reason) {
     $("input[name='reason']").detach();
     addHiddenInput('reason', $(reason).val())
   }
+}
+<%# ------------------------------- REFACTOR THIS FILE -------------------------------- %>
+
+function prepareSignupStepSeven() {
+  userReason = $('.selected-item').val();
+  $('.signup-form-area').detach();
+  $('.main-signup').append('<%= j (render 'signup_step_seven') %>');
+  addHiddenInputForAllFilledItems();
 }
