@@ -56,6 +56,10 @@ function prepareSignupStepFour() {
   $('.signup-form-area').detach();
   $('.main-signup').append('<%= j (render 'signup_step_four') %>');
   addHiddenInputForAllFilledItems();
+  addClickEventToItems();
+}
+
+function addClickEventToItems() {
   $('li[item-to-select]').click(function() { selectToggle(this); });
   $('.selected-item').click(function() { 
     deselectElement(this); 
@@ -113,11 +117,7 @@ function prepareSignupStepFive() {
   $('.signup-form-area').detach();
   $('.main-signup').append('<%= j (render 'signup_step_five') %>');
   addHiddenInputForAllFilledItems();
-  $('li[item-to-select]').click(function() { selectToggle(this); });
-  $('.selected-item').click(function() { 
-    deselectElement(this); 
-    submitButtonToggle();
-  });
+  addClickEventToItems();
 }
 
 function prepareSignupStepSix() {
@@ -145,7 +145,6 @@ function addReasonInput(reason) {
     addHiddenInput('reason', $(reason).val())
   }
 }
-<%# ------------------------------- REFACTOR THIS FILE -------------------------------- %>
 
 function prepareSignupStepSeven() {
   userReason = $('.selected-item').val();
