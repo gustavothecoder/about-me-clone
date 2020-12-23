@@ -13,7 +13,6 @@ class User < ApplicationRecord
   before_save { self.email = email.strip.downcase if email.present? }
   before_save { self.password = password.strip if password.present? }
 
-  belongs_to :reason
   has_one :user_page_design
   has_one :design, through: :user_page_design
   has_one :color, through: :user_page_design
