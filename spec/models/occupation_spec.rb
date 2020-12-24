@@ -33,10 +33,10 @@ RSpec.describe Occupation, type: :model do
 
   describe 'Relationships' do
     describe 'has_and_belongs_to_many users' do
+      let(:user) { create(:user) }
       let(:reason) { create(:reason) }
-      let(:user) { create(:user, reason: reason) }
       let!(:user_occupation) { create(:user_occupation, user: user, occupation: @occupation) }
-      let(:second_user) { create(:user, reason: reason) }
+      let(:second_user) { create(:user) }
       let!(:second_user_occupation) { create(:user_occupation, user: user, occupation: @occupation) }
 
       it 'Must have two users' do

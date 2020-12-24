@@ -122,10 +122,6 @@ RSpec.describe User, type: :model do
     let(:color) { create(:color) }
     let!(:user_page_design) { create(:user_page_design, user: user, design: design, color: color) }
 
-    describe 'belongs_to reason' do
-      it { expect(user.reason).to_not be_nil }
-    end
-
     describe 'has_one user_page_design' do
       it { expect(user.user_page_design).to_not be_nil }
     end

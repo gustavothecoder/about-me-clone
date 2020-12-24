@@ -20,13 +20,13 @@ RSpec.describe Design, type: :model do
   end
 
   describe 'Relationships' do
+    let(:user) { create(:user) }
     let(:reason) { create(:reason) }
-    let(:user) { create(:user, reason: reason) }
     let(:color) { create(:color) }
     let!(:user_page_design) do
       create(:user_page_design, user: user, design: design, color: color)
     end
-    let(:second_user) { create(:user, reason: reason) }
+    let(:second_user) { create(:user) }
     let!(:second_user_page_design) do
       create(:user_page_design, user: second_user, design: design, color: color)
     end

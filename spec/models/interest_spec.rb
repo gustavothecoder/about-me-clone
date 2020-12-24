@@ -33,10 +33,10 @@ RSpec.describe Interest, type: :model do
 
   describe 'Relationships' do
     describe 'has_and_belongs_to_many users' do
+      let(:user) { create(:user) }
       let(:reason) { create(:reason) }
-      let(:user) { create(:user, reason: reason) }
       let!(:user_interest) { create(:user_interest, user: user, interest: @interest) }
-      let(:second_user) { create(:user, reason: reason) }
+      let(:second_user) { create(:user) }
       let!(:second_user_interest) { create(:user_interest, user: user, interest: @interest) }
 
       it 'Must have two users' do

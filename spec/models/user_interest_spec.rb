@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe UserInterest, type: :model do
+  let(:user) { create(:user) }
   let(:reason) { create(:reason) }
-  let(:user) { create(:user, reason: reason) }
   let(:interest) { create(:interest) }
   let(:user_interest) { create(:user_interest, user: user, interest: interest) }
 

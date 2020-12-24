@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe UserPageDesign, type: :model do
   let(:reason) { create(:reason) }
-  let(:user) { create(:user, reason: reason) }
+  let(:user) { create(:user) }
   let(:design) { create(:design) }
   let(:color) { create(:color) }
   let(:user_page_design) { create(:user_page_design, user: user, design: design, color: color) }

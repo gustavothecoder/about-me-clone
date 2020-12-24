@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe UserOccupation, type: :model do
   let(:reason) { create(:reason) }
-  let(:user) { create(:user, reason: reason) }
+  let(:user) { create(:user) }
   let(:occupation) { create(:occupation) }
   let(:user_occupation) { create(:user_occupation, user: user, occupation: occupation) }
 
