@@ -26,14 +26,18 @@ RSpec.describe Reason, type: :model do
   end
 
   describe 'Relationships' do
-    describe 'has_many users' do
-      let!(:user) { create(:user) }
-      let(:reason) { create(:reason) }
-      let!(:second_user) { create(:user) }
+    let(:reason) { create(:reason) }
+    let(:user) { create(:user) }
+    let!(:user_reason) { create(:user_reason, user: user, reason: reason) }
+    let(:second_user) { create(:user) }
+    let!(:other_user_reason) { create(:user_reason, user: second_user, reason: reason) }
 
-      it 'Must have two users' do
-        expect(reason.users.count).to eq(2)
-      end
+    describe 'has_many :user_reasons' do
+      it { expect(reason.user_reasons.count).to eq(2) }
+    end
+
+    describe 'has_many users' do
+      it { expect(reason.users.count).to eq(2) }
     end
   end
 end
