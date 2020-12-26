@@ -61,6 +61,10 @@
       position: relative;
       bottom: 35px;
     }
+
+    #preview-picture {
+      max-width: 225px;
+    }
   }
 
   .big-form {
@@ -72,4 +76,22 @@
   width: 580px;
   height: 650px;
   top: 10px;
+}
+
+.add-photo-signup-form-area {
+  height: 610px;
+  top: 30px;
+}
+
+.position-bottom {
+  position: relative;
+  top: 100px;
+}
+
+.width-165 {
+  width: 165px;
+}
+
+.hide {
+  display: none;
 }
