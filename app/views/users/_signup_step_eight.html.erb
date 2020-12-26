@@ -1,0 +1,16 @@
+<section class="signup-form-area add-photo-signup-form-area m-auto">
+  <header class="d-flex flex-column align-items-center pt-5">
+    <%= image_tag 'camera_icon.svg', size: '25x25' %>
+    <h2 class="step-description pt-1">Add a photo of yourself</h2>
+  </header>
+  <%= form_with url: '/next_signup_step/9', class: 'd-flex flex-column align-items-center justify-content-between' do |f| %>
+    <%= image_tag 'default_profile_photo.svg', size: '400x266', id: 'default-picture' %>
+    <%= image_tag '', id: 'preview-picture' %>
+    <%= f.file_field :photo, style: "display: none" %>
+    <div class="d-flex justify-content-around position-bottom w-100">
+      <%= f.button 'Add a photo', class: 'next-step-button btn w-100', type: 'button', id: 'add-photo-button' %>
+      <%= f.button 'Change Photo', class: 'select-button btn width-165 hide', type: 'button', id: 'change-photo-button' %>
+      <%= f.submit 'Looks Good! >', class: 'next-step-button btn width-165 hide', id: 'confirm-photo' %>
+    </div>
+  <% end %>
+</section>
