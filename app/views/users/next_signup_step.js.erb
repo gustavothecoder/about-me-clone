@@ -1,5 +1,5 @@
 <% if @step == '2' %>
-  let email, firstName, lastName, userLocation, userReason, website;
+  let email, firstName, lastName, userLocation, userReason, website, photo;
   let userInterests = [], userOccupations = [];
   prepareSignupStepTwo();
 <% elsif @step == '3' %>
@@ -14,6 +14,8 @@
   prepareSignupStepSeven();
 <% elsif @step == '8' %>
   prepareSignupStepEight();
+<% elsif @step == '9' %>
+  prepareSignupStepNine();
 <% end %>
 
 function prepareSignupStepTwo() {
@@ -24,10 +26,10 @@ function prepareSignupStepTwo() {
   addHiddenInputForAllFilledItems();
 }
 
-function updateNavbar() {
+function updateNavbar(brandColor = 'white', signupColor = '#0a84d0') {
   $('.navbar-nav').detach();
-  $('.navbar-brand').css('color', 'white');
-  $('.navbar-signup').css('background-color', '#0a84d0');
+  $('.navbar-brand').css('color', brandColor);
+  $('.navbar-signup').css('background-color', signupColor);
 }
 
 function addHiddenInputForAllFilledItems() {
@@ -39,6 +41,7 @@ function addHiddenInputForAllFilledItems() {
   if (userOccupations.length > 0) addHiddenInput('user_occupations', userOccupations);
   if (userReason !== undefined) addHiddenInput('user_reason', userReason);
   if (website !== undefined) addHiddenInput('website', website);
+  if (photo !== undefined) addHiddenInput('photo', photo);
 }
 
 function addHiddenInput(name, value) {
@@ -182,4 +185,52 @@ function changeTheButtonsDisplayed() {
   $('#add-photo-button').detach();
   $('#change-photo-button').show();
   $('#confirm-photo').show();
+}
+
+function prepareSignupStepNine() {
+  photo = $('#preview-picture').attr('src');
+  updateNavbar('#0a84d0', 'white');
+  $('.signup-form-area').detach();
+  $('.main-signup').append('<%= j (render 'signup_step_nine') %>');
+  $('.layout-example').click(function() { selectLayoutToggle(this); });
+  $('.color-ball').click(function() { selectColorToggle(this); });
+  addHiddenInputForAllFilledItems();
+}
+
+function selectLayoutToggle(layout) {
+  if ($(layout).attr('selected') === undefined)
+    selectLayout(layout);
+  else
+    deselectLayout(layout);
+}
+
+function selectLayout(layout) {
+  if ($('.layout-example[selected]').length > 0) return;
+
+  $(layout).css('border', '3px solid #0a84d0').css('width', '397px');
+  $(layout).attr('selected', true);
+}
+
+function deselectLayout(layout = '.layout-example[selected]') {
+  $(layout).css('border', 'none').css('width', '400px');
+  $(layout).removeAttr('selected');
+}
+
+function selectColorToggle(color) {
+  if ($(color).attr('selected') === undefined)
+    selectColor(color);
+  else
+    deselectColor(color);
+}
+
+function selectColor(color) {
+  if ($('.color-ball[selected]').length > 0) return;
+
+  $(color).css('border', '2px solid #000000');
+  $(color).attr('selected', true);
+}
+
+function deselectColor(color = '.color-ball[selected]') {
+  $(color).css('border', 'none');
+  $(color).removeAttr('selected');
 }
