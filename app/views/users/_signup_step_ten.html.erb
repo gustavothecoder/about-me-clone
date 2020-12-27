@@ -1,0 +1,13 @@
+<section class="signup-form-area m-auto">
+  <header class="d-flex flex-column align-items-center pt-5">
+    <%= image_tag 'people_icon.svg', size: '25x25' %>
+    <h2 class="step-description pt-1">Choose your username and password</h2>
+  </header>
+  <%= form_with url: '/user/create', class: 'd-flex flex-column align-items-center justify-content-between mt-5 pb-3' do |f| %>
+    <%= f.text_field :username, placeholder: 'Username', required: true, class: 'centralize-input w-100 py-3 form-control' %>
+    <%= f.text_field :password, placeholder: 'Password', required: true, class: 'centralize-input w-100 py-3 form-control' %>
+    <%= f.text_field :password_confirmation, placeholder: 'Confirm Password', required: true, class: 'centralize-input w-100 py-3 form-control' %>
+    <p class="signup-instructions">Your password must be 8 to 16 characters long.</p>
+    <%= f.submit 'Next >', class: 'next-step-button btn w-100' %>
+  <% end %>
+</section>
