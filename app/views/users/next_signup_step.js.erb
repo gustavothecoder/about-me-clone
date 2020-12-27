@@ -1,5 +1,5 @@
 <% if @step == '2' %>
-  let email, firstName, lastName, userLocation, userReason, website, photo;
+  let email, firstName, lastName, userLocation, userReason, website, photo, layout, color;
   let userInterests = [], userOccupations = [];
   prepareSignupStepTwo();
 <% elsif @step == '3' %>
@@ -16,6 +16,8 @@
   prepareSignupStepEight();
 <% elsif @step == '9' %>
   prepareSignupStepNine();
+<% elsif @step == '10' %>
+  prepareSignupStepTen();
 <% end %>
 
 function prepareSignupStepTwo() {
@@ -42,6 +44,8 @@ function addHiddenInputForAllFilledItems() {
   if (userReason !== undefined) addHiddenInput('user_reason', userReason);
   if (website !== undefined) addHiddenInput('website', website);
   if (photo !== undefined) addHiddenInput('photo', photo);
+  if (layout !== undefined) addHiddenInput('layout', layout);
+  if (color !== undefined) addHiddenInput('color', color);
 }
 
 function addHiddenInput(name, value) {
@@ -233,4 +237,13 @@ function selectColor(color) {
 function deselectColor(color = '.color-ball[selected]') {
   $(color).css('border', 'none');
   $(color).removeAttr('selected');
+}
+
+function prepareSignupStepTen() {
+  updateNavbar();
+  layout = $('.layout-example[selected]').attr('value');
+  color = $('.color-ball[selected]').attr('value');
+  $('.signup-form-area').detach();
+  $('.main-signup').append('<%= j (render 'signup_step_ten') %>');
+  addHiddenInputForAllFilledItems();
 }
