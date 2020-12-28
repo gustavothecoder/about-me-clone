@@ -11,7 +11,7 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-  describe 'POST /next_signup_step/:step' do
+  describe 'POST next_signup_step' do
     context 'When an ajax call is made' do
       it 'Must render the next_signup_step template' do
         post '/next_signup_step/2', xhr: true
