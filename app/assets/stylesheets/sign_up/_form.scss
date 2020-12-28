@@ -37,6 +37,11 @@
       font-size: 1rem;
     }
 
+    .password-instructions {
+      bottom: 25px;
+      font-size: 1rem;
+    }
+
     .selected-item,
     .selected-item:active {
       border-style: dashed;
@@ -146,4 +151,8 @@
 
 .pointer {
   cursor: pointer;
+}
+
+.red {
+  color: $red;
 }
