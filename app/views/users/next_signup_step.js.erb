@@ -206,6 +206,7 @@ function selectLayoutToggle(layout) {
     selectLayout(layout);
   else
     deselectLayout(layout);
+  nextStepButtonToggle();
 }
 
 function selectLayout(layout) {
@@ -220,11 +221,19 @@ function deselectLayout(layout = '.layout-example[selected]') {
   $(layout).removeAttr('selected');
 }
 
+function nextStepButtonToggle() {
+  if ($('.layout-example[selected]').length > 0 && $('.color-ball[selected]').length > 0)
+    $('.next-step-button').prop('disabled', false);
+  else
+    $('.next-step-button').prop('disabled', true);
+}
+
 function selectColorToggle(color) {
   if ($(color).attr('selected') === undefined)
     selectColor(color);
   else
     deselectColor(color);
+  nextStepButtonToggle();
 }
 
 function selectColor(color) {
