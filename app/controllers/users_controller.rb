@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def next_signup_step
     @step = params[:step]
     @reason = Reason.find(params[:reason]) if @step == '7'
+    @step = 'email in use' if User.find_by_email(params[:email]).present?
     respond_to do |format|
       format.js
     end
