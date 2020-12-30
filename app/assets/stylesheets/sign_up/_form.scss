@@ -28,6 +28,10 @@
       color: $dark-text-color;
     }
 
+    .signup-email-instructions {
+      bottom: 20px;
+    }
+
     .signup-name-instructions {
       bottom: 15px;
     }
@@ -155,4 +159,8 @@
 
 .red {
   color: $red;
+}
+
+.white {
+  color: white;
 }
