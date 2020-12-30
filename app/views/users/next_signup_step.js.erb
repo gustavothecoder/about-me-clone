@@ -2,6 +2,8 @@
   let email, firstName, lastName, userLocation, userReason, website, photo, layout, color;
   let userInterests = [], userOccupations = [];
   prepareSignupStepTwo();
+<% elsif @step == 'email in use' %>
+  $('.signup-instructions-two').removeClass('white');
 <% elsif @step == '3' %>
   prepareSignupStepThree();
 <% elsif @step == '4' %>
