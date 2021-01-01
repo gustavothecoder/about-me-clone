@@ -1,5 +1,5 @@
 <% if @step == '2' %>
-  let email, firstName, lastName, userLocation, userReason, website, photo, layout, color;
+  let email, firstName, lastName, userLocation, userReason, website, photo, layout, color, username, password;
   let userInterests = [], userOccupations = [];
   prepareSignupStepTwo();
 <% elsif @step == 'email in use' %>
@@ -22,6 +22,8 @@
   prepareSignupStepTen();
 <% elsif @step == 'username in use' %>
   $('#warning').text('This username is already in use.').css('color', '#D92626');
+<% elsif @step == '11' %>
+  prepareSignupStepEleven();
 <% end %>
 
 function prepareSignupStepTwo() {
@@ -50,6 +52,8 @@ function addHiddenInputForAllFilledItems() {
   if (photo !== undefined) addHiddenInput('photo', photo);
   if (layout !== undefined) addHiddenInput('layout', layout);
   if (color !== undefined) addHiddenInput('color', color);
+  if (username !== undefined) addHiddenInput('username', username);
+  if (password !== undefined) addHiddenInput('password', password);
 }
 
 function addHiddenInput(name, value) {
@@ -271,4 +275,12 @@ function checkIfThePasswordsAreTheSame() {
     $('#warning').css('color', '#D92626');
     $('.next-step-button').prop('disabled', true);
   }
+}
+
+function prepareSignupStepEleven() {
+  username = $('#username').val();
+  password = $('#password').val();
+  $('.signup-form-area').detach();
+  $('.main-signup').append('<%= j (render 'signup_step_eleven') %>');
+  addHiddenInputForAllFilledItems();
 }
