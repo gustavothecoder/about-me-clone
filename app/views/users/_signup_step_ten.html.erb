@@ -3,12 +3,12 @@
     <%= image_tag 'people_icon.svg', size: '25x25' %>
     <h2 class="step-description pt-1">Choose your username and password</h2>
   </header>
-  <%= form_with url: '/user/create', class: 'd-flex flex-column align-items-center justify-content-between mt-5 pb-3' do |f| %>
+  <%= form_with url: '/next_signup_step/11', class: 'd-flex flex-column align-items-center justify-content-between mt-5 pb-3' do |f| %>
     <%= f.text_field :username, placeholder: 'Username', required: true, class: 'centralize-input w-100 py-3 form-control' %>
     <p class="signup-instructions password-instructions">Your password must be 8 to 16 characters long.</p>
     <%= f.password_field :password, placeholder: 'Password', required: true, class: 'centralize-input w-100 py-3 form-control' %>
     <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', required: true, class: 'centralize-input w-100 py-3 mt-2 form-control' %>
-    <p id="password-warning" class="signup-instructions-two red">The passwords are different.</p>
+    <p id="warning" class="signup-instructions-two white">The passwords are different.</p>
     <%= f.submit 'Next >', class: 'next-step-button btn w-100', disabled: true %>
   <% end %>
 </section>
