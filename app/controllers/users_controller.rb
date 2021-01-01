@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @step = params[:step]
     @reason = Reason.find(params[:reason]) if @step == '7'
     @step = 'email in use' if User.find_by_email(params[:email]).present?
+    @step = 'username in use' if User.find_by_username(params[:username]).present?
     respond_to do |format|
       format.js
     end
