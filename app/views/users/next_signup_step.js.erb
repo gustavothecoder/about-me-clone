@@ -20,6 +20,8 @@
   prepareSignupStepNine();
 <% elsif @step == '10' %>
   prepareSignupStepTen();
+<% elsif @step == 'username in use' %>
+  $('#warning').text('This username is already in use.').css('color', '#D92626');
 <% end %>
 
 function prepareSignupStepTwo() {
@@ -263,10 +265,10 @@ function prepareSignupStepTen() {
 
 function checkIfThePasswordsAreTheSame() {
   if ($('#password').val() === $('#password_confirmation').val()) {
-    $('#password-warning').css('color', '#FFFFFF');
+    $('#warning').css('color', '#FFFFFF');
     $('.next-step-button').prop('disabled', false);
   } else {
-    $('#password-warning').css('color', '#D92626');
+    $('#warning').css('color', '#D92626');
     $('.next-step-button').prop('disabled', true);
   }
 }
