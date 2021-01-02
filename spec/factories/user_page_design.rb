@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :user_page_design do
     user { build(:user) }
-    design { build(:design) }
+    design { [*0..2].sample }
     color { [*0..5].sample }
   end
 end
