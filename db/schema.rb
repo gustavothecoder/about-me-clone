@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_000707) do
+ActiveRecord::Schema.define(version: 2021_01_02_184622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,6 @@ ActiveRecord::Schema.define(version: 2020_12_24_000707) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "colors", force: :cascade do |t|
-    t.string "color"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "designs", force: :cascade do |t|
@@ -88,10 +82,8 @@ ActiveRecord::Schema.define(version: 2020_12_24_000707) do
   create_table "user_page_designs", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "design_id"
-    t.bigint "color_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["color_id"], name: "index_user_page_designs_on_color_id"
     t.index ["design_id"], name: "index_user_page_designs_on_design_id"
     t.index ["user_id"], name: "index_user_page_designs_on_user_id"
   end
