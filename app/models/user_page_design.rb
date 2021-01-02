@@ -2,9 +2,10 @@
 
 class UserPageDesign < ApplicationRecord
   validates :user_id, presence: true, uniqueness: true
-  validates_presence_of :design_id, :color_id
+  validates_presence_of :design_id
 
   belongs_to :design
-  belongs_to :color
   belongs_to :user
+
+  enum color: %i[blue pink purple orange green dark_gray]
 end
