@@ -121,8 +121,7 @@ RSpec.describe User, type: :model do
     let(:reason) { create(:reason) }
     let!(:user_reason) { create(:user_reason, user: user, reason: reason) }
     let(:design) { create(:design) }
-    let(:color) { create(:color) }
-    let!(:user_page_design) { create(:user_page_design, user: user, design: design, color: color) }
+    let!(:user_page_design) { create(:user_page_design, user: user, design: design) }
 
     describe 'has_one :user_reason' do
       it { expect(user.user_reason).to_not be_nil }
@@ -138,10 +137,6 @@ RSpec.describe User, type: :model do
 
     describe 'has_one design' do
       it { expect(user.design).to_not be_nil }
-    end
-
-    describe 'has_one color' do
-      it { expect(user.color).to_not be_nil }
     end
 
     describe 'has_and_belongs_to_many interests' do
