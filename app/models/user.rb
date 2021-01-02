@@ -19,5 +19,4 @@ class User < ApplicationRecord
   has_one :reason, through: :user_reason
   has_one :user_page_design
   has_one :design, through: :user_page_design
-  has_one :color, through: :user_page_design
 end
