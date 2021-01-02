@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_02_184622) do
+ActiveRecord::Schema.define(version: 2021_01_02_190213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2021_01_02_184622) do
     t.bigint "design_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "color", default: 0
     t.index ["design_id"], name: "index_user_page_designs_on_design_id"
     t.index ["user_id"], name: "index_user_page_designs_on_user_id"
   end
