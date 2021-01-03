@@ -3,6 +3,14 @@
 class UsersController < ApplicationController
   def new; end
 
+  def create
+    if Users::Create.call(params.permit!)
+      redirect_to user_url(username: params[:username])
+    else
+      redirect_to signup_url, alert: 'Your page cannot be created'
+    end
+  end
+
   def next_signup_step
     @step = params[:step]
     @reason = Reason.find(params[:reason]) if @step == '7'
