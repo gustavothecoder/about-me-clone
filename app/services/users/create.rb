@@ -61,7 +61,7 @@ module Users
     end
 
     def create_user_page_design(user_id)
-      UserPageDesign.create(user_id: user_id, design: @params[:layout], color: @params[:color])
+      UserPageDesign.create(user_id: user_id, design: @params[:layout].to_i, color: @params[:color].to_i)
     end
   end
 end
