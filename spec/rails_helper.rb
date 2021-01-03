@@ -41,9 +41,9 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with(:truncation, except: %w[occupations reasons interests])
   end
-  
+
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
