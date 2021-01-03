@@ -65,4 +65,15 @@ RSpec.describe Users::Create, type: :service do
       expect(created_user.user_page_design.color).to eq('pink')
     end
   end
+
+  context 'When there is a problem with the parameters' do
+    it 'The user must not be created' do
+      params[:email] = 'gxh2@email.com'
+      params[:username] = 'gxh2'
+      params[:first_name] = nil
+      result = Users::Create.call(params)
+      expect(result).to be(false)
+      expect(User.find_by_email(params[:email])).to be_nil
+    end
+  end
 end
