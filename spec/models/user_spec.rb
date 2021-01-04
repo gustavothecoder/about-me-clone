@@ -126,10 +126,6 @@ RSpec.describe User, type: :model do
       it { expect(user.user_reason).to_not be_nil }
     end
 
-    describe 'has_one :reason, through: user_reason' do
-      it { expect(user.reason).to_not be_nil }
-    end
-
     describe 'has_one user_page_design' do
       it { expect(user.user_page_design).to_not be_nil }
     end
