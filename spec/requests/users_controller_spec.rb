@@ -44,7 +44,7 @@ RSpec.describe 'Users', type: :request do
         expect(user).to_not be_nil
         expect(user.interests.count).to eq(3)
         expect(user.occupations.count).to eq(3)
-        expect(user.reason).to_not be_nil
+        expect(user.user_reason).to_not be_nil
         expect(user.user_page_design).to_not be_nil
       end
 
