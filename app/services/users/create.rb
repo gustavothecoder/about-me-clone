@@ -7,8 +7,14 @@ module Users
     end
 
     def self.call(params)
-      new(params).create_user_and_their_relationships
+      new(params).call
     end
+
+    def call
+      create_user_and_their_relationships
+    end
+
+    private
 
     def create_user_and_their_relationships
       ActiveRecord::Base.transaction do
@@ -19,8 +25,6 @@ module Users
     rescue ActiveRecord::ActiveRecordError
       false
     end
-
-    private
 
     def create_user
       photo = decode_photo_base64
