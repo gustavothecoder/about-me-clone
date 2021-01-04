@@ -66,11 +66,22 @@ RSpec.describe Users::Create, type: :service do
     end
   end
 
-  context 'When there is a problem with the parameters' do
+  context 'When there is a problem with the user parameters' do
     it 'The user must not be created' do
       params[:email] = 'gxh2@email.com'
       params[:username] = 'gxh2'
       params[:first_name] = nil
+      result = Users::Create.call(params)
+      expect(result).to be(false)
+      expect(User.find_by_email(params[:email])).to be_nil
+    end
+  end
+
+  context 'When there is a problem with the another parameter' do
+    it 'The user must not be created' do
+      params[:email] = 'gxh2@email.com'
+      params[:username] = 'gxh2'
+      params[:user_interests] = '3249,392,8934'
       result = Users::Create.call(params)
       expect(result).to be(false)
       expect(User.find_by_email(params[:email])).to be_nil
