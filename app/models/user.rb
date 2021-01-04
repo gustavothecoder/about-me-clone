@@ -16,6 +16,5 @@ class User < ApplicationRecord
   has_and_belongs_to_many :interests, dependent: :destroy
   has_and_belongs_to_many :occupations, dependent: :destroy
   has_one :user_reason
-  has_one :reason, through: :user_reason
   has_one :user_page_design
 end
