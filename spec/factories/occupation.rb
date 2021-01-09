@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :occupation do
-    occupation { 'software developer' }
+    occupation { Faker::Company.profession }
   end
 end
