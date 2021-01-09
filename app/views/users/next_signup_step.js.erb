@@ -44,7 +44,7 @@ function addHiddenInputForAllFilledItems() {
   if (email !== undefined) addHiddenInput('email', email);
   if (firstName !== undefined) addHiddenInput('first_name', firstName);
   if (lastName !== undefined) addHiddenInput('last_name', lastName);
-  if (userLocation !== undefined) addHiddenInput('user_location', userLocation);
+  if (userLocation !== undefined) addHiddenInput('location', userLocation);
   if (userInterests.length > 0) addHiddenInput('user_interests', userInterests);
   if (userOccupations.length > 0) addHiddenInput('user_occupations', userOccupations);
   if (userReason !== undefined) addHiddenInput('user_reason', userReason);
@@ -70,7 +70,7 @@ function prepareSignupStepThree() {
 }
 
 function prepareSignupStepFour() {
-  userLocation = $('#user_location').val();
+  userLocation = $('#location').val();
   $('.signup-form-area').detach();
   $('.main-signup').append('<%= j (render 'users/sign_up_steps/signup_step_four') %>');
   addHiddenInputForAllFilledItems();
