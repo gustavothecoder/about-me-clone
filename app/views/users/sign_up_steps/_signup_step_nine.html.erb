@@ -8,17 +8,17 @@
   </header>
   <%= form_with url: '/next_signup_step/10', class: 'd-flex flex-column align-items-center justify-content-between add-photo-signup-form-area' do |f| %>
     <div class="d-flex mt-4">
-      <%= image_tag 'layout_one.png', class: 'layout-example pointer mx-3', value: 1 %>
-      <%= image_tag 'layout_two.png', class: 'layout-example pointer mx-3', value: 2 %>
-      <%= image_tag 'layout_three.png', class: 'layout-example pointer mx-3', value: 3 %>
+      <%= image_tag 'layout_one.png', class: 'layout-example pointer mx-3', value: 0 %>
+      <%= image_tag 'layout_two.png', class: 'layout-example pointer mx-3', value: 1 %>
+      <%= image_tag 'layout_three.png', class: 'layout-example pointer mx-3', value: 2 %>
     </div>
     <div class="d-flex mt-5">
-      <div class="color-ball pointer blue mx-3" value=1 ></div>
-      <div class="color-ball pointer pink mx-3" value=2 ></div>
-      <div class="color-ball pointer purple mx-3" value=3 ></div>
-      <div class="color-ball pointer orange mx-3" value=4 ></div>
-      <div class="color-ball pointer green mx-3" value=5 ></div>
-      <div class="color-ball pointer dark-gray mx-3" value=6 ></div>
+      <div class="color-ball pointer blue mx-3" value=0 ></div>
+      <div class="color-ball pointer pink mx-3" value=1 ></div>
+      <div class="color-ball pointer purple mx-3" value=2 ></div>
+      <div class="color-ball pointer orange mx-3" value=3 ></div>
+      <div class="color-ball pointer green mx-3" value=4 ></div>
+      <div class="color-ball pointer dark-gray mx-3" value=5 ></div>
     </div>
     <%= f.submit 'Next >', class: 'next-step-button btn position-bottom width-165', disabled: true %>
   <% end %>
