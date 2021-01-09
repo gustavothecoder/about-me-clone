@@ -1,0 +1,31 @@
+@import "../variables";
+@import "./small";
+
+.background {
+  width: 100%;
+  height: 100vh;
+}
+
+.blue-background {
+  background: linear-gradient(135deg, #305B90 0%, #305B90 30%, #529bf5 100%);
+}
+
+.pink-background {
+  background: linear-gradient(135deg, #D31996 0%, #D31996 30%, #ff2bff 100%);
+}
+
+.purple-background {
+  background: linear-gradient(135deg, #6C45C4 0%, #6C45C4 30%, #b875ff 100%);
+}
+
+.orange-background {
+  background: linear-gradient(135deg, #F76B1D 0%, #F76B1D 30%, #ffb631 100%);
+}
+
+.green-background {
+  background: linear-gradient(135deg, #34731A 0%, #34731A 30%, #58c42c 100%);
+}
+
+.dark-gray-background {
+  background: linear-gradient(135deg, #4A4A4A 0%, #4A4A4A 30%, #7e7e7e 100%);
+}
