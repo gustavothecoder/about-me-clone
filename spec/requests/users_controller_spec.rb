@@ -49,7 +49,7 @@ RSpec.describe 'Users', type: :request do
       end
 
       it 'The user must be redirected to your page' do
-        expect(subject).to redirect_to(users_path(username: params[:username]))
+        expect(subject).to redirect_to('http://www.example.com/gxh')
       end
     end
 
