@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Occupation, type: :model do
   before(:all) do
-    @occupation = create(:occupation)
+    @occupation = create(:occupation, occupation: 'software developer')
   end
 
   after(:all) do
