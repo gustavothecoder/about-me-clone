@@ -3,17 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe Occupation, type: :model do
-  before(:all) do
-    @occupation = create(:occupation, occupation: 'software developer')
-  end
-
-  after(:all) do
-    @occupation.destroy
-  end
+  let!(:occupation) { create(:occupation, occupation: 'software developer') }
 
   context 'When the occupation is filled' do
     it 'Must be valid' do
-      expect(@occupation).to be_valid
+      expect(occupation).to be_valid
     end
   end
 
@@ -35,12 +29,12 @@ RSpec.describe Occupation, type: :model do
     describe 'has_and_belongs_to_many users' do
       let(:user) { create(:user) }
       let(:reason) { create(:reason) }
-      let!(:user_occupation) { create(:user_occupation, user: user, occupation: @occupation) }
+      let!(:user_occupation) { create(:user_occupation, user: user, occupation: occupation) }
       let(:second_user) { create(:user) }
-      let!(:second_user_occupation) { create(:user_occupation, user: user, occupation: @occupation) }
+      let!(:second_user_occupation) { create(:user_occupation, user: user, occupation: occupation) }
 
       it 'Must have two users' do
-        expect(@occupation.users.count).to eq(2)
+        expect(occupation.users.count).to eq(2)
       end
     end
   end
