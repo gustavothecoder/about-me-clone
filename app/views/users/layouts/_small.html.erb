@@ -1,0 +1,13 @@
+<div class="background <%= color %>-background d-flex justify-content-center align-items-center">
+  <section class="user-content-area">
+    <div class="content d-flex flex-column align-items-center w-75 m-auto">
+      <%= image_tag @user.photo, class: 'photo' %>
+      <p class="full-name mb-0"><%= full_name(@user) %></p>
+      <p class="occupations"><%= occupations_text(@user) %></p>
+      <a href=<%= user_website(@user) %> target="_blank" class="btn py-3 next-step-button reason-button <%= color %>">
+        <%= get_user_reason(@user) %>
+      </a>
+      <p class="summary mt-5"><%= user_summary(@user) %></p>
+    </div>
+  </section>
+</div>
