@@ -4,6 +4,28 @@ require 'rails_helper'
 require 'base64'
 
 RSpec.describe 'Users', type: :request do
+  describe 'GET show' do
+    context 'When the user exists' do
+      let(:user) { create(:user, username: 'gxh') }
+      let!(:user_occupation) { create(:user_occupation, user: user, occupation_id: 1) }
+      let!(:user_reason) { create(:user_reason, user: user, reason_id: 1, website: 'example.com') }
+      let!(:user_interest) { create(:user_interest, user: user, interest_id: 1) }
+      let!(:user_page_design) { create(:user_page_design, user: user, design: 0, color: 0) }
+
+      it 'Must return HTTP status 200' do
+        get '/gxh'
+        expect(response).to have_http_status(200)
+      end
+    end
+
+    context 'When the user does not exist' do
+      it 'Must redirect to the root' do
+        get '/gxh'
+        expect(response).to redirect_to(root_path)
+      end
+    end
+  end
+
   describe 'GET new' do
     it 'Must render the new template' do
       get '/signup'
