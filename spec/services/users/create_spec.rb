@@ -44,15 +44,15 @@ RSpec.describe Users::Create, type: :service do
     end
 
     it 'User interests must be Photography, Technology and Design' do
-      expect(created_user.interests.first.interest).to eq('Photography')
-      expect(created_user.interests.second.interest).to eq('Technology')
-      expect(created_user.interests.third.interest).to eq('Design')
+      expect(created_user.interests.first.name).to eq('Photography')
+      expect(created_user.interests.second.name).to eq('Technology')
+      expect(created_user.interests.third.name).to eq('Design')
     end
 
     it 'User occupations must be Student, Web Developer and Software Engineer' do
-      expect(created_user.occupations.first.occupation).to eq('Student')
-      expect(created_user.occupations.second.occupation).to eq('Web Developer')
-      expect(created_user.occupations.third.occupation).to eq('Software Engineer')
+      expect(created_user.occupations.first.name).to eq('Student')
+      expect(created_user.occupations.second.name).to eq('Web Developer')
+      expect(created_user.occupations.third.name).to eq('Software Engineer')
     end
 
     it 'User reason must be Attend my event and the website must be website.com' do
