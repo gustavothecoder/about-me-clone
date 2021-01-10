@@ -19,14 +19,14 @@ RSpec.describe Interest, type: :model do
 
   context 'When the interest is not filled' do
     it 'Must not be valid' do
-      invalid_interest = Interest.new(interest: nil)
+      invalid_interest = Interest.new(name: nil)
       expect(invalid_interest).to_not be_valid
     end
   end
 
   context 'When the interest has already been registered' do
     it 'Must not be valid' do
-      invalid_interest = Interest.new(interest: 'programming')
+      invalid_interest = Interest.new(name: 'programming')
       expect(invalid_interest).to_not be_valid
     end
   end
