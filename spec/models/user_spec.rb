@@ -132,7 +132,7 @@ RSpec.describe User, type: :model do
 
     describe 'has_and_belongs_to_many interests' do
       let(:first_interest) { create(:interest) }
-      let(:second_interest) { create(:interest, interest: 'games') }
+      let(:second_interest) { create(:interest, name: 'games') }
       let!(:first_user_interest) { create(:user_interest, user: user, interest: first_interest) }
       let!(:second_user_interest) { create(:user_interest, user: user, interest: second_interest) }
 
@@ -143,7 +143,7 @@ RSpec.describe User, type: :model do
 
     describe 'has_and_belongs_to_many occupations' do
       let(:first_occupation) { create(:occupation) }
-      let(:second_occupation) { create(:occupation, occupation: 'dev') }
+      let(:second_occupation) { create(:occupation, name: 'dev') }
       let!(:first_user_occupation) { create(:user_occupation, user: user, occupation: first_occupation) }
       let!(:second_user_occupation) { create(:user_occupation, user: user, occupation: second_occupation) }
 
