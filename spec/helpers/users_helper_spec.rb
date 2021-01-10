@@ -42,11 +42,11 @@ RSpec.describe UsersHelper, type: :helper do
     subject { user_summary(user) }
 
     it { is_expected.to include(user.first_name) }
-    it { is_expected.to include(Occupation.find(1).occupation) }
+    it { is_expected.to include(Occupation.find(1).name) }
     it { is_expected.to include(user.location) }
-    it { is_expected.to include(Interest.find(1).interest) }
-    it { is_expected.to include(Interest.find(2).interest) }
-    it { is_expected.to include(Interest.find(3).interest) }
+    it { is_expected.to include(Interest.find(1).name) }
+    it { is_expected.to include(Interest.find(2).name) }
+    it { is_expected.to include(Interest.find(3).name) }
     it { is_expected.to include(user.user_reason.reason.reason) }
   end
 end
