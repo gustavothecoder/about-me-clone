@@ -3,17 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe Interest, type: :model do
-  before(:all) do
-    @interest = create(:interest)
-  end
-
-  after(:all) do
-    @interest.destroy
-  end
+  let!(:interest) { create(:interest) }
 
   context 'When the interest is filled' do
     it 'Must be valid' do
-      expect(@interest).to be_valid
+      expect(interest).to be_valid
     end
   end
 
@@ -35,12 +29,12 @@ RSpec.describe Interest, type: :model do
     describe 'has_and_belongs_to_many users' do
       let(:user) { create(:user) }
       let(:reason) { create(:reason) }
-      let!(:user_interest) { create(:user_interest, user: user, interest: @interest) }
+      let!(:user_interest) { create(:user_interest, user: user, interest: interest) }
       let(:second_user) { create(:user) }
-      let!(:second_user_interest) { create(:user_interest, user: user, interest: @interest) }
+      let!(:second_user_interest) { create(:user_interest, user: user, interest: interest) }
 
       it 'Must have two users' do
-        expect(@interest.users.count).to eq(2)
+        expect(interest.users.count).to eq(2)
       end
     end
   end
