@@ -9,7 +9,7 @@
   <%= form_with url: '/next_signup_step/5', class: 'big-form d-flex flex-column align-items-center justify-content-between' do |f| %>
     <p class="signup-instructions signup-instructions-two">Choice of three to five insterests.</p>
     <ul class="w-100 d-flex justify-content-center flex-wrap overflow-auto px-1">
-      <% Interest.pluck(:id, :interest).each do |interest| %>
+      <% Interest.pluck(:id, :name).each do |interest| %>
         <li item-to-select class="select-button btn btn-outline-primary my-1 ml-1" value=<%= interest[0] %> >
           <%= interest[1] %>
         </li>
