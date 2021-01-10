@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  def show
+    @user = User.find_by_username(params[:username])
+  end
+
   def new; end
 
   def create
     if Users::Create.call(params.permit!)
-      redirect_to user_url(username: params[:username])
+      redirect_to "/#{params[:username]}"
     else
       redirect_to signup_url, alert: 'Your page cannot be created'
     end
