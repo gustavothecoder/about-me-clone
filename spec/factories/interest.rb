@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :interest do
-    interest { 'programming' }
+    name { 'programming' }
   end
 end
