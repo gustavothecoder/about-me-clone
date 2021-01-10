@@ -1,0 +1,28 @@
+@import "../variables";
+
+.user-content-area {
+  height: 90vh;
+  position: absolute;
+  bottom: 0;
+
+  .basic-info {
+    position: absolute;
+    bottom: 250px;
+
+    .full-name,
+    .occupations {
+      color:white;
+      text-shadow: 0px 0px 5px black;
+    }
+  }
+
+  .reason-button:hover {
+    background-color: $pink;
+  }
+
+  .user-info {
+    background-color: white;
+    position: absolute;
+    bottom: 25px;
+  }
+}
