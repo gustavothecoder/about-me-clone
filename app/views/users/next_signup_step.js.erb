@@ -30,7 +30,7 @@ function prepareSignupStepTwo() {
   updateNavbar();
   email = $('#email').val();
   $('.signup-form-area').detach();
-  $('.main-signup').append('<%= j (render 'users/sign_up_steps/signup_step_two') %>');
+  $('.main-signup').append('<%= j (render 'users/sign_up_steps/two') %>');
   addHiddenInputForAllFilledItems();
 }
 
@@ -64,7 +64,7 @@ function prepareSignupStepThree() {
   firstName = $('#first_name').val();
   lastName = $('#last_name').val();
   $('.signup-form-area').detach();
-  $('.main-signup').append('<%= j (render 'users/sign_up_steps/signup_step_three') %>');
+  $('.main-signup').append('<%= j (render 'users/sign_up_steps/three') %>');
   $('.step-description').text(`Where are you, ${firstName}?`);
   addHiddenInputForAllFilledItems();
 }
@@ -72,7 +72,7 @@ function prepareSignupStepThree() {
 function prepareSignupStepFour() {
   userLocation = $('#location').val();
   $('.signup-form-area').detach();
-  $('.main-signup').append('<%= j (render 'users/sign_up_steps/signup_step_four') %>');
+  $('.main-signup').append('<%= j (render 'users/sign_up_steps/four') %>');
   addHiddenInputForAllFilledItems();
   addClickEventToItems();
 }
@@ -133,7 +133,7 @@ function prepareSignupStepFive() {
     if (value !== 0) userInterests.push(value);
   });
   $('.signup-form-area').detach();
-  $('.main-signup').append('<%= j (render 'users/sign_up_steps/signup_step_five') %>');
+  $('.main-signup').append('<%= j (render 'users/sign_up_steps/five') %>');
   addHiddenInputForAllFilledItems();
   addClickEventToItems();
 }
@@ -144,7 +144,7 @@ function prepareSignupStepSix() {
     if (value !== 0) userOccupations.push(value);
   });
   $('.signup-form-area').detach();
-  $('.main-signup').append('<%= j (render 'users/sign_up_steps/signup_step_six') %>');
+  $('.main-signup').append('<%= j (render 'users/sign_up_steps/six') %>');
   addHiddenInputForAllFilledItems();
   $('li[item-to-select]').click(function() { 
     addReasonInput(this);
@@ -167,14 +167,14 @@ function addReasonInput(reason) {
 function prepareSignupStepSeven() {
   userReason = $('.selected-item').val();
   $('.signup-form-area').detach();
-  $('.main-signup').append('<%= j (render 'users/sign_up_steps/signup_step_seven') %>');
+  $('.main-signup').append('<%= j (render 'users/sign_up_steps/seven') %>');
   addHiddenInputForAllFilledItems();
 }
 
 function prepareSignupStepEight() {
   website = $('#website').val();
   $('.signup-form-area').detach();
-  $('.main-signup').append('<%= j (render 'users/sign_up_steps/signup_step_eight') %>');
+  $('.main-signup').append('<%= j (render 'users/sign_up_steps/eight') %>');
   $('#add-photo-button').click(() => $('#photo').click());
   $('#change-photo-button').click(() => $('#photo').click());
   $('#photo').change(function () { showUploadedPhoto(this) });
@@ -203,7 +203,7 @@ function prepareSignupStepNine() {
   photo = $('#preview-picture').attr('src');
   updateNavbar('#0a84d0', 'white');
   $('.signup-form-area').detach();
-  $('.main-signup').append('<%= j (render 'users/sign_up_steps/signup_step_nine') %>');
+  $('.main-signup').append('<%= j (render 'users/sign_up_steps/nine') %>');
   $('.layout-example').click(function() { selectLayoutToggle(this); });
   $('.color-ball').click(function() { selectColorToggle(this); });
   addHiddenInputForAllFilledItems();
@@ -261,7 +261,7 @@ function prepareSignupStepTen() {
   layout = $('.layout-example[selected]').attr('value');
   color = $('.color-ball[selected]').attr('value');
   $('.signup-form-area').detach();
-  $('.main-signup').append('<%= j (render 'users/sign_up_steps/signup_step_ten') %>');
+  $('.main-signup').append('<%= j (render 'users/sign_up_steps/ten') %>');
   $('#password').change(checkIfThePasswordsAreTheSame);
   $('#password_confirmation').change(checkIfThePasswordsAreTheSame);
   addHiddenInputForAllFilledItems();
@@ -281,6 +281,6 @@ function prepareSignupStepEleven() {
   username = $('#username').val();
   password = $('#password').val();
   $('.signup-form-area').detach();
-  $('.main-signup').append('<%= j (render 'users/sign_up_steps/signup_step_eleven') %>');
+  $('.main-signup').append('<%= j (render 'users/sign_up_steps/eleven') %>');
   addHiddenInputForAllFilledItems();
 }
