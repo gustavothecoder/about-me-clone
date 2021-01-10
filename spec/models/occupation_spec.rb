@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Occupation, type: :model do
-  let!(:occupation) { create(:occupation, occupation: 'software developer') }
+  let!(:occupation) { create(:occupation, name: 'software developer') }
 
   context 'When the occupation is filled' do
     it 'Must be valid' do
@@ -13,14 +13,14 @@ RSpec.describe Occupation, type: :model do
 
   context 'When the occupation is not filled' do
     it 'Must not be valid' do
-      invalid_occupation = Occupation.new(occupation: nil)
+      invalid_occupation = Occupation.new(name: nil)
       expect(invalid_occupation).to_not be_valid
     end
   end
 
   context 'When the occupation has already been registered' do
     it 'Must not be valid' do
-      invalid_occupation = Occupation.new(occupation: 'software developer')
+      invalid_occupation = Occupation.new(name: 'software developer')
       expect(invalid_occupation).to_not be_valid
     end
   end
