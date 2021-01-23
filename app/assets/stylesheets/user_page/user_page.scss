@@ -30,3 +30,36 @@
 .dark-gray-background {
   background: linear-gradient(135deg, #4A4A4A 0%, #4A4A4A 30%, #7e7e7e 100%);
 }
+
+.photo {
+  border-radius: 50%;
+  width: 150px;
+  height: auto;
+  position: relative;
+  bottom: 80px;
+}
+
+.full-name {
+  font-size: 1.5rem;
+  color: $dark-text-color;
+  font-weight: bold;
+}
+
+.occupations {
+  font-size: 1.2rem;
+  color: $dark-text-color;
+  font-weight: bold;
+}
+
+.reason-button {
+  width: 330px;
+
+  &:hover {
+    background-color: $dark-blue;
+  }
+}
+
+.summary {
+  text-align: center;
+  color: $default-text-color;
+}

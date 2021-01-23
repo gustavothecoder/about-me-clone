@@ -1,5 +1,5 @@
 <div class="background <%= color %>-background d-flex justify-content-center align-items-center">
-  <section class="user-content-area">
+  <section class="medium-user-content-area">
     <div class="w-100 m-auto d-flex flex-column align-items-center">
       <%= image_tag @user.photo, width: '100%' %>
       <div class="basic-info d-flex flex-column align-items-center">
@@ -7,7 +7,7 @@
         <p class="occupations"><%= occupations_text(@user) %></p>
       </div>
     </div>
-    <div class="user-info pt-5 w-100">
+    <div class="user-info w-100 py-3">
       <div class="d-flex flex-column align-items-center w-75 m-auto">
         <a href=<%= user_website(@user) %> target="_blank" class="btn py-3 next-step-button reason-button <%= color %>">
           <%= get_user_reason(@user) %>

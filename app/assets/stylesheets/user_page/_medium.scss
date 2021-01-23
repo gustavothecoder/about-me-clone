@@ -1,13 +1,16 @@
 @import "../variables";
 
-.user-content-area {
+.medium-user-content-area {
   height: 90vh;
+  width: 750px;
+  overflow: hidden;
   position: absolute;
   bottom: 0;
+  background-color: white;
 
   .basic-info {
     position: absolute;
-    bottom: 250px;
+    bottom: 220px;
 
     .full-name,
     .occupations {
@@ -23,6 +26,6 @@
   .user-info {
     background-color: white;
     position: absolute;
-    bottom: 25px;
+    bottom: 0px;
   }
 }
