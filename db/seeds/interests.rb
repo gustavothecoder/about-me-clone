@@ -64,4 +64,4 @@ puts 'Populating the interest table...'
   'Sailing',
   'Gardening',
   'Singing'
-].each { |interest| Interest.create(interest: interest) }
+].each { |interest| Interest.create(name: interest) }

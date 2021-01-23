@@ -42,4 +42,4 @@ puts 'Populating the occupations table...'
   'Public Speaker',
   'Life Coach',
   'Recruiter'
-].each { |occupation| Occupation.create(occupation: occupation) }
+].each { |occupation| Occupation.create(name: occupation) }
