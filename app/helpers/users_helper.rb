@@ -24,7 +24,7 @@ module UsersHelper
 
   def user_summary(user)
     "Greetings, I'm #{user.first_name}. I'm a #{user.occupations.first.name} livin in #{user.location}." \
-    "I am a fan of #{join_interests(user)}. You can #{get_user_reason(user)} with a click on the button above."
+    " I am a fan of #{join_interests(user)}. You can #{get_user_reason(user)} with a click on the button above."
   end
 
   private
