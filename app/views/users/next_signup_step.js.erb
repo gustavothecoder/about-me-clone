@@ -57,7 +57,7 @@ function addHiddenInputForAllFilledItems() {
 }
 
 function addHiddenInput(name, value) {
-  $('form').append(`<input type="hidden" id=${name} name=${name} value=${value}>`);
+  $('form').append(`<input type="hidden" id=${name} name=${name} value="${value}">`);
 }
 
 function prepareSignupStepThree() {
