@@ -1,0 +1,16 @@
+@import "../variables";
+
+.big-user-content-area {
+  width: 100%;
+  height: 100vh;
+  position: unset;
+  overflow: hidden;
+  
+  .reason-button {
+    width: 330px;
+
+    &:hover {
+      background-color: $purple;
+    }
+  }
+}
