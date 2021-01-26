@@ -9,3 +9,4 @@
 load "#{Rails.root}/db/seeds/interests.rb"
 load "#{Rails.root}/db/seeds/occupations.rb"
 load "#{Rails.root}/db/seeds/reasons.rb"
+load "#{Rails.root}/db/seeds/examples.rb"
