@@ -2,9 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe UsersHelper, type: :helper do
-  include UsersHelper
-
+RSpec.describe UserPresenter, type: :presenter do
   let(:user) { create(:user) }
   let!(:user_occupation) { create(:user_occupation, user: user, occupation_id: 1) }
   let!(:user_occupation2) { create(:user_occupation, user: user, occupation_id: 2) }
@@ -13,33 +11,34 @@ RSpec.describe UsersHelper, type: :helper do
   let!(:user_interest) { create(:user_interest, user: user, interest_id: 1) }
   let!(:user_interest2) { create(:user_interest, user: user, interest_id: 2) }
   let!(:user_interest3) { create(:user_interest, user: user, interest_id: 3) }
+  let!(:presenter) { UserPresenter.new(user) }
 
   describe 'full_name' do
     it 'Must return Gustavo Ribeiro' do
-      expect(full_name(user)).to eq('Gustavo Ribeiro')
+      expect(presenter.full_name).to eq('Gustavo Ribeiro')
     end
   end
 
   describe 'occupations_text' do
     it 'Must return Student, Web Developer, and Software Engineer in Piracicaba' do
-      expect(occupations_text(user)).to eq('Student, Web Developer, and Software Engineer in Piracicaba')
+      expect(presenter.occupations_text).to eq('Student, Web Developer, and Software Engineer in Piracicaba')
     end
   end
 
-  describe 'get_user_reason' do
+  describe 'reason' do
     it 'Must return Attend my event' do
-      expect(get_user_reason(user)).to eq('Attend my event')
+      expect(presenter.reason).to eq('Attend my event')
     end
   end
 
-  describe 'user_website' do
+  describe 'website' do
     it 'Must return example' do
-      expect(user_website(user)).to eq('example.com')
+      expect(presenter.website).to eq('example.com')
     end
   end
 
-  describe 'user_summary' do
-    subject { user_summary(user) }
+  describe 'summary' do
+    subject { presenter.summary }
 
     it { is_expected.to include(user.first_name) }
     it { is_expected.to include(Occupation.find(1).name) }
