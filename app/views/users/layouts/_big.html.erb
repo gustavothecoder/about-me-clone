@@ -5,13 +5,13 @@
   <div class="col-6 d-flex flex-column justify-content-center align-items-center">
     <div class="d-flex flex-column align-items-center w-50 m-auto">
       <div class="d-flex flex-column align-items-center">
-        <p class="full-name mb-0"><%= full_name(@user) %></p> 
-        <p class="occupations"><%= occupations_text(@user) %></p>
+        <p class="full-name mb-0"><%= @user.full_name %></p> 
+        <p class="occupations"><%= @user.occupations_text %></p>
       </div>
-      <a href=<%= user_website(@user) %> target="_blank" class="btn py-3 next-step-button reason-button <%= color %>">
-        <%= get_user_reason(@user) %>
+      <a href=<%= @user.website %> target="_blank" class="btn py-3 next-step-button reason-button <%= color %>">
+        <%= @user.reason %>
       </a>
-      <p class="summary mt-5"><%= user_summary(@user) %></p>
+      <p class="summary mt-5"><%= @user.summary %></p>
     </div>
   </div>
 </section>
