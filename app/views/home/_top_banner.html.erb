@@ -1,0 +1,35 @@
+<div class="banner-top ml-3 d-flex">
+  <div class="text-area mt-0 mt-lg-5">
+    <h1>Grow your audience.</h1>
+    <h1>Get more clients.</h1>
+    <div class="content-area col-10 p-0">
+      <p class="mb-0">Create a page to promote who you are and</p>
+      <p class="mt-0">what you do in one link.</p>
+      <%= link_to('Get your free page', signup_path, class: 'btn big-register-button w-100') %>
+      <div class="social-media-create-account d-flex justify-content-between my-3">
+        <button class="btn d-flex justify-content-between align-items-center col mr-2">
+          <%= image_tag 'facebook-logo.svg', size: '25x25' %>
+          <p class="mb-0">Facebook</p>
+        </button>
+        <button class="btn d-flex justify-content-between align-items-center col ml-2">
+          <%= image_tag 'google-logo.svg', size: '23x23' %>
+          <p class="mb-0">Google</p>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="image-area ml-0 ml-xl-5 d-flex align-items-end">
+    <div class="profile-1">
+      <%= image_tag 'profile_example_1.jpg', size: '220x325' %>
+      <button class="btn btn-outline-light profile-example-button" disabled>Attend my event</button>
+    </div>
+    <div class="profile-2">
+      <%= image_tag 'profile_example_2.jpg', size: '300x450' %>
+      <button class="btn btn-outline-light profile-example-button" disabled>Listen to my music</button>
+    </div>
+    <div class="profile-3">
+      <%= image_tag 'profile_example_3.jpg', size: '400x550' %>
+      <button class="btn btn-outline-light profile-example-button" disabled>Hire me</button>
+    </div>
+  </div>
+</div>
