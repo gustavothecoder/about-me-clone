@@ -14,25 +14,25 @@ RSpec.describe UserPresenter, type: :presenter do
   let!(:presenter) { UserPresenter.new(user) }
 
   describe 'full_name' do
-    it 'Must return Gustavo Ribeiro' do
+    it 'should return Gustavo Ribeiro' do
       expect(presenter.full_name).to eq('Gustavo Ribeiro')
     end
   end
 
   describe 'occupations_text' do
-    it 'Must return Student, Web Developer, and Software Engineer in Piracicaba' do
+    it 'should return Student, Web Developer, and Software Engineer in Piracicaba' do
       expect(presenter.occupations_text).to eq('Student, Web Developer, and Software Engineer in Piracicaba')
     end
   end
 
   describe 'reason' do
-    it 'Must return Attend my event' do
+    it 'should return Attend my event' do
       expect(presenter.reason).to eq('Attend my event')
     end
   end
 
   describe 'website' do
-    it 'Must return example' do
+    it 'should return example' do
       expect(presenter.website).to eq('example.com')
     end
   end
