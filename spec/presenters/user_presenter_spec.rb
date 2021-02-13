@@ -11,7 +11,16 @@ RSpec.describe UserPresenter, type: :presenter do
   let!(:user_interest) { create(:user_interest, user: user, interest_id: 1) }
   let!(:user_interest2) { create(:user_interest, user: user, interest_id: 2) }
   let!(:user_interest3) { create(:user_interest, user: user, interest_id: 3) }
+  let!(:user_page_design) { create(:user_page_design, user: user, design: 0, color: 0) }
   let!(:presenter) { UserPresenter.new(user) }
+
+  describe 'design' do
+    it { expect(presenter.design).to eq(user_page_design.design) }
+  end
+
+  describe 'color' do
+    it { expect(presenter.color).to eq(user_page_design.color) }
+  end
 
   describe 'full_name' do
     it 'should return Gustavo Ribeiro' do
