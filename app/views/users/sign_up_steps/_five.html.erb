@@ -9,11 +9,7 @@
   <%= form_with url: '/next_signup_step/6', class: 'big-form d-flex flex-column align-items-center justify-content-between' do |f| %>
     <p class="signup-instructions signup-instructions-two">Choice of one to three occupations/hobbies.</p>
     <ul class="w-100 d-flex justify-content-center flex-wrap overflow-auto px-1">
-      <% Occupation.pluck(:id, :name).each do |occupation| %>
-        <li item-to-select class="select-button btn btn-outline-primary my-1 ml-1" value=<%= occupation[0] %> >
-          <%= occupation[1] %>
-        </li>
-      <% end %>
+      <%= occupation_list %>
     </ul>
     <ul id="selected-items" class="w-100 d-flex justify-content-around px-1">
       <li class="selected-item increase-max-width select-button btn btn-outline-primary px-1"></li>
