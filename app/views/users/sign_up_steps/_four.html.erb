@@ -8,7 +8,7 @@
   </header>
   <%= form_with url: '/next_signup_step/5', class: 'big-form d-flex flex-column align-items-center justify-content-between' do |f| %>
     <p class="signup-instructions signup-instructions-two">Choice of three to five insterests.</p>
-    <%= interest_list %>
+    <%= selection_list_of(Interest.all) %>
     <ul id="selected-items" class="w-100 d-flex justify-content-around px-1">
       <li class="selected-item select-button btn btn-outline-primary px-1"></li>
       <li class="selected-item select-button btn btn-outline-primary px-1"></li>
