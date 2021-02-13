@@ -5,22 +5,22 @@ require 'rails_helper'
 RSpec.describe Reason, type: :model do
   let!(:reason) { create(:reason) }
 
-  context 'When the reason is filled' do
+  context 'When the name is filled' do
     it 'Must be valid' do
       expect(reason).to be_valid
     end
   end
 
-  context 'When the reason is not filled' do
+  context 'When the name is not filled' do
     it 'Must not be valid' do
-      invalid_reason = Reason.new(reason: nil)
+      invalid_reason = Reason.new(name: nil)
       expect(invalid_reason).to_not be_valid
     end
   end
 
-  context 'When the reason has already been registered' do
+  context 'When the name has already been registered' do
     it 'Must not be valid' do
-      invalid_reason = Reason.new(reason: 'download my app')
+      invalid_reason = Reason.new(name: 'download my app')
       expect(invalid_reason).to_not be_valid
     end
   end

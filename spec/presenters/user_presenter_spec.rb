@@ -46,6 +46,6 @@ RSpec.describe UserPresenter, type: :presenter do
     it { is_expected.to include(Interest.find(1).name) }
     it { is_expected.to include(Interest.find(2).name) }
     it { is_expected.to include(Interest.find(3).name) }
-    it { is_expected.to include(user.user_reason.reason.reason) }
+    it { is_expected.to include(user.user_reason.reason.name) }
   end
 end

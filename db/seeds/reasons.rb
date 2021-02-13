@@ -32,4 +32,4 @@ puts 'Populating the reasons table...'
   ['Vote now', 'awareness page'],
   ['Register to vote', 'registration website'],
   ['Support my candidate', "candidate's website"]
-].each { |reason| Reason.create(reason: reason[0], keywords: reason[1]) }
+].each { |reason| Reason.create(name: reason[0], keywords: reason[1]) }

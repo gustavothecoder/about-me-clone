@@ -56,7 +56,7 @@ RSpec.describe Users::Create, type: :service do
     end
 
     it 'User reason must be Attend my event and the website must be website.com' do
-      expect(created_user.user_reason.reason.reason).to eq('Attend my event')
+      expect(created_user.user_reason.reason.name).to eq('Attend my event')
       expect(created_user.user_reason.website).to eq('website.com')
     end
 

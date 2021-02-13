@@ -4,7 +4,7 @@
   </div>
   <header class="d-flex flex-column align-items-center pt-5">
     <%= image_tag 'click_icon.svg', size: '27x27' %>
-    <h2 class="step-description pt-1"><%= @reason&.reason %></h2>
+    <h2 class="step-description pt-1"><%= @reason&.name %></h2>
   </header>
   <%= form_with url: '/next_signup_step/8', class: 'd-flex flex-column align-items-center justify-content-between' do |f| %>
     <p class="signup-instructions-two">Enter a link to your <%= @reason&.keywords %>.</p>

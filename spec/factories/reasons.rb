@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :reason do
-    reason { 'download my app' }
+    name { 'download my app' }
   end
 end
