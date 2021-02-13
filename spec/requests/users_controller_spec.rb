@@ -32,6 +32,20 @@ RSpec.describe UsersController, type: :request do
     end
   end
 
+  describe 'POST next_signup_step' do
+    context 'when an ajax call is made' do
+      it 'should render the next_signup_step template' do
+        post '/next_signup_step/2', xhr: true
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:next_signup_step)
+      end
+    end
+
+    context 'when a default request is made' do
+      it { expect { post '/next_signup_step/2' }.to raise_error(ActionController::UnknownFormat) }
+    end
+  end
+
   describe 'POST create' do
     let(:photo_base64) do
       photo = File.binread('public/test_active_storage.jpg')
@@ -91,20 +105,6 @@ RSpec.describe UsersController, type: :request do
         expect(response).to redirect_to(signup_path)
         expect(flash[:alert]).to eq('Your page cannot be created')
       end
-    end
-  end
-
-  describe 'POST next_signup_step' do
-    context 'when an ajax call is made' do
-      it 'should render the next_signup_step template' do
-        post '/next_signup_step/2', xhr: true
-        expect(response).to have_http_status(200)
-        expect(response).to render_template(:next_signup_step)
-      end
-    end
-
-    context 'when a default request is made' do
-      it { expect { post '/next_signup_step/2' }.to raise_error(ActionController::UnknownFormat) }
     end
   end
 end
