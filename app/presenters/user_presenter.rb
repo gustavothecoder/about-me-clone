@@ -19,7 +19,7 @@ class UserPresenter < BasePresenter
   end
 
   def reason
-    user_reason.reason.reason
+    user_reason.reason.name
   end
 
   def website
