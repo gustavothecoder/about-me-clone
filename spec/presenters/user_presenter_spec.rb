@@ -11,30 +11,31 @@ RSpec.describe UserPresenter, type: :presenter do
   let!(:user_interest) { create(:user_interest, user: user, interest_id: 1) }
   let!(:user_interest2) { create(:user_interest, user: user, interest_id: 2) }
   let!(:user_interest3) { create(:user_interest, user: user, interest_id: 3) }
+  let!(:user_page_design) { create(:user_page_design, user: user, design: 0, color: 0) }
   let!(:presenter) { UserPresenter.new(user) }
 
+  describe 'design' do
+    it { expect(presenter.design).to eq(user_page_design.design) }
+  end
+
+  describe 'color' do
+    it { expect(presenter.color).to eq(user_page_design.color) }
+  end
+
   describe 'full_name' do
-    it 'should return Gustavo Ribeiro' do
-      expect(presenter.full_name).to eq('Gustavo Ribeiro')
-    end
+    it { expect(presenter.full_name).to eq('Gustavo Ribeiro') }
   end
 
   describe 'occupations_text' do
-    it 'should return Student, Web Developer, and Software Engineer in Piracicaba' do
-      expect(presenter.occupations_text).to eq('Student, Web Developer, and Software Engineer in Piracicaba')
-    end
+    it { expect(presenter.occupations_text).to eq('Student, Web Developer, and Software Engineer in Piracicaba') }
   end
 
   describe 'reason' do
-    it 'should return Attend my event' do
-      expect(presenter.reason).to eq('Attend my event')
-    end
+    it { expect(presenter.reason).to eq('Attend my event') }
   end
 
   describe 'website' do
-    it 'should return example' do
-      expect(presenter.website).to eq('example.com')
-    end
+    it { expect(presenter.website).to eq('example.com') }
   end
 
   describe 'summary' do

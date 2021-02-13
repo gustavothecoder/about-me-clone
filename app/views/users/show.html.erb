@@ -1,7 +1,1 @@
-<% if @user.user_page_design.design == 'small' %>
-  <%= render 'users/layouts/small', color: @user.user_page_design.color %>
-<% elsif @user.user_page_design.design == 'medium' %>
-  <%= render 'users/layouts/medium', color: @user.user_page_design.color %>
-<% else %>
-  <%= render 'users/layouts/big', color: @user.user_page_design.color %>
-<% end %>
+<%= render "users/layouts/#{@user.design}", color: @user.color %>

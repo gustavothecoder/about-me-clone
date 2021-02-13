@@ -5,6 +5,14 @@ class UserPresenter < BasePresenter
     super(user)
   end
 
+  def design
+    user_page_design.design
+  end
+
+  def color
+    user_page_design.color
+  end
+
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end

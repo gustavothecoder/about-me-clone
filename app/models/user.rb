@@ -4,10 +4,10 @@ class User < ApplicationRecord
   has_secure_password
 
   has_one_attached :photo, dependent: :destroy
-  has_and_belongs_to_many :interests, dependent: :destroy
-  has_and_belongs_to_many :occupations, dependent: :destroy
   has_one :user_page_design, dependent: :destroy
   has_one :user_reason, dependent: :destroy
+  has_and_belongs_to_many :interests, dependent: :destroy
+  has_and_belongs_to_many :occupations, dependent: :destroy
 
   validates_presence_of :username, :email, :password, :first_name, :last_name, :location
   validates_uniqueness_of :username, :email
