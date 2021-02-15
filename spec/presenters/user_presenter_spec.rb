@@ -30,6 +30,10 @@ RSpec.describe UserPresenter, type: :presenter do
     it { expect(presenter.occupations_text).to eq('Student, Web Developer, and Software Engineer in Piracicaba') }
   end
 
+  describe 'interests_text' do
+    it { expect(presenter.interests_text).to eq('#photography #technology #design') }
+  end
+
   describe 'reason' do
     it { expect(presenter.reason).to eq('Attend my event') }
   end
