@@ -26,6 +26,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def examples; end
+
   private
 
   def check_that_the_data_sent_is_already_in_use
