@@ -1,0 +1,61 @@
+@import '../variables';
+
+.examples-area {
+  border-top: 1px solid $light-gray2;
+  width: 100%;
+  height: 100vh;
+  background-color: $very-light-gray;
+
+  h1 {
+    position: relative;
+    top: 50px;
+  }
+
+  section {
+    position: relative;
+    top: 75px;
+
+    a,
+    a:hover {
+      color: $dark-text-color;
+      text-decoration: none;
+  
+      .user-area {
+        background-color: white;
+        border-radius: 3px;
+        box-shadow: 0px 0px 0px 1px $light-gray2;
+        border: 3px solid $very-light-gray;
+        transition-property: border;
+        transition-duration: 0.25s;
+
+        &:hover {
+          border: 3px solid $blue-2;
+        }
+    
+        .photo-area {
+          width: 300px;
+          height: 300px;
+          overflow: hidden;
+        }
+
+        .name {
+          color: $dark-text-color;
+          font-size: 1.4rem;
+          font-weight: bold;
+        }
+
+        .occupations,
+        .interests {
+          color: $light-text-color;
+          font-size: 1.2rem;
+          font-weight: unset;
+        }
+
+        .interests {
+          position: relative;
+          top: 135px;
+        }
+      }
+    }
+  }
+}
