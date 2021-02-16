@@ -5,26 +5,34 @@
 
 @import './sign_up/sign_up';
 
-.blue {
+@import './examples/examples';
+
+.blue,
+.blue:hover {
   background-color: $dark-blue;
 }
 
-.pink {
+.pink,
+.pink:hover {
   background-color: $pink;
 }
 
-.purple {
+.purple,
+.purple:hover {
   background-color: $purple;
 }
 
-.orange {
+.orange,
+.orange:hover {
   background-color: $orange;
 }
 
-.green {
+.green,
+.green:hover {
   background-color: $green;
 }
 
-.dark-gray {
+.dark-gray,
+.dark-gray:hover {
   background-color: $dark-gray;
 }

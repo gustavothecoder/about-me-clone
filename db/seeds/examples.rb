@@ -5,6 +5,7 @@ puts 'Creating the examples...'
 luis_photo = File.binread('public/luis_gama.jpg')
 andre_photo = File.binread('public/andre_reboucas.jpg')
 jose_photo = File.binread('public/jose_do_patrocinio.jpg')
+angela_photo = File.binread('public/angela_davis.jpg')
 
 [
   {
@@ -52,6 +53,22 @@ jose_photo = File.binread('public/jose_do_patrocinio.jpg')
     layout: 2,
     color: 2,
     username: 'jose_do_patrocinio',
+    password: '123456a',
+    password_confirmation: '123456a'
+  },
+  {
+    email: 'angela.davis@email.com',
+    first_name: 'Angela',
+    last_name: 'Davis',
+    location: 'U.S.',
+    user_interests: '12,16,20,21,29',
+    user_occupations: '10,11',
+    user_reason: '7',
+    website: 'https://en.wikipedia.org/wiki/Angela_Davis',
+    photo: "data:image;base64,#{Base64.strict_encode64(angela_photo)}",
+    layout: 0,
+    color: 3,
+    username: 'angela_davis',
     password: '123456a',
     password_confirmation: '123456a'
   }

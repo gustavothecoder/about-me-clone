@@ -1,0 +1,20 @@
+<%= render 'shared/header' %>
+<main class="examples-area d-flex flex-column justify-content-around align-items center">
+  <h1 class="h2 text-center">Examples</h1>
+  <section class="d-flex justify-content-center align-items-center flex-wrap pb-5">
+    <% example_users.each do |user| %>
+      <a href="/<%= user.username%>" target="_blank" class="col-5 my-3">
+        <div class="user-area d-flex">
+          <div class="photo-area mr-5 w-50">
+            <%= image_tag user.photo, width: '300px' %>
+          </div>
+          <div class="w-50 overflow-auto">
+            <h3 class="name mt-4"><%= user.full_name %></h3>
+            <p class="occupations"><%= user.occupations_text %></p>
+            <p class="interests"><%= user.interests_text %></p>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </section>
+</main>

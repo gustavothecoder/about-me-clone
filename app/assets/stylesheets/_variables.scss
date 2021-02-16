@@ -9,6 +9,9 @@ $purple: #6C45C4;
 $orange: #F76B1D;
 $green: #34731A;
 $dark-gray: #4A4A4A;
+$light-gray: rgb(145, 145, 145);
+$light-gray2: rgb(199, 199, 199);
+$very-light-gray: #FDFDFC;
 $red: #D92626;
 
 $blue-gradient-1: linear-gradient(180deg,#26abd8,#1677b6);
@@ -17,7 +20,7 @@ $main-gradient: linear-gradient(-225deg,rgba(48,35,174,.4),rgba(83,160,253,.4) 3
 
 $dark-text-color: $dark-gray;
 $default-text-color:#717171;
-$light-text-color: rgb(145, 145, 145);
+$light-text-color: $light-gray;
 
 // Box shadows
 $default-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.25);

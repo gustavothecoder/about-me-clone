@@ -26,6 +26,10 @@ class UserPresenter < BasePresenter
     "#{text} in #{location}"
   end
 
+  def interests_text
+    interests.map { |interest| '#' + interest.name.downcase }.join(' ')
+  end
+
   def reason
     user_reason.reason.name
   end
