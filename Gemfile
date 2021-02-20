@@ -5,11 +5,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.8'
 
-gem 'bootstrap', '~> 4.5.0'
-gem 'faker'
-gem 'jquery-rails'
-gem 'rubocop'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Use postgresql as the database for Active Record
@@ -35,12 +30,17 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'bootstrap', '~> 4.5.0'
+gem 'jquery-rails', '~> 4.4.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
-  gem 'rspec-rails'
+  gem 'factory_bot_rails', '~> 6.1.0'
+  gem 'faker', '~> 2.10.1'
+  gem 'rails-controller-testing', '~> 1.0.5'
+  gem 'rspec-rails', '~> 4.0.1'
+  gem 'rubocop', '~> 0.87.1'
 end
 
 group :development do
@@ -51,7 +51,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'database_cleaner-active_record'
+  gem 'database_cleaner-active_record', '~> 1.8.0'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
