@@ -2,10 +2,10 @@
 
 puts 'Creating the examples...'
 
-luis_photo = File.binread('public/luis_gama.jpg')
-andre_photo = File.binread('public/andre_reboucas.jpg')
-jose_photo = File.binread('public/jose_do_patrocinio.jpg')
-angela_photo = File.binread('public/angela_davis.jpg')
+luis_photo = File.binread(Rails.root.join('public', 'luis_gama.jpg'))
+andre_photo = File.binread(Rails.root.join('public', 'andre_reboucas.jpg'))
+jose_photo = File.binread(Rails.root.join('public', 'jose_do_patrocinio.jpg'))
+angela_photo = File.binread(Rails.root.join('public', 'angela_davis.jpg'))
 
 [
   {
