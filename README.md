@@ -52,11 +52,11 @@ Run this command to install all dependencies:
 Run these commands to create and populate the database:
 
 ```
-  $ rake db:create
+  $ rails db:create
   
-  $ rake db:migrate
+  $ rails db:migrate && rails db:migrate RAILS_ENV=test
   
-  $ rake db:seed
+  $ rails db:seed && rails db:seed RAILS_ENV=test
 ```
 
 ### Testing
