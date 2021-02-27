@@ -43,6 +43,8 @@ Run this command to install all dependencies:
 
 ```
   $ bundle install
+  
+  $ yarn install
 ```
 
 ### Create and populate the database
