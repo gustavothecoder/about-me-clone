@@ -1,69 +1,67 @@
 @import '../variables';
 
-.banner-top {
-  .text-area {
-    z-index: 2;
+.text-area {
+  z-index: 2;
 
-    h1 {
-      font-weight: bold;
-      color: $dark-text-color;
+  h1 {
+    font-weight: bold;
+    color: $dark-text-color;
+  }
+
+  .content-area {
+    p {
+      color: $default-text-color;
     }
+  }
+}
 
-    .content-area {
-      p {
-        color: $default-text-color;
-      }
+.image-area {
+  margin-top: 550px;
+
+  .profile-1 {
+    box-shadow: $default-box-shadow;
+    width: 220px;
+    height: 325px;
+    position: absolute;
+    right: 800px;
+    
+    button {
+      left: 33px;
+      bottom: 65px;
+    }
+  }
+  
+  .profile-2 {
+    box-shadow: $default-box-shadow;
+    width: 300px;
+    height: 450px;
+    position: absolute;
+    right: 525px;
+    z-index: 1;
+
+    button {
+      left: 65px;
+      bottom: 65px;
+    }
+  }   
+  
+  .profile-3 {
+    box-shadow: $default-box-shadow;
+    width: 400px;
+    height: 550px;
+    position: absolute;
+    right: 150px;
+    overflow: hidden;
+
+    button {
+      left: 163px;
+      bottom: 65px;
     }
   }
 
-  .image-area {
-    margin-top: 550px;
-
-    .profile-1 {
-      box-shadow: $default-box-shadow;
-      width: 220px;
-      height: 325px;
-      position: absolute;
-      right: 800px;
-      
-      button {
-        left: 33px;
-        bottom: 65px;
-      }
-    }
-    
-    .profile-2 {
-      box-shadow: $default-box-shadow;
-      width: 300px;
-      height: 450px;
-      position: absolute;
-      right: 525px;
-      z-index: 1;
-
-      button {
-        left: 65px;
-        bottom: 65px;
-      }
-    }   
-    
-    .profile-3 {
-      box-shadow: $default-box-shadow;
-      width: 400px;
-      height: 550px;
-      position: absolute;
-      right: 150px;
-      overflow: hidden;
-
-      button {
-        left: 163px;
-        bottom: 65px;
-      }
-    }
-
-    .profile-example-button {
-      position: relative;
-      opacity: initial;
-      font-weight: bold;
-    }
+  .profile-example-button {
+    position: relative;
+    opacity: initial;
+    font-weight: bold;
   }
 }
