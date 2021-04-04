@@ -23,7 +23,7 @@ Connect with me on [LinkedIn](https://www.linkedin.com/in/gustavo-ribeiro-488b4a
 
 To execute this project you will need:
     
-  1. Ruby 2.6.6
+  1. Ruby 2.6.3
   2. Ruby on Rails 6.0.3
   3. PostgreSQL
 
