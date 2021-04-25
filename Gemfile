@@ -40,7 +40,7 @@ group :development, :test do
   gem 'faker', '~> 2.10.1'
   gem 'rails-controller-testing', '~> 1.0.5'
   gem 'rspec-rails', '~> 4.0.1'
-  gem 'rubocop', '~> 0.87.1'
+  gem 'rubocop', '~> 0.82.0'
 end
 
 group :development do
