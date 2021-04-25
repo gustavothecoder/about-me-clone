@@ -8,8 +8,6 @@
  
 This web app is a clone of [about.me](https://about.me/), that is, it allows you to create a personal presentation page. I started this project to improve my Ruby and Ruby on Rails skills, so i will be very happy if you can provide me with any feedback on the project, code, structure or anything you can report that can make me a better developer!
 
-See the app working [here](https://about-me-clone.herokuapp.com/).
-
 Send me an email: g2_ribeiro@hotmail.com
 
 Connect with me on [LinkedIn](https://www.linkedin.com/in/gustavo-ribeiro-488b4a17a/).
