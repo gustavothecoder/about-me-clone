@@ -48,7 +48,7 @@ RSpec.describe UsersController, type: :request do
 
   describe 'POST create' do
     let(:photo_base64) do
-      photo = File.binread('public/test_active_storage.jpg')
+      photo = File.binread('public/andre_reboucas.jpg')
       "data:image;base64,#{Base64.strict_encode64(photo)}"
     end
     let(:params) do
