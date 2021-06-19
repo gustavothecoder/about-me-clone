@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe 'Home controller', type: :request do
-  context 'GET home#homepage' do
-    it 'Must render the homepage view' do
-      get '/'
+RSpec.describe HomeController, type: :request do
+  context 'GET home#index' do
+    it 'render the index view' do
+      get root_path
       expect(response).to have_http_status(200)
-      expect(response).to render_template(:homepage)
+      expect(response).to render_template(:index)
     end
   end
 end
