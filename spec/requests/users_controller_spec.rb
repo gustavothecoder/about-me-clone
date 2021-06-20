@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :request do
   describe 'GET show' do
     context 'when the user exists' do
-      it 'should return HTTP status 200' do
+      it 'returns HTTP status 200' do
         user = create(:user, username: 'gxh')
         create(:user_occupation, user: user, occupation_id: 1)
         create(:user_reason, user: user, reason_id: 1, website: 'example.com')
@@ -17,7 +17,7 @@ RSpec.describe UsersController, type: :request do
     end
 
     context 'when the user does not exist' do
-      it 'should redirect to the root' do
+      it 'redirects to the root' do
         get '/gxh'
         expect(response).to redirect_to(root_path)
       end
@@ -25,7 +25,7 @@ RSpec.describe UsersController, type: :request do
   end
 
   describe 'GET new' do
-    it 'should render the new template' do
+    it 'renders the new template' do
       get '/signup'
       expect(response).to have_http_status(200)
       expect(response).to render_template(:new)
@@ -34,7 +34,7 @@ RSpec.describe UsersController, type: :request do
 
   describe 'POST next_signup_step' do
     context 'when an ajax call is made' do
-      it 'should render the next_signup_step template' do
+      it 'renders the next_signup_step template' do
         post '/next_signup_step/2', xhr: true
         expect(response).to have_http_status(200)
         expect(response).to render_template(:next_signup_step)
@@ -42,7 +42,11 @@ RSpec.describe UsersController, type: :request do
     end
 
     context 'when a default request is made' do
-      it { expect { post '/next_signup_step/2' }.to raise_error(ActionController::UnknownFormat) }
+      it 'rases an error' do
+        expect {
+          post '/next_signup_step/2'
+        }.to raise_error(ActionController::UnknownFormat)
+      end
     end
   end
 
@@ -71,7 +75,7 @@ RSpec.describe UsersController, type: :request do
     end
 
     context 'when the parameters are correct' do
-      it 'the user should be created and redirected to your page' do
+      it 'creates a user and redirects to your page' do
         post users_path, params: params
         user = User.find_by_email(params[:email])
         expect(user).to_not be_nil
@@ -84,7 +88,7 @@ RSpec.describe UsersController, type: :request do
     end
 
     context 'when the user parameters are not correct' do
-      it 'the user should not be created and should be redirected to sign up page with error' do
+      it 'redirects to sign up page with error' do
         params[:email] = 'gxh2@email.com'
         params[:username] = 'gxh2'
         params[:last_name] = nil
@@ -96,7 +100,7 @@ RSpec.describe UsersController, type: :request do
     end
 
     context 'when another parameter are not correct' do
-      it 'the user should not be created and should be redirected to sign up page with error' do
+      it 'redirects to sign up page with error' do
         params[:email] = 'gxh2@email.com'
         params[:username] = 'gxh2'
         params[:user_interests] = 'kad,akd,alkdjf'
