@@ -3,9 +3,12 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
+  resources :users, only: %i[new create]
+
+  scope '/users' do
+    get '/:username', to: 'users#show'
+  end
+
   get '/examples', to: 'users#examples'
-  get '/signup', to: 'users#new'
   post '/next_signup_step/:step', to: 'users#next_signup_step'
-  post '/users', to: 'users#create'
-  get '/:username', to: 'users#show'
 end

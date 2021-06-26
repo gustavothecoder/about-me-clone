@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if Users::Create.call(params.permit!)
       redirect_to "/#{params[:username]}"
     else
-      redirect_to signup_url, alert: 'Your page cannot be created'
+      redirect_to new_user_path, alert: 'Your page cannot be created'
     end
   end
 
