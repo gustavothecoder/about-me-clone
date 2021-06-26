@@ -11,14 +11,14 @@ RSpec.describe UsersController, type: :request do
         create(:user_reason, user: user, reason_id: 1, website: 'example.com')
         create(:user_interest, user: user, interest_id: 1)
         create(:user_page_design, user: user, design: 0, color: 0)
-        get '/gxh'
+        get '/users/gxh'
         expect(response).to have_http_status(200)
       end
     end
 
     context 'when the user does not exist' do
       it 'redirects to the root' do
-        get '/gxh'
+        get '/users/gxh'
         expect(response).to redirect_to(root_path)
       end
     end
@@ -26,7 +26,7 @@ RSpec.describe UsersController, type: :request do
 
   describe 'GET new' do
     it 'renders the new template' do
-      get '/signup'
+      get new_user_path
       expect(response).to have_http_status(200)
       expect(response).to render_template(:new)
     end
@@ -43,9 +43,9 @@ RSpec.describe UsersController, type: :request do
 
     context 'when a default request is made' do
       it 'rases an error' do
-        expect {
+        expect do
           post '/next_signup_step/2'
-        }.to raise_error(ActionController::UnknownFormat)
+        end.to raise_error(ActionController::UnknownFormat)
       end
     end
   end
@@ -94,7 +94,7 @@ RSpec.describe UsersController, type: :request do
         params[:last_name] = nil
         post users_path, params: params
         expect(User.find_by_email('gxh2@email.com')).to be_nil
-        expect(response).to redirect_to(signup_path)
+        expect(response).to redirect_to(new_user_path)
         expect(flash[:alert]).to eq('Your page cannot be created')
       end
     end
@@ -106,7 +106,7 @@ RSpec.describe UsersController, type: :request do
         params[:user_interests] = 'kad,akd,alkdjf'
         post users_path, params: params
         expect(User.find_by_email('gxh2@email.com')).to be_nil
-        expect(response).to redirect_to(signup_path)
+        expect(response).to redirect_to(new_user_path)
         expect(flash[:alert]).to eq('Your page cannot be created')
       end
     end
@@ -114,7 +114,7 @@ RSpec.describe UsersController, type: :request do
 
   describe 'GET examples' do
     it 'should render the examples template' do
-      get '/examples'
+      get examples_path
       expect(response).to have_http_status(200)
       expect(response).to render_template(:examples)
     end
