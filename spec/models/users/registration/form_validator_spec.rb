@@ -16,7 +16,7 @@ RSpec.describe Users::Registration::FormValidator do
             'items' => ['1', '2', '3'],
             'reason' => ['1'],
             'website' => 'website.com',
-            'photo' => Rack::Test::UploadedFile.new('public/andre_reboucas.jpg'),
+            'photo_signed_id' => 'blablablabla',
             'layout' => '1',
             'color' => '1',
             'username' => 'gxh',
