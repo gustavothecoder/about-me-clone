@@ -36,8 +36,8 @@ RSpec.describe UsersController, type: :request do
         'reason' => %w[1],
         'website' => 'website.com',
         'photo_signed_id' => 'blablablablablab',
-        'layout' => 1,
-        'color' => 1,
+        'layout' => '1',
+        'color' => '1',
         'username' => 'gxh',
         'password' => '123456a',
         'password_confirmation' => '123456a'
