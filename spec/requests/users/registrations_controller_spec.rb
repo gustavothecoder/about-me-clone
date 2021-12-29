@@ -56,6 +56,7 @@ RSpec.describe Users::RegistrationsController, type: :request do
 
         expect(session[:registration_params]).to eq({
           'step' => '11',
+          'valid' => true,
           'email' => 'gxh@email.com',
           'first_name' => 'Gustavo',
           'last_name' => 'Ribeiro',
