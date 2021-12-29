@@ -24,7 +24,7 @@ RSpec.describe Users::Create, type: :service do
 
   context 'When all parameters are correct and are unique' do
     it 'The service must return true' do
-      photo = Rack::Test::UploadedFile.new('public/andre_reboucas.jpg')
+      photo = Rack::Test::UploadedFile.new('spec/fixtures/andre_reboucas.jpg')
       allow(ActiveStorage::Blob).to receive(:find_signed).and_return(photo)
 
       result = described_class.call(params)
@@ -33,7 +33,7 @@ RSpec.describe Users::Create, type: :service do
     end
 
     it 'The user must be created with the data sent' do
-      photo = Rack::Test::UploadedFile.new('public/andre_reboucas.jpg')
+      photo = Rack::Test::UploadedFile.new('spec/fixtures/andre_reboucas.jpg')
       allow(ActiveStorage::Blob).to receive(:find_signed).and_return(photo)
       described_class.call(params)
 
@@ -62,7 +62,7 @@ RSpec.describe Users::Create, type: :service do
   context 'When there is a problem with the user parameters' do
     it 'The user must not be created' do
       params['first_name'] = nil
-      photo = Rack::Test::UploadedFile.new('public/andre_reboucas.jpg')
+      photo = Rack::Test::UploadedFile.new('spec/fixtures/andre_reboucas.jpg')
       allow(ActiveStorage::Blob).to receive(:find_signed).and_return(photo)
 
       result = described_class.call(params)
@@ -75,7 +75,7 @@ RSpec.describe Users::Create, type: :service do
   context 'When there is a problem with the another parameter' do
     it 'The user must not be created' do
       params['interests'] = %w[3249 392 8934]
-      photo = Rack::Test::UploadedFile.new('public/andre_reboucas.jpg')
+      photo = Rack::Test::UploadedFile.new('spec/fixtures/andre_reboucas.jpg')
       allow(ActiveStorage::Blob).to receive(:find_signed).and_return(photo)
 
       result = described_class.call(params)
