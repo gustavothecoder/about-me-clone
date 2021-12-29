@@ -6,7 +6,9 @@
     <%= image_tag 'suitcase_icon.svg', size: '25x25' %>
     <h2 class="step-description pt-1">What do you do?</h2>
   </header>
-  <%= form_with url: '/next_signup_step/6', class: 'big-form d-flex flex-column align-items-center justify-content-between' do |f| %>
+  <%= form_with url: users_registrations_path, class: 'big-form d-flex flex-column align-items-center justify-content-between' do |f| %>
+    <input type="hidden" name="step" value="6" />
+    <input type="hidden" name="items_type" value="occupations" />
     <p class="signup-instructions signup-instructions-two">Choice of one to three occupations/hobbies.</p>
     <ul class="w-100 d-flex justify-content-center flex-wrap overflow-auto px-1">
       <%= selection_list_of(Occupation.all) %>
@@ -19,3 +21,4 @@
     <%= f.submit 'Next >', class: 'next-step-button btn w-75', disabled: true %>
   <% end %>
 </section>
+<%= javascript_pack_tag 'users/registrations/itemClickEvent' %>

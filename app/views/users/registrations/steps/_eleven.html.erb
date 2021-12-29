@@ -6,7 +6,7 @@
     <%= image_tag 'celebration_icon.svg', size: '30x30' %>
     <h2 class="step-description pt-1">Your page is almost ready!</h2>
   </header>
-  <%= form_with url: '/users', class: 'd-flex flex-column align-items-center justify-content-between' do |f| %>
+  <%= form_with url: users_path, class: 'd-flex flex-column align-items-center justify-content-between' do |f| %>
     <p class="signup-instructions signup-instructions-two">Click the button below to finish your page.</p>
     <%= f.submit 'Generate my page', class: 'next-step-button btn w-100' %>
   <% end %>

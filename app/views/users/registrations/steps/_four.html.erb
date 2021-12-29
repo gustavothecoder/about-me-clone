@@ -6,7 +6,9 @@
     <%= image_tag 'heart_icon.svg', size: '25x25' %>
     <h2 class="step-description pt-1">What do you love?</h2>
   </header>
-  <%= form_with url: '/next_signup_step/5', class: 'big-form d-flex flex-column align-items-center justify-content-between' do |f| %>
+  <%= form_with url: users_registrations_path, class: 'big-form d-flex flex-column align-items-center justify-content-between' do |f| %>
+    <input type="hidden" name="step" value="5" />
+    <input type="hidden" name="items_type" value="interests" />
     <p class="signup-instructions signup-instructions-two">Choice of three to five insterests.</p>
     <%= selection_list_of(Interest.all) %>
     <ul id="selected-items" class="w-100 d-flex justify-content-around px-1">
@@ -14,8 +16,9 @@
       <li class="selected-item select-button btn btn-outline-primary px-1"></li>
       <li class="selected-item select-button btn btn-outline-primary px-1"></li>
       <li class="selected-item select-button btn btn-outline-primary px-1"></li>
-      <li class="selected-item select-button btn btn-outline-primary px-1"></li> 
+      <li class="selected-item select-button btn btn-outline-primary px-1"></li>
     </ul>
     <%= f.submit 'Next >', class: 'next-step-button btn w-75', disabled: true %>
   <% end %>
 </section>
+<%= javascript_pack_tag 'users/registrations/itemClickEvent' %>

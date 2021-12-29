@@ -4,9 +4,10 @@
   </div>
   <header class="d-flex flex-column align-items-center pt-5">
     <%= image_tag 'location_icon.svg', size: '25x25' %>
-    <h2 class="step-description pt-1">What's your name?</h2>
+    <h2 class="step-description pt-1">Where you from?</h2>
   </header>
-  <%= form_with url: '/next_signup_step/4', class: 'd-flex flex-column align-items-center justify-content-between' do |f| %>
+  <%= form_with url: users_registrations_path, class: 'd-flex flex-column align-items-center justify-content-between' do |f| %>
+    <input type="hidden" name="step" value="4" />
     <%= f.text_field :location, placeholder: 'Enter your location', required: true, class: 'w-100 mt-4 py-3 form-control' %>
     <%= f.submit 'Next >', class: 'next-step-button btn w-100' %>
   <% end %>

@@ -6,7 +6,9 @@
     <%= image_tag 'click_icon.svg', size: '27x27' %>
     <h2 class="step-description pt-1">What do you want people to do on your page?</h2>
   </header>
-  <%= form_with url: '/next_signup_step/7', class: 'big-form d-flex flex-column align-items-center justify-content-between' do |f| %>
+  <%= form_with url: users_registrations_path, class: 'big-form d-flex flex-column align-items-center justify-content-between' do |f| %>
+    <input type="hidden" name="step" value="7" />
+    <input type="hidden" name="items_type" value="reason" />
     <ul class="w-100 d-flex justify-content-center flex-wrap overflow-auto px-1">
       <%= selection_list_of(Reason.all) %>
     </ul>
@@ -16,3 +18,4 @@
     <%= f.submit 'Next >', class: 'next-step-button btn w-75', disabled: true %>
   <% end %>
 </section>
+<%= javascript_pack_tag 'users/registrations/itemClickEvent' %>
