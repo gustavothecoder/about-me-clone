@@ -35,7 +35,9 @@ class UserPresenter < BasePresenter
   end
 
   def website
-    user_reason.website
+    website = user_reason.website
+    website = website.prepend('https://') unless website.include?('https://')
+    website
   end
 
   def summary

@@ -39,7 +39,7 @@ RSpec.describe UserPresenter, type: :presenter do
   end
 
   describe 'website' do
-    it { expect(presenter.website).to eq('example.com') }
+    it { expect(presenter.website).to eq('https://example.com') }
   end
 
   describe 'summary' do
