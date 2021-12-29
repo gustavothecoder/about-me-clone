@@ -16,6 +16,4 @@ class UsersController < ApplicationController
   ensure
     session.delete(:registration_params)
   end
-
-  def examples; end
 end
