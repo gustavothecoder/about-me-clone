@@ -2,12 +2,17 @@
   <div class="progress" style="height: 6px">
     <div class="progress-bar" style="width: 90%" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
-  <header class="d-flex flex-column align-items-center pt-5">
+  <header class="d-flex flex-column align-items-center pt-4">
     <%= image_tag 'people_icon.svg', size: '25x25' %>
     <h2 class="step-description pt-1">Choose your username and password</h2>
   </header>
   <%= form_with url: users_registrations_path, class: 'd-flex flex-column align-items-center justify-content-between mt-5 pb-3' do |f| %>
     <input type="hidden" name="step" value="11" />
+    <% unless @valid %>
+      <p class="centralize-input signup-instructions-two red m-0">
+        This username is already in use.
+      </p>
+    <% end %>
     <%= f.text_field :username, placeholder: 'Username', required: true, class: 'centralize-input w-100 py-3 form-control' %>
     <p class="signup-instructions password-instructions">Your password must be 8 to 16 characters long.</p>
     <%= f.password_field :password, placeholder: 'Password', required: true, class: 'centralize-input w-100 py-3 form-control' %>
