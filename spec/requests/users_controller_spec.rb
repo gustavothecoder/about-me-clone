@@ -83,12 +83,4 @@ RSpec.describe UsersController, type: :request do
       end
     end
   end
-
-  describe 'GET examples' do
-    it 'should render the examples template' do
-      get examples_path
-      expect(response).to have_http_status(200)
-      expect(response).to render_template(:examples)
-    end
-  end
 end
