@@ -6,7 +6,8 @@
     <%= image_tag 'people_icon.svg', size: '25x25' %>
     <h2 class="step-description pt-1">What's your name?</h2>
   </header>
-  <%= form_with url: '/next_signup_step/3', class: 'd-flex flex-column align-items-center justify-content-between' do |f| %>
+  <%= form_with url: users_registrations_path, class: 'd-flex flex-column align-items-center justify-content-between' do |f| %>
+    <input type="hidden" name="step" value="3" />
     <%= f.text_field :first_name, placeholder: 'First name', required: true, class: 'w-100 mt-4 py-3 form-control' %>
     <%= f.text_field :last_name, placeholder: 'Last name', required: true, class: 'w-100 mt-1 py-3 form-control' %>
     <p class="signup-instructions signup-name-instructions">Entering your real name helps people find you online.</p>

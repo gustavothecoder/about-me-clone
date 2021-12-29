@@ -6,7 +6,8 @@
     <%= image_tag 'camera_icon.svg', size: '25x25' %>
     <h2 class="step-description pt-1">Add a photo of yourself</h2>
   </header>
-  <%= form_with url: '/next_signup_step/9', class: 'd-flex flex-column align-items-center justify-content-between' do |f| %>
+  <%= form_with url: users_registrations_path, class: 'd-flex flex-column align-items-center justify-content-between' do |f| %>
+    <input type="hidden" name="step" value="9" />
     <%= image_tag 'default_profile_photo.svg', size: '400x266', id: 'default-picture' %>
     <%= image_tag '', id: 'preview-picture' %>
     <%= f.file_field :photo, style: "display: none" %>
@@ -17,3 +18,4 @@
     </div>
   <% end %>
 </section>
+<%= javascript_pack_tag 'users/registrations/uploadPhotoEvent' %>

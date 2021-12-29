@@ -1,0 +1,4 @@
+<%= render 'shared/header' %>
+<main class="main-signup">
+  <%= render "users/registrations/steps/#{registration_step(step: @current_step)}" %>
+</main>
