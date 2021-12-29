@@ -46,7 +46,7 @@ RSpec.describe UsersController, type: :request do
 
     context 'when the parameters are correct' do
       it 'creates a user and redirects to your page' do
-        photo = Rack::Test::UploadedFile.new('public/andre_reboucas.jpg')
+        photo = Rack::Test::UploadedFile.new('spec/fixtures/andre_reboucas.jpg')
         allow(ActiveStorage::Blob).to receive(:find_signed).and_return(photo)
         allow_any_instance_of(
           ActionDispatch::Request::Session
@@ -66,7 +66,7 @@ RSpec.describe UsersController, type: :request do
     context 'when the user parameters are not correct' do
       it 'redirects to sign up page with error' do
         params['last_name'] = nil
-        photo = Rack::Test::UploadedFile.new('public/andre_reboucas.jpg')
+        photo = Rack::Test::UploadedFile.new('spec/fixtures/andre_reboucas.jpg')
         allow(ActiveStorage::Blob).to receive(:find_signed).and_return(photo)
         allow_any_instance_of(
           ActionDispatch::Request::Session
