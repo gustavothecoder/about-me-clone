@@ -35,6 +35,7 @@ module Users
 
     def store_user_params
       new_params = session[:registration_params].merge(user_params)
+      new_params['valid'] = true
       new_params['photo_signed_id'] = create_photo_blob(photo: new_params['photo']) if new_params['step'] == '9'
       new_items_key = new_params['items_type']
       new_params[new_items_key] = new_params.delete('items') unless new_items_key.nil?
