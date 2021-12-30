@@ -81,4 +81,4 @@ end
     'password' => '123456a',
     'password_confirmation' => '123456a'
   }
-].each { |params| Users::Create.call(params) }
+].each { |params| Users::Registration::Process.call(params) }

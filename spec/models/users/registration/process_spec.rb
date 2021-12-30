@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Users::Create, type: :service do
+RSpec.describe Users::Registration::Process, type: :service do
   let(:params) do
     {
       'email' => 'gxh@email.com',
