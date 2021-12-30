@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BasePresenter < SimpleDelegator
+class ApplicationPresenter < SimpleDelegator
   def initialize(object)
     super(object)
   end
