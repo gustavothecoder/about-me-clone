@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe UserPresenter, type: :presenter do
+RSpec.describe Users::Presenter, type: :presenter do
   let(:user) { create(:user) }
   let!(:user_occupation) { create(:user_occupation, user: user, occupation_id: 1) }
   let!(:user_occupation2) { create(:user_occupation, user: user, occupation_id: 2) }
@@ -12,7 +12,7 @@ RSpec.describe UserPresenter, type: :presenter do
   let!(:user_interest2) { create(:user_interest, user: user, interest_id: 2) }
   let!(:user_interest3) { create(:user_interest, user: user, interest_id: 3) }
   let!(:user_page_design) { create(:user_page_design, user: user, design: 0, color: 0) }
-  let!(:presenter) { UserPresenter.new(user) }
+  let!(:presenter) { Users::Presenter.new(user) }
 
   describe 'design' do
     it { expect(presenter.design).to eq(user_page_design.design) }
