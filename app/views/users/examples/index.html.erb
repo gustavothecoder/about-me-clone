@@ -2,7 +2,7 @@
 <main class="examples-area d-flex flex-column justify-content-around align-items center">
   <h1 class="h2 text-center">Examples</h1>
   <section class="d-flex justify-content-center align-items-center flex-wrap pb-5">
-    <% example_users.each do |user| %>
+    <% @examples.each do |user| %>
       <a href="/<%= user.username%>" target="_blank" class="col-5 my-3">
         <div class="user-area d-flex">
           <div class="photo-area mr-5 w-50">
