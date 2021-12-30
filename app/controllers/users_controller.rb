@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    if Users::Create.call(session[:registration_params])
+    if Users::Registration::Process.call(session[:registration_params])
       redirect_to "/#{session[:registration_params]['username']}"
     else
       redirect_to users_registrations_path, alert: 'Your page cannot be created'
