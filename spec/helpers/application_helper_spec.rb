@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe ApplicationHelper, type: :helper do
   include ApplicationHelper
 
-  describe 'selection_list_of' do
+  describe '#selection_list_of' do
     context 'when the relation is a list of interests' do
       subject(:result) { selection_list_of(Interest.all) }
 
