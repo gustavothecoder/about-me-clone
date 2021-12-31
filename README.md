@@ -1,8 +1,6 @@
 # about-me-clone
 
-<p align="center">
-  <img src="readme/homepage.gif" />
-</p>
+https://user-images.githubusercontent.com/57065994/147828251-0384cf7b-a07e-43c9-8fb1-722d9c7494fe.mp4
 
 ## About this project
  
